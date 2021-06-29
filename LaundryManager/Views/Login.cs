@@ -38,7 +38,7 @@ namespace LaundryManager
             // Có data trong ô textbox 
             string check = "";
             string user = txtUsername.Text.Trim();
-            string pass = txtPassword.Text.Trim();
+            string pass = Models.UserControl.SHA256(txtPassword.Text);
             check = Controllers.LoginController.CheckLogin(user, pass);
 
             if (check == "")
