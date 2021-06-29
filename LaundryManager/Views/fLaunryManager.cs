@@ -27,5 +27,13 @@ namespace LaundryManager.Views
                 Application.Exit();
             }
         }
+
+        private void btnInvoice_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            panelMain.Controls.Clear();
+            UCInvoice ucInvoice = new UCInvoice();
+            ucInvoice.Dock = DockStyle.Fill;
+            panelMain.Controls.Add(ucInvoice);
+        }
     }
 }
