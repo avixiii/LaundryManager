@@ -17,5 +17,15 @@ namespace LaundryManager.Views
         {
             InitializeComponent();
         }
+
+        private void btnExit_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            DialogResult _dialog = MessageBox.Show("Bạn có muốn thoát chương trình? ", "Thông báo!", MessageBoxButtons.YesNoCancel);
+            if (_dialog == System.Windows.Forms.DialogResult.Yes)
+            {
+                this.Close();
+                Application.Exit();
+            }
+        }
     }
 }
