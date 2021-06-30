@@ -66,7 +66,7 @@ namespace LaundryManager
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label3.ForeColor = System.Drawing.Color.Navy;
             this.label3.Location = new System.Drawing.Point(113, 120);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(122, 19);
@@ -77,7 +77,7 @@ namespace LaundryManager
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label4.ForeColor = System.Drawing.Color.Navy;
             this.label4.Location = new System.Drawing.Point(116, 162);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(84, 19);
@@ -101,7 +101,7 @@ namespace LaundryManager
             // btnLogin
             // 
             this.btnLogin.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnLogin.Appearance.ForeColor = System.Drawing.Color.Navy;
             this.btnLogin.Appearance.Options.UseFont = true;
             this.btnLogin.Appearance.Options.UseForeColor = true;
             this.btnLogin.Location = new System.Drawing.Point(259, 203);
@@ -114,7 +114,7 @@ namespace LaundryManager
             // btnExit
             // 
             this.btnExit.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Appearance.ForeColor = System.Drawing.Color.Blue;
+            this.btnExit.Appearance.ForeColor = System.Drawing.Color.Navy;
             this.btnExit.Appearance.Options.UseFont = true;
             this.btnExit.Appearance.Options.UseForeColor = true;
             this.btnExit.Location = new System.Drawing.Point(387, 203);
