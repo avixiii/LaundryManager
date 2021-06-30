@@ -35,5 +35,13 @@ namespace LaundryManager.Views
             ucInvoice.Dock = DockStyle.Fill;
             panelMain.Controls.Add(ucInvoice);
         }
+
+        private void btnServicePriceList_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            panelMain.Controls.Clear();
+            UCServicePriceList ucServicePriceList = new UCServicePriceList();
+            ucServicePriceList.Dock = DockStyle.Fill;
+            panelMain.Controls.Add(ucServicePriceList);
+        }
     }
 }

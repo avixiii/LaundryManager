@@ -62,6 +62,12 @@
     <Compile Include="Models\Connection.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\UserControl.cs" />
+    <Compile Include="Views\fAddService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\fAddService.Designer.cs">
+      <DependentUpon>fAddService.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\fLaunryManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,7 +94,16 @@
     <Compile Include="Views\UCInvoice.Designer.cs">
       <DependentUpon>UCInvoice.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UCServicePriceList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UCServicePriceList.Designer.cs">
+      <DependentUpon>UCServicePriceList.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Views\fAddService.resx">
+      <DependentUpon>fAddService.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\fLaunryManager.resx">
       <DependentUpon>fLaunryManager.cs</DependentUpon>
     </EmbeddedResource>
@@ -109,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UCInvoice.resx">
       <DependentUpon>UCInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UCServicePriceList.resx">
+      <DependentUpon>UCServicePriceList.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="Properties\Settings.settings">
