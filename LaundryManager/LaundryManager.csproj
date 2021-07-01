@@ -59,6 +59,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="dsUnits.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsUnits.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Models\Connection.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\UserControl.cs" />
@@ -129,6 +134,17 @@
       <DependentUpon>UCServicePriceList.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
+    <None Include="dsUnits.xsc">
+      <DependentUpon>dsUnits.xsd</DependentUpon>
+    </None>
+    <None Include="dsUnits.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsUnits.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsUnits.xss">
+      <DependentUpon>dsUnits.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -29,6 +29,7 @@ namespace LaundryManager.Views
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fAddService));
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -42,6 +43,11 @@ namespace LaundryManager.Views
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.btnExit = new DevExpress.XtraEditors.SimpleButton();
             this.cbUnits = new System.Windows.Forms.ComboBox();
+            this.dsUnits = new LaundryManager.dsUnits();
+            this.unitsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.unitsTableAdapter = new LaundryManager.dsUnitsTableAdapters.UnitsTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.dsUnits)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.unitsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -139,7 +145,7 @@ namespace LaundryManager.Views
             this.btnSave.Appearance.ForeColor = System.Drawing.Color.Navy;
             this.btnSave.Appearance.Options.UseFont = true;
             this.btnSave.Appearance.Options.UseForeColor = true;
-            this.btnSave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btnSave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.ImageOptions.Image")));
             this.btnSave.Location = new System.Drawing.Point(44, 246);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(90, 23);
@@ -152,7 +158,7 @@ namespace LaundryManager.Views
             this.btnExit.Appearance.ForeColor = System.Drawing.Color.Navy;
             this.btnExit.Appearance.Options.UseFont = true;
             this.btnExit.Appearance.Options.UseForeColor = true;
-            this.btnExit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
+            this.btnExit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.ImageOptions.Image")));
             this.btnExit.Location = new System.Drawing.Point(192, 246);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(90, 23);
@@ -162,11 +168,28 @@ namespace LaundryManager.Views
             // 
             // cbUnits
             // 
+            this.cbUnits.DataSource = this.unitsBindingSource;
+            this.cbUnits.DisplayMember = "Unit";
             this.cbUnits.FormattingEnabled = true;
             this.cbUnits.Location = new System.Drawing.Point(137, 107);
             this.cbUnits.Name = "cbUnits";
             this.cbUnits.Size = new System.Drawing.Size(145, 21);
             this.cbUnits.TabIndex = 9;
+            this.cbUnits.ValueMember = "Unit";
+            // 
+            // dsUnits
+            // 
+            this.dsUnits.DataSetName = "dsUnits";
+            this.dsUnits.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // unitsBindingSource
+            // 
+            this.unitsBindingSource.DataMember = "Units";
+            this.unitsBindingSource.DataSource = this.dsUnits;
+            // 
+            // unitsTableAdapter
+            // 
+            this.unitsTableAdapter.ClearBeforeFill = true;
             // 
             // fAddService
             // 
@@ -188,6 +211,9 @@ namespace LaundryManager.Views
             this.Name = "fAddService";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "THÊM DỊCH VỤ";
+            this.Load += new System.EventHandler(this.fAddService_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dsUnits)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.unitsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -207,5 +233,8 @@ namespace LaundryManager.Views
         private DevExpress.XtraEditors.SimpleButton btnSave;
         private DevExpress.XtraEditors.SimpleButton btnExit;
         private System.Windows.Forms.ComboBox cbUnits;
+        private dsUnits dsUnits;
+        private System.Windows.Forms.BindingSource unitsBindingSource;
+        private dsUnitsTableAdapters.UnitsTableAdapter unitsTableAdapter;
     }
 }
