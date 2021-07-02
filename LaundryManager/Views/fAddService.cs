@@ -29,5 +29,41 @@ namespace LaundryManager.Views
             this.unitsTableAdapter.Fill(this.dsUnits.Units);
 
         }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            txtID.Text = Models.Connection.ExcuteScalar(String.Format("select ID = dbo.fcgetServiceID()"));
+            string serviceID = txtID.Text;
+            string serviceName = txtServiceName.Text;
+            string unitId = cbUnits.SelectedValue.ToString();
+            string price = txtPrice.Text;
+            string note = rtbNote.Text;
+
+            if (serviceName == "" || price == "")
+            {
+                XtraMessageBox.Show("Vui lòng nhập đầy thông tin.");
+            }
+
+
+
+            /*
+            string str = serviceID + " " + serviceName + " " + unitId + " " + price + " " + note;
+            XtraMessageBox.Show(str);
+             */
+
+            // Có data được nhập vào.
+
+            int result = Controllers.ServiceController.InsertService(serviceID, serviceName, unitId, price, note);
+
+            if (result == 0)
+            {
+                XtraMessageBox.Show("Loi??");
+            }
+            else
+            {
+                XtraMessageBox.Show("Thêm thành công.");
+            }    
+
+        }
     }
 }

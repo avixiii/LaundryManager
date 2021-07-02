@@ -31,5 +31,34 @@ namespace LaundryManager.Views
         {
             this.Parent.Controls.Remove(this);
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            int rowIndex = gvServices.FocusedRowHandle;
+            string colFieldName = "ID";
+            object value = gvServices.GetRowCellValue(rowIndex, colFieldName);
+
+            string serviceID = (string)value;
+            if (value != null)
+            {
+                DialogResult _dialog = MessageBox.Show("Bạn có muốn xoá dịch vụ này không? ", "Thông báo!", MessageBoxButtons.YesNoCancel);
+                if (_dialog == System.Windows.Forms.DialogResult.Yes)
+                {
+                    try
+                    {
+                        _ = Controllers.ServiceController.DeleteService(serviceID);
+                        XtraMessageBox.Show("Xoá thành công!");
+                    }
+                    catch
+                    {
+                        XtraMessageBox.Show("Loi");
+                    }
+                }            
+            }
+            else
+            {
+                XtraMessageBox.Show("Bạn chưa chọn đối tượng xoá", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }
