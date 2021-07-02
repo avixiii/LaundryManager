@@ -39,13 +39,13 @@ namespace LaundryManager.Views
             this.txtID = new System.Windows.Forms.TextBox();
             this.txtServiceName = new System.Windows.Forms.TextBox();
             this.txtPrice = new System.Windows.Forms.TextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.rtbNote = new System.Windows.Forms.RichTextBox();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.btnExit = new DevExpress.XtraEditors.SimpleButton();
             this.cbUnits = new System.Windows.Forms.ComboBox();
-            this.dsUnits = new LaundryManager.dsUnits();
+            this.dsUnits = new LaundryManager.Views.dsUnits();
             this.unitsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.unitsTableAdapter = new LaundryManager.dsUnitsTableAdapters.UnitsTableAdapter();
+            this.unitsTableAdapter = new LaundryManager.Views.dsUnitsTableAdapters.UnitsTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dsUnits)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.unitsBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -131,13 +131,13 @@ namespace LaundryManager.Views
             this.txtPrice.Size = new System.Drawing.Size(145, 21);
             this.txtPrice.TabIndex = 7;
             // 
-            // richTextBox1
+            // rtbNote
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(137, 189);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(145, 31);
-            this.richTextBox1.TabIndex = 10;
-            this.richTextBox1.Text = "";
+            this.rtbNote.Location = new System.Drawing.Point(137, 189);
+            this.rtbNote.Name = "rtbNote";
+            this.rtbNote.Size = new System.Drawing.Size(145, 31);
+            this.rtbNote.TabIndex = 10;
+            this.rtbNote.Text = "";
             // 
             // btnSave
             // 
@@ -151,6 +151,7 @@ namespace LaundryManager.Views
             this.btnSave.Size = new System.Drawing.Size(90, 23);
             this.btnSave.TabIndex = 11;
             this.btnSave.Text = "Lưu";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnExit
             // 
@@ -170,12 +171,11 @@ namespace LaundryManager.Views
             // 
             this.cbUnits.DataSource = this.unitsBindingSource;
             this.cbUnits.DisplayMember = "Unit";
-            this.cbUnits.FormattingEnabled = true;
             this.cbUnits.Location = new System.Drawing.Point(137, 107);
             this.cbUnits.Name = "cbUnits";
             this.cbUnits.Size = new System.Drawing.Size(145, 21);
-            this.cbUnits.TabIndex = 9;
-            this.cbUnits.ValueMember = "Unit";
+            this.cbUnits.TabIndex = 13;
+            this.cbUnits.ValueMember = "ID";
             // 
             // dsUnits
             // 
@@ -198,7 +198,7 @@ namespace LaundryManager.Views
             this.ClientSize = new System.Drawing.Size(340, 294);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.rtbNote);
             this.Controls.Add(this.cbUnits);
             this.Controls.Add(this.txtPrice);
             this.Controls.Add(this.txtServiceName);
@@ -229,7 +229,7 @@ namespace LaundryManager.Views
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.TextBox txtServiceName;
         private System.Windows.Forms.TextBox txtPrice;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox rtbNote;
         private DevExpress.XtraEditors.SimpleButton btnSave;
         private DevExpress.XtraEditors.SimpleButton btnExit;
         private System.Windows.Forms.ComboBox cbUnits;

@@ -62,13 +62,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\LoginController.cs" />
-    <Compile Include="dsUnits.Designer.cs">
+    <Compile Include="Controllers\ServiceController.cs" />
+    <Compile Include="Views\dsUnits.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsUnits.xsd</DependentUpon>
     </Compile>
     <Compile Include="Models\Connection.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\ServiceModel.cs" />
     <Compile Include="Models\UserControl.cs" />
     <Compile Include="Views\fAddService.cs">
       <SubType>Form</SubType>
@@ -137,15 +139,15 @@
       <DependentUpon>UCServicePriceList.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
-    <None Include="dsUnits.xsc">
+    <None Include="Views\dsUnits.xsc">
       <DependentUpon>dsUnits.xsd</DependentUpon>
     </None>
-    <None Include="dsUnits.xsd">
+    <None Include="Views\dsUnits.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>dsUnits.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="dsUnits.xss">
+    <None Include="Views\dsUnits.xss">
       <DependentUpon>dsUnits.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
