@@ -27,12 +27,15 @@ namespace LaundryManager.Views
         {
             // TODO: This line of code loads data into the 'dsUnits.Units' table. You can move, or remove it, as needed.
             this.unitsTableAdapter.Fill(this.dsUnits.Units);
-
+            txtID.Enabled = false;
+            // Load Service ID
+            txtID.Text = Models.Connection.ExcuteScalar(String.Format("select ID = dbo.fcgetServiceID()"));
         }
+
+        
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            txtID.Text = Models.Connection.ExcuteScalar(String.Format("select ID = dbo.fcgetServiceID()"));
             string serviceID = txtID.Text;
             string serviceName = txtServiceName.Text;
             string unitId = cbUnits.SelectedValue.ToString();
@@ -64,6 +67,21 @@ namespace LaundryManager.Views
                 XtraMessageBox.Show("Thêm thành công.");
             }    
 
+        }
+
+        private void txtPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                    (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -43,11 +43,11 @@ namespace LaundryManager.Views
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.btnExit = new DevExpress.XtraEditors.SimpleButton();
             this.cbUnits = new System.Windows.Forms.ComboBox();
-            this.dsUnits = new LaundryManager.Views.dsUnits();
             this.unitsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dsUnits = new LaundryManager.Views.dsUnits();
             this.unitsTableAdapter = new LaundryManager.Views.dsUnitsTableAdapters.UnitsTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.dsUnits)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.unitsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsUnits)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -114,6 +114,7 @@ namespace LaundryManager.Views
             // 
             this.txtID.Location = new System.Drawing.Point(137, 22);
             this.txtID.Name = "txtID";
+            this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(145, 21);
             this.txtID.TabIndex = 5;
             // 
@@ -130,6 +131,7 @@ namespace LaundryManager.Views
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(145, 21);
             this.txtPrice.TabIndex = 7;
+            this.txtPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrice_KeyPress);
             // 
             // rtbNote
             // 
@@ -177,15 +179,15 @@ namespace LaundryManager.Views
             this.cbUnits.TabIndex = 13;
             this.cbUnits.ValueMember = "ID";
             // 
-            // dsUnits
-            // 
-            this.dsUnits.DataSetName = "dsUnits";
-            this.dsUnits.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // unitsBindingSource
             // 
             this.unitsBindingSource.DataMember = "Units";
             this.unitsBindingSource.DataSource = this.dsUnits;
+            // 
+            // dsUnits
+            // 
+            this.dsUnits.DataSetName = "dsUnits";
+            this.dsUnits.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // unitsTableAdapter
             // 
@@ -212,8 +214,8 @@ namespace LaundryManager.Views
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "THÊM DỊCH VỤ";
             this.Load += new System.EventHandler(this.fAddService_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dsUnits)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.unitsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsUnits)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
