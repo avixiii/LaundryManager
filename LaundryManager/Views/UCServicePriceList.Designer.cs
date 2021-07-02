@@ -39,7 +39,7 @@ namespace LaundryManager.Views
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
             this.gcServices = new DevExpress.XtraGrid.GridControl();
             this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gvServices = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colServiceName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUnit = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -48,7 +48,7 @@ namespace LaundryManager.Views
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcServices)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvServices)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -91,6 +91,7 @@ namespace LaundryManager.Views
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 1;
             this.btnDelete.Text = "Xoá";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnAdd
             // 
@@ -108,12 +109,12 @@ namespace LaundryManager.Views
             this.gcServices.DataSource = this.sqlDataSource1;
             this.gcServices.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gcServices.Location = new System.Drawing.Point(0, 56);
-            this.gcServices.MainView = this.gridView1;
+            this.gcServices.MainView = this.gvServices;
             this.gcServices.Name = "gcServices";
             this.gcServices.Size = new System.Drawing.Size(1196, 577);
             this.gcServices.TabIndex = 1;
             this.gcServices.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.gvServices});
             // 
             // sqlDataSource1
             // 
@@ -126,18 +127,18 @@ namespace LaundryManager.Views
             customSqlQuery1});
             this.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable");
             // 
-            // gridView1
+            // gvServices
             // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gvServices.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colID,
             this.colServiceName,
             this.colUnit,
             this.colPrice,
             this.colNote});
-            this.gridView1.GridControl = this.gcServices;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsView.ShowAutoFilterRow = true;
-            this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gvServices.GridControl = this.gcServices;
+            this.gvServices.Name = "gvServices";
+            this.gvServices.OptionsView.ShowAutoFilterRow = true;
+            this.gvServices.OptionsView.ShowGroupPanel = false;
             // 
             // colID
             // 
@@ -200,7 +201,7 @@ namespace LaundryManager.Views
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcServices)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvServices)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -213,7 +214,7 @@ namespace LaundryManager.Views
         private DevExpress.XtraEditors.SimpleButton btnDelete;
         private DevExpress.XtraEditors.SimpleButton btnAdd;
         private DevExpress.XtraGrid.GridControl gcServices;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvServices;
         private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource1;
         private DevExpress.XtraGrid.Columns.GridColumn colID;
         private DevExpress.XtraGrid.Columns.GridColumn colServiceName;
