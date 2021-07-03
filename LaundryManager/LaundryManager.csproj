@@ -67,8 +67,10 @@
   <ItemGroup>
     <Compile Include="Controllers\BackupController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\RestoreController.cs" />
     <Compile Include="Controllers\ServiceController.cs" />
     <Compile Include="Models\BackupModel.cs" />
+    <Compile Include="Models\RestoreModel.cs" />
     <Compile Include="Views\dsUnits.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -107,6 +109,12 @@
     </Compile>
     <Compile Include="Views\fLaunryManager.Designer.cs">
       <DependentUpon>fLaunryManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\fRestore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\fRestore.Designer.cs">
+      <DependentUpon>fRestore.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Login.cs">
       <SubType>Form</SubType>
@@ -149,6 +157,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\fLaunryManager.resx">
       <DependentUpon>fLaunryManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\fRestore.resx">
+      <DependentUpon>fRestore.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

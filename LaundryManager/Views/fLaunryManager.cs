@@ -69,5 +69,11 @@ namespace LaundryManager.Views
             fBackup fBackup = new fBackup();
             fBackup.ShowDialog();
         }
+
+        private void btnRestore_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            fRestore fRestore = new fRestore();
+            fRestore.Show();
+        }
     }
 }
