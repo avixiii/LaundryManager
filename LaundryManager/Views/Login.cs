@@ -47,10 +47,20 @@ namespace LaundryManager
             }  
             else
             {
-                fLaunryManager fLaunry = new fLaunryManager(user);
-                this.Hide();
-                fLaunry.ShowDialog();
-                this.Close();
+                string checkStatus = "";
+                checkStatus = Controllers.LoginController.CheckStatus(user, pass);
+                if (checkStatus == "")
+                {
+                    MessageBox.Show("Tài khoản của bạn chưa được ACTIVE\nXin vui lòng liên hệ với quản trị viên");
+                }
+                else
+                {
+                    fLaunryManager fLaunry = new fLaunryManager(user);
+                    this.Hide();
+                    fLaunry.ShowDialog();
+                    this.Close();
+                }    
+                
             }    
         }
 

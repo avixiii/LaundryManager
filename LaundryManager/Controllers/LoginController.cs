@@ -21,6 +21,19 @@ namespace LaundryManager.Controllers
             }
         }
 
+        public static string CheckStatus(string _user, string _pass)
+        {
+            try
+            {
+                Models.LoginModel login = new Models.LoginModel(_user, _pass);
+                return login.CheckStatus();
+            }
+            catch
+            {
+                return "";
+            }
+        }
+
         public static string ChangePass(string _user, string _pass)
         {
             try
