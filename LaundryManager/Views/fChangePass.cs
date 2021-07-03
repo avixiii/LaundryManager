@@ -36,31 +36,41 @@ namespace LaundryManager.Views
             string newPass = txtNewPass.Text;
             string newPass2 = txtNewPass2.Text;
 
+  
+
             if (newPass != newPass2)
             {
                 MessageBox.Show("Mật khẩu phải giống nhau. xin vui lòng kiểm tra lại.");
             }
             else
             {
-                // check pass cũ
-                string check = Controllers.LoginController.CheckLogin(lbUserName.Text, oldPass);
-                if (check == "")
+                // Validate
+                if (newPass == "")
                 {
-                    MessageBox.Show("Pass cu sai");
+                    MessageBox.Show("Mật khẩu mới không được để trống.");
                 }
                 else
                 {
-                    try
+                    // check pass cũ
+                    string check = Controllers.LoginController.CheckLogin(lbUserName.Text, oldPass);
+                    if (check == "")
                     {
-                        _ = Controllers.LoginController.ChangePass(lbUserName.Text, Models.UserControl.SHA256(newPass));
-                        MessageBox.Show("Đổi pass thành công");
-                        this.Close();
+                        MessageBox.Show("Pass cu sai");
                     }
-                    catch
+                    else
                     {
-                        MessageBox.Show("ERR");
+                        try
+                        {
+                            _ = Controllers.LoginController.ChangePass(lbUserName.Text, Models.UserControl.SHA256(newPass));
+                            MessageBox.Show("Đổi pass thành công");
+                            this.Close();
+                        }
+                        catch
+                        {
+                            MessageBox.Show("ERR");
+                        }
                     }
-                }
+                } 
             }    
         }
     }
