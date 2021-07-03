@@ -50,7 +50,7 @@ namespace LaundryManager.Views
             this.btnIgnore = new DevExpress.XtraEditors.SimpleButton();
             this.btnCreateInvoice = new DevExpress.XtraEditors.SimpleButton();
             this.panelCreateBill = new DevExpress.XtraEditors.PanelControl();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gcInvoice = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -59,7 +59,7 @@ namespace LaundryManager.Views
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelCreateBill)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcInvoice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -253,34 +253,36 @@ namespace LaundryManager.Views
             this.panelCreateBill.Size = new System.Drawing.Size(978, 10);
             this.panelCreateBill.TabIndex = 4;
             // 
-            // gridControl1
+            // gcInvoice
             // 
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gridControl1.Location = new System.Drawing.Point(233, -52);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(979, 780);
-            this.gridControl1.TabIndex = 5;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gcInvoice.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcInvoice.Location = new System.Drawing.Point(233, 67);
+            this.gcInvoice.MainView = this.gridView1;
+            this.gcInvoice.Name = "gcInvoice";
+            this.gcInvoice.Size = new System.Drawing.Size(979, 661);
+            this.gcInvoice.TabIndex = 5;
+            this.gcInvoice.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
             // gridView1
             // 
-            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.GridControl = this.gcInvoice;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsView.ShowGroupPanel = false;
             // 
             // UCInvoice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.Controls.Add(this.gridControl1);
+            this.Controls.Add(this.gcInvoice);
             this.Controls.Add(this.panelCreateBill);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.dockPanel1);
             this.Name = "UCInvoice";
             this.Size = new System.Drawing.Size(1212, 728);
+            this.Load += new System.EventHandler(this.UCInvoice_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
@@ -289,7 +291,7 @@ namespace LaundryManager.Views
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelCreateBill)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcInvoice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -309,7 +311,7 @@ namespace LaundryManager.Views
         private DevExpress.XtraEditors.SimpleButton btnIgnore;
         private DevExpress.XtraEditors.SimpleButton btnCreateInvoice;
         private DevExpress.XtraEditors.PanelControl panelCreateBill;
-        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.GridControl gcInvoice;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private System.Windows.Forms.TextBox textBox4;
