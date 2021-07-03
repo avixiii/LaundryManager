@@ -25,6 +25,7 @@ namespace LaundryManager.Views
         {
             fAddService addService = new fAddService();
             addService.ShowDialog();
+            sqlDataSource1.FillAsync();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -48,6 +49,8 @@ namespace LaundryManager.Views
                     {
                         _ = Controllers.ServiceController.DeleteService(serviceID);
                         XtraMessageBox.Show("Xoá thành công!");
+                        // SELECT Services.ID, ServiceName, Unt.Unit, Price, Services.Note FROM dbo.Services LEFT JOIN dbo.Units Unt ON Unt.ID = Services.UnitID
+                        sqlDataSource1.FillAsync();
                     }
                     catch
                     {
@@ -59,6 +62,41 @@ namespace LaundryManager.Views
             {
                 XtraMessageBox.Show("Bạn chưa chọn đối tượng xoá", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void btnEdit_Click_1(object sender, EventArgs e)
+        {
+            object value;
+
+            // Lay ID
+            int rowIndex = gvServices.FocusedRowHandle;
+            string colFieldID = "ID";
+            value = gvServices.GetRowCellValue(rowIndex, colFieldID);
+
+            string serviceID = (string)value;
+            // Lay serviceName
+            string colFieldName = "ServiceName";
+            value = gvServices.GetRowCellValue(rowIndex, colFieldName);
+            string serviceName = (string)value;
+
+            // Lay Unit
+            string colFieldUnitID = "UnitID";
+            value = gvServices.GetRowCellValue(rowIndex, colFieldUnitID);
+            string unitID = (string)value;
+
+            // Lấy đơn giá
+            string colFieldPrice = "Price";
+            value = gvServices.GetRowCellValue(rowIndex, colFieldPrice);
+            string price = value.ToString();
+
+            // Lấy Mô tả
+            string colFieldNote = "Note";
+            value = gvServices.GetRowCellValue(rowIndex, colFieldNote);
+            string note = (string)value;
+
+            fEditService editService = new fEditService(serviceID, serviceName, unitID, price, note);
+            editService.ShowDialog();
+            sqlDataSource1.FillAsync();
         }
     }
 }

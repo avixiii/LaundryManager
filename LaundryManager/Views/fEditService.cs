@@ -11,30 +11,37 @@ using System.Windows.Forms;
 
 namespace LaundryManager.Views
 {
-    public partial class fAddService : DevExpress.XtraEditors.XtraForm
+    public partial class fEditService : DevExpress.XtraEditors.XtraForm
     {
-        public fAddService()
+        private string serviceID;
+        private string serviceName;
+        private string price;
+        private string unitID;
+        private string note;
+        public fEditService()
         {
             InitializeComponent();
         }
 
-        
-
-        private void btnExit_Click(object sender, EventArgs e)
+        public fEditService(string _serviceID, string _serviceName, string _unitID, string _price, string _note) : this()
         {
-            this.Close();
+            serviceID = _serviceID;
+            serviceName = _serviceName;
+            unitID = _unitID;
+            price = _price;
+            note = _note;
         }
 
-        private void fAddService_Load(object sender, EventArgs e)
+        private void fEditService_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'dsUnits.Units' table. You can move, or remove it, as needed.
             this.unitsTableAdapter.Fill(this.dsUnits.Units);
             txtID.Enabled = false;
-            // Load Service ID
-            txtID.Text = Models.Connection.ExcuteScalar(String.Format("SELECT dbo.fcgetServiceID()"));
+            txtID.Text = serviceID;
+            txtServiceName.Text = serviceName;
+            txtPrice.Text = price;
+            rtbNote.Text = note;
         }
-
-        
 
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -43,22 +50,26 @@ namespace LaundryManager.Views
             string unitId = cbUnits.SelectedValue.ToString();
             string price = txtPrice.Text;
             string note = rtbNote.Text;
-           
+
             try
             {
-                _ = Controllers.ServiceController.InsertService(serviceID, serviceName, unitId, price, note);
-                MessageBox.Show("Thêm thành công");
+                _ = Controllers.ServiceController.UpdateService(serviceID, serviceName, unitId, price, note);
+                MessageBox.Show("Sửa thành công");
                 this.Close();
             }
             catch
             { }
+        }
 
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void txtPrice_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-                    (e.KeyChar != '.'))
+        (e.KeyChar != '.'))
             {
                 e.Handled = true;
             }

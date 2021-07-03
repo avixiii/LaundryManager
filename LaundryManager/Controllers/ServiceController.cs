@@ -35,5 +35,18 @@ namespace LaundryManager.Controllers
                 return 0;
             }
         }
+
+        public static int UpdateService(string _serviceID, string _serviceName, string _unitId, string _price, string _note)
+        {
+            try
+            {
+                Models.ServiceModel _service = new Models.ServiceModel(_serviceID, _serviceName, _unitId, _price, _note);
+                return _service.UpdateService();
+            }
+            catch
+            {
+                return 0;
+            }
+        }
     }
 }

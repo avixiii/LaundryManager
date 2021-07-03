@@ -43,6 +43,17 @@ namespace LaundryManager.Models
             return i;
         }
 
+        // Update service
+        public int UpdateService()
+        {
+            int i = 0;
+            string[] paras = new string[5] { "@ID", "@ServiceName", "UnitID", "@Price", "@Note" };
+            object[] values = new string[] { serviceID, serviceName, unitID, price, note };
+
+            i = Models.Connection.Excute_Sql("spUpdateService", CommandType.StoredProcedure, paras, values);
+
+            return i;
+        }
 
         // Delete Service
 
