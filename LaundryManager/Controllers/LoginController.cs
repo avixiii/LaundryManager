@@ -20,5 +20,16 @@ namespace LaundryManager.Controllers
                 return "";
             }
         }
+
+        public static string ChangePass(string _user, string _pass)
+        {
+            try
+            {
+                Models.LoginModel changePass = new Models.LoginModel(_user, _pass);
+                return changePass.ChangePass();
+            }
+            catch { return ""; }
+        }
+
     }
 }

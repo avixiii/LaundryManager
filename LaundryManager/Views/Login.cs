@@ -47,7 +47,7 @@ namespace LaundryManager
             }  
             else
             {
-                fLaunryManager fLaunry = new fLaunryManager();
+                fLaunryManager fLaunry = new fLaunryManager(user);
                 this.Hide();
                 fLaunry.ShowDialog();
                 this.Close();

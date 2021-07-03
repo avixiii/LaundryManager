@@ -134,6 +134,7 @@ namespace LaundryManager.Views
             this.btnChangePass.ItemAppearance.Pressed.Options.UseTextOptions = true;
             this.btnChangePass.ItemAppearance.Pressed.TextOptions.WordWrap = DevExpress.Utils.WordWrap.NoWrap;
             this.btnChangePass.Name = "btnChangePass";
+            this.btnChangePass.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnChangePass_ItemClick);
             // 
             // btnStoreInfo
             // 
@@ -174,6 +175,7 @@ namespace LaundryManager.Views
             this.btnLogout.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.ImageOptions.Image")));
             this.btnLogout.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnLogout.ImageOptions.LargeImage")));
             this.btnLogout.Name = "btnLogout";
+            this.btnLogout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLogout_ItemClick);
             // 
             // btnExit
             // 

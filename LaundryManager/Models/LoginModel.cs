@@ -35,5 +35,16 @@ namespace LaundryManager.Models
 
             return str;
         }
+
+        public string ChangePass()
+        {
+            string str = "";
+            string[] paras = new string[2] { "@Username", "@Password" };
+            object[] values = new object[2] { user, pass };
+
+            str = Models.Connection.ExcuteScalar("spChangePass", CommandType.StoredProcedure, paras, values);
+
+            return str;
+        }
     }
 }

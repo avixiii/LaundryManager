@@ -18,6 +18,12 @@ namespace LaundryManager.Views
             InitializeComponent();
         }
 
+        private string user;
+        public fLaunryManager(string _user):this()
+        {
+            user = _user;
+        }
+
         private void btnExit_ItemClick(object sender, ItemClickEventArgs e)
         {
             DialogResult _dialog = MessageBox.Show("Bạn có muốn thoát chương trình? ", "Thông báo!", MessageBoxButtons.YesNoCancel);
@@ -42,6 +48,17 @@ namespace LaundryManager.Views
             UCServicePriceList ucServicePriceList = new UCServicePriceList();
             ucServicePriceList.Dock = DockStyle.Fill;
             panelMain.Controls.Add(ucServicePriceList);
+        }
+
+        private void btnChangePass_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            fChangePass fChangePass = new fChangePass(user);
+            fChangePass.ShowDialog();
+        }
+
+        private void btnLogout_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            
         }
     }
 }
