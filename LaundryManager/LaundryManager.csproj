@@ -69,8 +69,10 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\RestoreController.cs" />
     <Compile Include="Controllers\ServiceController.cs" />
+    <Compile Include="Controllers\UnitController.cs" />
     <Compile Include="Models\BackupModel.cs" />
     <Compile Include="Models\RestoreModel.cs" />
+    <Compile Include="Models\UnitModel.cs" />
     <Compile Include="Views\dsUnits.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -85,6 +87,12 @@
     </Compile>
     <Compile Include="Views\fAddService.Designer.cs">
       <DependentUpon>fAddService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\fAddUnits.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\fAddUnits.Designer.cs">
+      <DependentUpon>fAddUnits.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\fBackup.cs">
       <SubType>Form</SubType>
@@ -145,6 +153,9 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Views\fAddService.resx">
       <DependentUpon>fAddService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\fAddUnits.resx">
+      <DependentUpon>fAddUnits.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\fBackup.resx">
       <DependentUpon>fBackup.cs</DependentUpon>

@@ -69,5 +69,11 @@ namespace LaundryManager.Views
                 e.Handled = true;
             }
         }
+
+        private void btnInsertUnits_Click(object sender, EventArgs e)
+        {
+            fAddUnits fAddUnits = new fAddUnits();
+            fAddUnits.ShowDialog();
+        }
     }
 }

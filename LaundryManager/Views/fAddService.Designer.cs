@@ -46,6 +46,7 @@ namespace LaundryManager.Views
             this.unitsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dsUnits = new LaundryManager.Views.dsUnits();
             this.unitsTableAdapter = new LaundryManager.Views.dsUnitsTableAdapters.UnitsTableAdapter();
+            this.btnInsertUnits = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.unitsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsUnits)).BeginInit();
             this.SuspendLayout();
@@ -175,7 +176,7 @@ namespace LaundryManager.Views
             this.cbUnits.DisplayMember = "Unit";
             this.cbUnits.Location = new System.Drawing.Point(137, 107);
             this.cbUnits.Name = "cbUnits";
-            this.cbUnits.Size = new System.Drawing.Size(145, 21);
+            this.cbUnits.Size = new System.Drawing.Size(115, 21);
             this.cbUnits.TabIndex = 13;
             this.cbUnits.ValueMember = "ID";
             // 
@@ -193,11 +194,21 @@ namespace LaundryManager.Views
             // 
             this.unitsTableAdapter.ClearBeforeFill = true;
             // 
+            // btnInsertUnits
+            // 
+            this.btnInsertUnits.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btnInsertUnits.Location = new System.Drawing.Point(258, 107);
+            this.btnInsertUnits.Name = "btnInsertUnits";
+            this.btnInsertUnits.Size = new System.Drawing.Size(24, 23);
+            this.btnInsertUnits.TabIndex = 14;
+            this.btnInsertUnits.Click += new System.EventHandler(this.btnInsertUnits_Click);
+            // 
             // fAddService
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(340, 294);
+            this.Controls.Add(this.btnInsertUnits);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.rtbNote);
@@ -238,5 +249,6 @@ namespace LaundryManager.Views
         private dsUnits dsUnits;
         private System.Windows.Forms.BindingSource unitsBindingSource;
         private dsUnitsTableAdapters.UnitsTableAdapter unitsTableAdapter;
+        private DevExpress.XtraEditors.SimpleButton btnInsertUnits;
     }
 }
