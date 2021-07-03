@@ -58,7 +58,10 @@ namespace LaundryManager.Views
 
         private void btnLogout_ItemClick(object sender, ItemClickEventArgs e)
         {
-            
+            fLogin fLogin = new fLogin();
+            this.Hide();
+            fLogin.ShowDialog();
+            this.Close();
         }
     }
 }
