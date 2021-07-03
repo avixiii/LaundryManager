@@ -11,7 +11,7 @@ namespace LaundryManager.Models
 {
     class Connection
     {
-        public static string sqlconn = @"server =LL69AV4GE09FLX9; uid= sa; pwd= 123; database = dbSoftQuanLyNhaHang";
+        public static string sqlconn = @"Data Source=DESKTOP-UKLD1J8;Initial Catalog=DATABASE_QUANLYTIEMGIATUI;Integrated Security=True";
 
         // Connect database
         public static SqlConnection GetConnection()
@@ -398,7 +398,15 @@ namespace LaundryManager.Models
             }
             try
             {
-                efftectRecord = sqlcmd.ExecuteScalar().ToString();
+                if (sqlcmd.ExecuteScalar() == null)
+                {
+                    return efftectRecord;
+                }
+                else
+                {
+                    efftectRecord = sqlcmd.ExecuteScalar().ToString();
+                }    
+                
             }
             catch (Exception ex)
             {
