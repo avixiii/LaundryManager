@@ -153,6 +153,7 @@ namespace LaundryManager.Views
             this.btnStoreInfo.ItemAppearance.Pressed.Options.UseTextOptions = true;
             this.btnStoreInfo.ItemAppearance.Pressed.TextOptions.WordWrap = DevExpress.Utils.WordWrap.NoWrap;
             this.btnStoreInfo.Name = "btnStoreInfo";
+            this.btnStoreInfo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnStoreInfo_ItemClick);
             // 
             // btnSystemHistory
             // 

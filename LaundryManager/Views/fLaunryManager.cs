@@ -75,5 +75,10 @@ namespace LaundryManager.Views
             fRestore fRestore = new fRestore();
             fRestore.Show();
         }
+
+        private void btnStoreInfo_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            MessageBox.Show("ĐÂY LÀ BÀI TẬP LỚN MÔN THỰC TẬP CHUYÊN NGÀNH 1\nHọ và tên: Phạm Anh Tuấn\nLớp: CNTT2-K10\nTrường: Đại học Công nghệ Đông Á\n\nPhần giới thiệu thông tin cửa hàng này sẽ được cập nhật update sau, để người dùng có thể chỉnh sửa.", "Thông báo");
+        }
     }
 }
