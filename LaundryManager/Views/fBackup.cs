@@ -17,11 +17,11 @@ namespace LaundryManager.Views
         {
             InitializeComponent();
         }
-        FolderBrowserDialog fd;
+        XtraFolderBrowserDialog fd;
 
         private void btnBrowse_Click(object sender, EventArgs e)
         {
-            fd = new FolderBrowserDialog();
+            fd = new XtraFolderBrowserDialog();
             if (fd.ShowDialog() == DialogResult.OK)
             {
                 txtPath.Text = fd.SelectedPath.ToString();
