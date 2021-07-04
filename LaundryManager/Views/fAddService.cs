@@ -74,6 +74,7 @@ namespace LaundryManager.Views
         {
             fAddUnits fAddUnits = new fAddUnits();
             fAddUnits.ShowDialog();
+            this.unitsTableAdapter.Fill(this.dsUnits.Units);
         }
     }
 }
