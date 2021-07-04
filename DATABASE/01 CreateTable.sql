@@ -1,0 +1,138 @@
+﻿CREATE DATABASE LaundryManager
+GO
+
+
+USE LaundryManager
+GO
+
+------------------ Table ------------------
+
+--            Users
+--            Units
+--            Services
+--            BillDetails
+--            Bill
+
+
+
+
+
+-- Bảng USER
+
+CREATE TABLE Users
+(
+	ID VARCHAR(15) NOT NULL,
+	UserName VARCHAR(30) NOT NULL,
+	Password NVARCHAR(max) NOT NULL,
+	FullName NVARCHAR(50) NULL,
+	Address NVARCHAR(50) NULL,
+	BirthDay DATE NULL,
+	IDCardNumber VARCHAR(15) NULL,
+	Mobile VARCHAR(15) NULL,
+	Permission BIT NULL,
+	Status BIT DEFAULT 0 -- Mặc định tài khoản chưa được kích hoạt
+
+	CONSTRAINT PK_NHANVIEN PRIMARY KEY (ID)
+)
+GO
+
+-- KHÁCH HÀNG
+
+CREATE TABLE Customers
+(
+	ID VARCHAR(15) NOT NULL,
+	Name NVARCHAR(255) NOT NULL,
+	Address NVARCHAR(255) NULL,
+	Phone VARCHAR(11) NULL,
+	TotalBill MONEY NOT NULL
+
+	CONSTRAINT PK_KHACHHANG PRIMARY KEY(ID)
+)
+GO
+
+
+
+-- Đơn vị tính : kg, bộ,...
+CREATE TABLE Units
+(
+	ID VARCHAR(15) NOT NULL,
+	Unit NVARCHAR(30) NULL,
+	Note NVARCHAR(50) NULL,
+
+	CONSTRAINT PK_DONVITINH PRIMARY KEY (ID)
+)
+GO
+
+-- Dịch vụ
+CREATE TABLE Services
+(
+	ID VARCHAR(15) NOT NULL,
+	ServiceName NVARCHAR(50) NOT NULL,
+	UnitID VARCHAR(15) NULL,
+	Price MONEY NOT NULL,
+	Note NTEXT NULL,
+
+	CONSTRAINT PK_MATHANG PRIMARY KEY (ID),
+	FOREIGN KEY (UnitID) REFERENCES dbo.Units (ID)
+)
+GO
+
+-- BillDetails
+CREATE TABLE BillDetails
+(
+	BillCode VARCHAR(15) NOT NULL,
+	ServID VARCHAR(15) NOT NULL,
+	Quantity INT DEFAULT 1 NOT NULL,
+	Price MONEY NOT NULL,
+	Total MONEY NOT NULL
+
+	CONSTRAINT PK_CHITIETHDX PRIMARY KEY (BillCode),
+	FOREIGN KEY (ServID) REFERENCES dbo.Services(ID)
+)
+GO
+
+-- Bills
+CREATE TABLE Bills
+(
+	ID VARCHAR(15) NOT NULL,
+	BillCode VARCHAR(15) NOT NULL,
+	CusID VARCHAR(15) NOT NULL,
+	UserID VARCHAR(15) NOT NULL,
+	BillDate DATETIME NOT NULL,
+	AppointmentDate DATETIME NULL,
+	RecieveDate DATETIME NULL,
+	Total MONEY NOT NULL,
+	Discount MONEY NULL,
+	MustBePaid MONEY NULL, -- trả lại tiền thừa cho khách hàng
+	Paid MONEY NULL, -- số tiền nhận được
+	NOTE NVARCHAR(255) NULL,
+	Status NVARCHAR(20) NOT NULL,
+
+	CONSTRAINT PK_HOADONXUAT PRIMARY KEY (ID),
+
+	FOREIGN KEY (BillCode) REFERENCES dbo.BillDetails(BillCode),
+	FOREIGN KEY (CusID) REFERENCES dbo.Customers(ID),
+	FOREIGN KEY (UserID) REFERENCES dbo.Users(ID)
+)
+GO
+
+
+-- QUẢN LÝ CHI TIÊU
+CREATE TABLE CashBook
+(
+	ID VARCHAR(15) NOT NULL,
+	UserID VARCHAR(15) NOT NULL,
+	BillType NVARCHAR(50) NOT NULL, -- Thu - Nhạn...
+	BillDate DATETIME NULL,
+	Payer NVARCHAR(100) NULL,
+	Amount MONEY NULL,
+	Reason NVARCHAR(255) NULL,
+	Explain NVARCHAR(255) NULL,
+	ReadAmount NVARCHAR(150) NULL,
+
+	CONSTRAINT PK_CashBook PRIMARY KEY (ID),
+	FOREIGN KEY (UserID) REFERENCES dbo.Users(ID)
+)
+GO
+
+SELECT @@SERVERNAME
