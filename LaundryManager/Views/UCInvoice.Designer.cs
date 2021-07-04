@@ -44,6 +44,7 @@ namespace LaundryManager.Views
             this.label1 = new System.Windows.Forms.Label();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.btnExit = new DevExpress.XtraEditors.SimpleButton();
             this.btnPrint = new DevExpress.XtraEditors.SimpleButton();
             this.btnEdit = new DevExpress.XtraEditors.SimpleButton();
@@ -185,6 +186,7 @@ namespace LaundryManager.Views
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.btnSave);
             this.panelControl1.Controls.Add(this.btnExit);
             this.panelControl1.Controls.Add(this.btnPrint);
             this.panelControl1.Controls.Add(this.btnEdit);
@@ -194,6 +196,16 @@ namespace LaundryManager.Views
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(974, 41);
             this.panelControl1.TabIndex = 2;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Enabled = false;
+            this.btnSave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.ImageOptions.Image")));
+            this.btnSave.Location = new System.Drawing.Point(636, 7);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 5;
+            this.btnSave.Text = "Lưu";
             // 
             // btnExit
             // 
@@ -321,5 +333,6 @@ namespace LaundryManager.Views
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private DevExpress.XtraEditors.SimpleButton btnSave;
     }
 }

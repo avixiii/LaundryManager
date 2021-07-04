@@ -37,6 +37,7 @@ namespace LaundryManager.Views
                 btnEdit.Enabled = false;
                 btnPrint.Enabled = false;
                 btnIgnore.Enabled = true;
+                btnSave.Enabled = true;
             }
         }
 
@@ -53,6 +54,7 @@ namespace LaundryManager.Views
             btnIgnore.Enabled = false;
             btnEdit.Enabled = true;
             btnPrint.Enabled = true;
+            btnSave.Enabled = false;
         }
 
         private void UCInvoice_Load(object sender, EventArgs e)
