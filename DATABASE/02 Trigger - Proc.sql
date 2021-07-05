@@ -1,5 +1,5 @@
-﻿
-
+﻿USE DATABASE_QUANLYTIEMGIATUI
+GO
 -- Check Login 
 
 CREATE PROCEDURE spCheckLogin

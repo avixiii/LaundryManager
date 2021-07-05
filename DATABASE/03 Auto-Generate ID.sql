@@ -1,4 +1,4 @@
-﻿USE LaundryManager
+﻿USE DATABASE_QUANLYTIEMGIATUI
 GO
 
 -- TỰ ĐỘNG TẠO ID DỊCH VỤ
