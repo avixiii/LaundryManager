@@ -30,6 +30,8 @@ namespace LaundryManager.Views
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery1 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCInvoice));
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
@@ -52,7 +54,17 @@ namespace LaundryManager.Views
             this.btnCreateInvoice = new DevExpress.XtraEditors.SimpleButton();
             this.panelCreateBill = new DevExpress.XtraEditors.PanelControl();
             this.gcInvoice = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gvBills = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
+            this.colBillCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colBillDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAppointmentDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPhone = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAddress = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colStatus = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTotal = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gvBillDetails = new DevExpress.XtraGrid.Views.Grid.GridView();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
@@ -61,7 +73,8 @@ namespace LaundryManager.Views
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelCreateBill)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcInvoice)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvBills)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvBillDetails)).BeginInit();
             this.SuspendLayout();
             // 
             // dockManager1
@@ -267,20 +280,108 @@ namespace LaundryManager.Views
             // 
             // gcInvoice
             // 
+            this.gcInvoice.DataMember = "Query";
+            this.gcInvoice.DataSource = this.sqlDataSource1;
             this.gcInvoice.Dock = System.Windows.Forms.DockStyle.Fill;
+            gridLevelNode1.LevelTemplate = this.gvBillDetails;
+            gridLevelNode1.RelationName = "Level1";
+            this.gcInvoice.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
+            gridLevelNode1});
             this.gcInvoice.Location = new System.Drawing.Point(233, 67);
-            this.gcInvoice.MainView = this.gridView1;
+            this.gcInvoice.MainView = this.gvBills;
             this.gcInvoice.Name = "gcInvoice";
             this.gcInvoice.Size = new System.Drawing.Size(979, 661);
             this.gcInvoice.TabIndex = 5;
             this.gcInvoice.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.gvBills,
+            this.gvBillDetails});
             // 
-            // gridView1
+            // gvBills
             // 
-            this.gridView1.GridControl = this.gcInvoice;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gvBills.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colBillCode,
+            this.colBillDate,
+            this.colName,
+            this.colAppointmentDate,
+            this.colPhone,
+            this.colAddress,
+            this.colStatus,
+            this.colTotal});
+            this.gvBills.GridControl = this.gcInvoice;
+            this.gvBills.Name = "gvBills";
+            this.gvBills.OptionsView.ShowGroupPanel = false;
+            // 
+            // sqlDataSource1
+            // 
+            this.sqlDataSource1.ConnectionName = "DATABASE_QUANLYTIEMGIATUIConnectionString";
+            this.sqlDataSource1.Name = "sqlDataSource1";
+            customSqlQuery1.Name = "Query";
+            customSqlQuery1.Sql = "SELECT BillCode, BillDate, Name, AppointmentDate, Phone, Address, Status, Total F" +
+    "ROM dbo.Customers , dbo.Bills WHERE dbo.Customers.ID = dbo.Bills.CusID\r\n";
+            this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
+            customSqlQuery1});
+            this.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable");
+            // 
+            // colBillCode
+            // 
+            this.colBillCode.FieldName = "BillCode";
+            this.colBillCode.Name = "colBillCode";
+            this.colBillCode.Visible = true;
+            this.colBillCode.VisibleIndex = 0;
+            // 
+            // colBillDate
+            // 
+            this.colBillDate.FieldName = "BillDate";
+            this.colBillDate.Name = "colBillDate";
+            this.colBillDate.Visible = true;
+            this.colBillDate.VisibleIndex = 1;
+            // 
+            // colName
+            // 
+            this.colName.FieldName = "Name";
+            this.colName.Name = "colName";
+            this.colName.Visible = true;
+            this.colName.VisibleIndex = 2;
+            // 
+            // colAppointmentDate
+            // 
+            this.colAppointmentDate.FieldName = "AppointmentDate";
+            this.colAppointmentDate.Name = "colAppointmentDate";
+            this.colAppointmentDate.Visible = true;
+            this.colAppointmentDate.VisibleIndex = 3;
+            // 
+            // colPhone
+            // 
+            this.colPhone.FieldName = "Phone";
+            this.colPhone.Name = "colPhone";
+            this.colPhone.Visible = true;
+            this.colPhone.VisibleIndex = 4;
+            // 
+            // colAddress
+            // 
+            this.colAddress.FieldName = "Address";
+            this.colAddress.Name = "colAddress";
+            this.colAddress.Visible = true;
+            this.colAddress.VisibleIndex = 5;
+            // 
+            // colStatus
+            // 
+            this.colStatus.FieldName = "Status";
+            this.colStatus.Name = "colStatus";
+            this.colStatus.Visible = true;
+            this.colStatus.VisibleIndex = 6;
+            // 
+            // colTotal
+            // 
+            this.colTotal.FieldName = "Total";
+            this.colTotal.Name = "colTotal";
+            this.colTotal.Visible = true;
+            this.colTotal.VisibleIndex = 7;
+            // 
+            // gvBillDetails
+            // 
+            this.gvBillDetails.GridControl = this.gcInvoice;
+            this.gvBillDetails.Name = "gvBillDetails";
             // 
             // UCInvoice
             // 
@@ -304,7 +405,8 @@ namespace LaundryManager.Views
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelCreateBill)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcInvoice)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvBills)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvBillDetails)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -324,7 +426,7 @@ namespace LaundryManager.Views
         private DevExpress.XtraEditors.SimpleButton btnCreateInvoice;
         private DevExpress.XtraEditors.PanelControl panelCreateBill;
         private DevExpress.XtraGrid.GridControl gcInvoice;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvBills;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox2;
@@ -334,5 +436,15 @@ namespace LaundryManager.Views
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraEditors.SimpleButton btnSave;
+        private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource1;
+        private DevExpress.XtraGrid.Columns.GridColumn colBillCode;
+        private DevExpress.XtraGrid.Columns.GridColumn colBillDate;
+        private DevExpress.XtraGrid.Columns.GridColumn colName;
+        private DevExpress.XtraGrid.Columns.GridColumn colAppointmentDate;
+        private DevExpress.XtraGrid.Columns.GridColumn colPhone;
+        private DevExpress.XtraGrid.Columns.GridColumn colAddress;
+        private DevExpress.XtraGrid.Columns.GridColumn colStatus;
+        private DevExpress.XtraGrid.Columns.GridColumn colTotal;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvBillDetails;
     }
 }

@@ -36,7 +36,7 @@ namespace LaundryManager.Models
         {
             int i = 0;
             string[] paras = new string[5] { "@ID", "@ServiceName", "UnitID", "@Price", "@Note" };
-            object[] values = new string[] { serviceID, serviceName, unitID, price, note };
+            object[] values = new object[] { serviceID, serviceName, unitID, price, note };
 
             i = Models.Connection.Excute_Sql("spInsertService", CommandType.StoredProcedure, paras, values);
 
@@ -48,7 +48,7 @@ namespace LaundryManager.Models
         {
             int i = 0;
             string[] paras = new string[5] { "@ID", "@ServiceName", "UnitID", "@Price", "@Note" };
-            object[] values = new string[] { serviceID, serviceName, unitID, price, note };
+            object[] values = new object[] { serviceID, serviceName, unitID, price, note };
 
             i = Models.Connection.Excute_Sql("spUpdateService", CommandType.StoredProcedure, paras, values);
 
