@@ -15,6 +15,51 @@ CREATE PROCEDURE spCheckLogin
 	END
 GO
 
+-- Check user
+CREATE PROCEDURE spCheckUser
+(
+	@Username VARCHAR(30)
+)
+AS
+BEGIN
+	SELECT * FROM dbo.Users u
+	WHERE u.UserName = @Username
+END
+GO
+
+
+-- ĐĂNG KÝ
+CREATE PROCEDURE spSignUp
+(
+	@Username VARCHAR(30),
+	@Password NVARCHAR(MAX),
+	@FullName NVARCHAR(50),
+	@Address NVARCHAR(50),
+	@BirthDay DATE,
+	@IDCard VARCHAR(15),
+	@Phone VARCHAR(15),
+	@Status BIT
+)
+AS
+BEGIN
+	INSERT INTO dbo.Users
+	(
+	    UserName,
+	    Password,
+	    FullName,
+	    Address,
+	    BirthDay,
+	    IDCardNumber,
+	    Mobile,
+	    Status
+	)
+	VALUES
+	(   
+		@Username, @Password, @FullName, @Address, @BirthDay, @IDCard, @Phone, @Status
+	    )
+END
+GO
+
 -- Check trạng thái tài khoản
 
 CREATE PROCEDURE spCheckStatus
@@ -42,7 +87,15 @@ UPDATE Users
 	SET Password = @Password WHERE UserName = @UserName
 GO
 
-
+-- XOÁ USER
+CREATE PROC spDeleteUser
+(
+	@Username VARCHAR(30)
+)
+AS
+BEGIN
+	DELETE FROM dbo.Users WHERE UserName= @Username
+END
 
 
 -- BACKUP DATABASE
