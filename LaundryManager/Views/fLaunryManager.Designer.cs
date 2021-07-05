@@ -120,6 +120,7 @@ namespace LaundryManager.Views
             this.btnDecentralize.ItemAppearance.Pressed.Options.UseTextOptions = true;
             this.btnDecentralize.ItemAppearance.Pressed.TextOptions.WordWrap = DevExpress.Utils.WordWrap.NoWrap;
             this.btnDecentralize.Name = "btnDecentralize";
+            this.btnDecentralize.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDecentralize_ItemClick);
             // 
             // btnChangePass
             // 
@@ -170,6 +171,7 @@ namespace LaundryManager.Views
             this.btnSystemHistory.ItemAppearance.Pressed.Options.UseTextOptions = true;
             this.btnSystemHistory.ItemAppearance.Pressed.TextOptions.WordWrap = DevExpress.Utils.WordWrap.NoWrap;
             this.btnSystemHistory.Name = "btnSystemHistory";
+            this.btnSystemHistory.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSystemHistory_ItemClick);
             // 
             // btnLogout
             // 
@@ -216,6 +218,7 @@ namespace LaundryManager.Views
             this.btnEmployeeList.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnEmployeeList.ImageOptions.LargeImage")));
             this.btnEmployeeList.Name = "btnEmployeeList";
             this.btnEmployeeList.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+            this.btnEmployeeList.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnEmployeeList_ItemClick);
             // 
             // btnInvoice
             // 

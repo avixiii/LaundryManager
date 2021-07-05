@@ -23,6 +23,11 @@ namespace LaundryManager.Models
             this.pass = _pass;
         }
 
+        public LoginModel(string _user)
+        {
+            this.user = _user;
+        }
+
         // Check đăng nhập
         public string CheckLogin()
         {
@@ -39,10 +44,10 @@ namespace LaundryManager.Models
         public string CheckStatus()
         {
             string str = "";
-            string[] para = new string[2] { "@Username", "@Password" };
-            object[] value = new object[2] { user, pass };
+            string[] paras = new string[2] { "@Username", "@Password" };
+            object[] values = new object[2] { user, pass };
 
-            str = Models.Connection.ExcuteScalar("spCheckStatus", CommandType.StoredProcedure, para, value);
+            str = Models.Connection.ExcuteScalar("spCheckStatus", CommandType.StoredProcedure, paras, values);
 
             return str;
         }
@@ -56,6 +61,17 @@ namespace LaundryManager.Models
             str = Models.Connection.ExcuteScalar("spChangePass", CommandType.StoredProcedure, paras, values);
 
             return str;
+        }
+
+        public int DeleteUser()
+        {
+            int i = 0;
+            string[] paras = new string[1] { "@Username" };
+            object[] values = new object[1] { user };
+
+            i = Models.Connection.Excute_Sql("spDeleteUser", CommandType.StoredProcedure, paras, values);
+
+            return i;
         }
     }
 }

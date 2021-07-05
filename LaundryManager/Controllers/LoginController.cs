@@ -21,6 +21,7 @@ namespace LaundryManager.Controllers
             }
         }
 
+
         public static string CheckStatus(string _user, string _pass)
         {
             try
@@ -43,6 +44,17 @@ namespace LaundryManager.Controllers
             }
             catch { return ""; }
         }
+
+       public static int DeleteUser(string _user)
+        {
+            try
+            {
+                Models.LoginModel deleteUser = new Models.LoginModel(_user);
+                return deleteUser.DeleteUser();
+            }
+            catch { return 0; };
+        }
+
 
     }
 }
