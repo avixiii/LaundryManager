@@ -39,7 +39,7 @@ namespace LaundryManager
             string check = "";
             string user = txtUsername.Text.Trim();
             string pass = Models.UserControl.SHA256(txtPassword.Text);
-            check = Controllers.LoginController.CheckLogin(user, pass);
+            check = Controllers.UserController.CheckLogin(user, pass);
 
             if (check == "")
             {
@@ -48,7 +48,7 @@ namespace LaundryManager
             else
             {
                 string checkStatus = "";
-                checkStatus = Controllers.LoginController.CheckStatus(user, pass);
+                checkStatus = Controllers.UserController.CheckStatus(user, pass);
                 if (checkStatus == "")
                 {
                     MessageBox.Show("Tài khoản của bạn chưa được ACTIVE\nXin vui lòng liên hệ với quản trị viên");
@@ -66,7 +66,7 @@ namespace LaundryManager
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            DialogResult _dialog = MessageBox.Show("Bạn có muốn thoát chương trình? ", "Thông báo!", MessageBoxButtons.YesNoCancel);
+            DialogResult _dialog = MessageBox.Show("Bạn có muốn thoát chương trình? ", "Thông báo!", MessageBoxButtons.YesNo);
             if (_dialog == System.Windows.Forms.DialogResult.Yes)
             {
                 this.Close();

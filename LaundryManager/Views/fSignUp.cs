@@ -51,7 +51,7 @@ namespace LaundryManager.Views
             pass = Models.UserControl.SHA256(pass);
             // Check username tồn tại chưa ? 
             string check = "";
-            check = Controllers.SignUpController.CheckUser(user);
+            check = Controllers.UserController.CheckUser(user);
 
             if (check != "") // Tồn tại user 
             {
@@ -63,7 +63,7 @@ namespace LaundryManager.Views
 
                 try
                 {
-                    i = Controllers.SignUpController.SignUp(user, pass, fullName, phone, address, birthDay, idCard, status);
+                    i = Controllers.UserController.SignUp(user, pass, fullName, phone, address, birthDay, idCard, status);
                     MessageBox.Show("Đăng ký thành công.");
                    
                 }

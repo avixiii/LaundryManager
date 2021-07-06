@@ -46,7 +46,7 @@ namespace LaundryManager.Views
                 {
                     try
                     {
-                        _ = Controllers.LoginController.DeleteUser(user);
+                        _ = Controllers.UserController.DeleteUser(user);
                         XtraMessageBox.Show("Xoá thành công!");
                         // SELECT Services.ID, ServiceName, Unt.Unit, Price, Services.Note FROM dbo.Services LEFT JOIN dbo.Units Unt ON Unt.ID = Services.UnitID
                         sqlDataSource1.FillAsync();

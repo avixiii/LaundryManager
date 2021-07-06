@@ -52,7 +52,7 @@ namespace LaundryManager.Views
                 else
                 {
                     // check pass cũ
-                    string check = Controllers.LoginController.CheckLogin(lbUserName.Text, oldPass);
+                    string check = Controllers.UserController.CheckLogin(lbUserName.Text, oldPass);
                     if (check == "")
                     {
                         MessageBox.Show("Pass cu sai");
@@ -61,7 +61,7 @@ namespace LaundryManager.Views
                     {
                         try
                         {
-                            _ = Controllers.LoginController.ChangePass(lbUserName.Text, Models.UserControl.SHA256(newPass));
+                            _ = Controllers.UserController.ChangePass(lbUserName.Text, Models.UserControl.SHA256(newPass));
                             MessageBox.Show("Đổi pass thành công");
                             this.Close();
                         }
