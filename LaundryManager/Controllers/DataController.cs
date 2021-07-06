@@ -14,7 +14,7 @@ namespace LaundryManager.Controllers
             string str = "";
             try
             {
-                Models.BackupModel backup = new Models.BackupModel(path, fileName);
+                Models.DataModel backup = new Models.DataModel(path, fileName);
                 return backup.Backup();
             }
             catch
@@ -30,7 +30,7 @@ namespace LaundryManager.Controllers
             string str = "";
             try
             {
-                Models.RestoreModel backup = new Models.RestoreModel(path);
+                Models.DataModel backup = new Models.DataModel(path);
                 return backup.Restore();
             }
             catch

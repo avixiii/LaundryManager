@@ -34,7 +34,7 @@ namespace LaundryManager.Views
 
             try
             {
-                string check = Controllers.RestoreController.Restore(path);
+                string check = Controllers.DataController.Restore(path);
                 if (check !="")
                 {
                     MessageBox.Show("RESTORE THÂT BẠI");
