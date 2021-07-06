@@ -35,7 +35,7 @@ namespace LaundryManager.Views
 
             try
             {
-                Controllers.BackupController.Backup(path, fileName);
+                Controllers.DataController.Backup(path, fileName);
                 MessageBox.Show("BACKUP THÀNH CÔNG");
                 this.Close();
             }

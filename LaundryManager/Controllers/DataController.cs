@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace LaundryManager.Controllers
 {
-    class BackupController
+    class DataController
     {
+        // Backup
         public static string Backup(string path, string fileName)
         {
             string str = "";
@@ -16,7 +17,24 @@ namespace LaundryManager.Controllers
                 Models.BackupModel backup = new Models.BackupModel(path, fileName);
                 return backup.Backup();
             }
-            catch { 
+            catch
+            {
+            }
+
+            return str;
+        }
+
+        // Restore
+        public static string Restore(string path)
+        {
+            string str = "";
+            try
+            {
+                Models.RestoreModel backup = new Models.RestoreModel(path);
+                return backup.Restore();
+            }
+            catch
+            {
             }
 
             return str;
