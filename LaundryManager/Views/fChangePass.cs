@@ -19,9 +19,9 @@ namespace LaundryManager.Views
         }
         private string user;
 
-        public fChangePass(string _user):this()
+        public fChangePass(string user):this()
         {
-            user = _user;
+            this.user = user;
         }
         
 

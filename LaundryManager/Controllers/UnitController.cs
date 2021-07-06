@@ -8,11 +8,11 @@ namespace LaundryManager.Controllers
 {
     class UnitController
     {
-        public static int InsertUnit(string _id, string _unit, string _note)
+        public static int InsertUnit(string id, string unit, string note)
         {
             try
             {
-                Models.UnitModel units = new Models.UnitModel(_id, _unit, _note);
+                Models.UnitModel units = new Models.UnitModel(id, unit, note);
                 return units.InsertUnit();
             }
             catch

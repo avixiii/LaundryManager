@@ -9,15 +9,16 @@ namespace LaundryManager.Models
 {
     class UnitModel
     {
+
         protected string unitID { get; set; }
         protected string unit { get; set; }
         protected string note { get; set; }
 
-        public UnitModel(string _unitID, string _unit, string _note)
+        public UnitModel(string unitID, string unit, string note)
         {
-            this.unitID = _unitID;
-            this.unit = _unit;
-            this.note = _note;
+            this.unitID = unitID;
+            this.unit = unit;
+            this.note = note;
         }
 
         public int InsertUnit()

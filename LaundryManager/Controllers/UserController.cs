@@ -10,11 +10,11 @@ namespace LaundryManager.Controllers
     {
         // ==================== Sign Up ===================
 
-        public static string CheckUser(string _user)
+        public static string CheckUser(string user)
         {
             try
             {
-                Models.UserModel checkUser = new Models.UserModel(_user);
+                Models.UserModel checkUser = new Models.UserModel(user);
                 return checkUser.CheckUser();
             }
             catch
@@ -23,11 +23,11 @@ namespace LaundryManager.Controllers
             }
         }
 
-        public static int SignUp(string _user, string _pass, string _fullName, string _phone, string _address, string _birthDay, string idCard, bool _status)
+        public static int SignUp(string user, string pass, string fullName, string phone, string address, string birthDay, string idCard, bool status)
         {
             try
             {
-                Models.UserModel signUp = new Models.UserModel(_user, _pass, _fullName, _phone, _address, _birthDay, idCard, _status);
+                Models.UserModel signUp = new Models.UserModel(user, pass, fullName, phone, address, birthDay, idCard, status);
                 return signUp.SignUp();
 
             }
@@ -35,11 +35,11 @@ namespace LaundryManager.Controllers
         }
 
         // ==================== Login ===================
-        public static string CheckLogin(string _user, string _pass)
+        public static string CheckLogin(string user, string pass)
         {
             try
             {
-                Models.UserModel login = new Models.UserModel(_user, _pass);
+                Models.UserModel login = new Models.UserModel(user, pass);
                 return login.CheckLogin();
             }
             catch
@@ -49,11 +49,11 @@ namespace LaundryManager.Controllers
         }
 
 
-        public static string CheckStatus(string _user, string _pass)
+        public static string CheckStatus(string user, string pass)
         {
             try
             {
-                Models.UserModel login = new Models.UserModel(_user, _pass);
+                Models.UserModel login = new Models.UserModel(user, pass);
                 return login.CheckStatus();
             }
             catch
@@ -62,11 +62,11 @@ namespace LaundryManager.Controllers
             }
         }
 
-        public static string ChangePass(string _user, string _pass)
+        public static string ChangePass(string user, string pass)
         {
             try
             {
-                Models.UserModel changePass = new Models.UserModel(_user, _pass);
+                Models.UserModel changePass = new Models.UserModel(user, pass);
                 return changePass.ChangePass();
             }
             catch { return ""; }
@@ -74,11 +74,11 @@ namespace LaundryManager.Controllers
 
 
         // ===================== DELETE USER ================
-        public static int DeleteUser(string _user)
+        public static int DeleteUser(string user)
         {
             try
             {
-                Models.UserModel deleteUser = new Models.UserModel(_user);
+                Models.UserModel deleteUser = new Models.UserModel(user);
                 return deleteUser.DeleteUser();
             }
             catch { return 0; };

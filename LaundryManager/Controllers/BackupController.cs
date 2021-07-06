@@ -8,12 +8,12 @@ namespace LaundryManager.Controllers
 {
     class BackupController
     {
-        public static string Backup(string _path, string _fileName)
+        public static string Backup(string path, string fileName)
         {
             string str = "";
             try
             {
-                Models.BackupModel backup = new Models.BackupModel(_path, _fileName);
+                Models.BackupModel backup = new Models.BackupModel(path, fileName);
                 return backup.Backup();
             }
             catch { 

@@ -66,8 +66,8 @@ namespace LaundryManager
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            DialogResult _dialog = MessageBox.Show("Bạn có muốn thoát chương trình? ", "Thông báo!", MessageBoxButtons.YesNo);
-            if (_dialog == System.Windows.Forms.DialogResult.Yes)
+            DialogResult dialog = MessageBox.Show("Bạn có muốn thoát chương trình? ", "Thông báo!", MessageBoxButtons.YesNo);
+            if (dialog == System.Windows.Forms.DialogResult.Yes)
             {
                 this.Close();
                 Application.Exit();

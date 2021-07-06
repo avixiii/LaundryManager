@@ -23,13 +23,13 @@ namespace LaundryManager.Views
             InitializeComponent();
         }
 
-        public fEditService(string _serviceID, string _serviceName, string _unitID, string _price, string _note) : this()
+        public fEditService(string serviceID, string serviceName, string price, string unitID, string note) : this()
         {
-            serviceID = _serviceID;
-            serviceName = _serviceName;
-            unitID = _unitID;
-            price = _price;
-            note = _note;
+            this.serviceID = serviceID;
+            this.serviceName = serviceName;
+            this.price = price;
+            this.unitID = unitID;
+            this.note = note;
         }
 
         private void fEditService_Load(object sender, EventArgs e)

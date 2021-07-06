@@ -10,12 +10,12 @@ namespace LaundryManager.Controllers
     {
 
         // Method Delete
-        public static int DeleteService(string _idService)
+        public static int DeleteService(string idService)
         {
             try
             {
-                Models.ServiceModel _service = new Models.ServiceModel(_idService);
-                return _service.DeleteService();
+                Models.ServiceModel service = new Models.ServiceModel(idService);
+                return service.DeleteService();
             }
             catch
             {
@@ -23,11 +23,11 @@ namespace LaundryManager.Controllers
             }
         }
 
-        public static int InsertService(string _serviceID, string _serviceName, string _unitId, string _price, string _note)
+        public static int InsertService(string serviceID, string serviceName, string unitId, string price, string note)
         {
             try
             {
-                Models.ServiceModel _service = new Models.ServiceModel(_serviceID, _serviceName, _unitId, _price, _note);
+                Models.ServiceModel _service = new Models.ServiceModel(serviceID, serviceName, unitId, price, note);
                 return _service.InsertService();
             }
             catch
@@ -36,12 +36,12 @@ namespace LaundryManager.Controllers
             }
         }
 
-        public static int UpdateService(string _serviceID, string _serviceName, string _unitId, string _price, string _note)
+        public static int UpdateService(string serviceID, string serviceName, string unitId, string price, string note)
         {
             try
             {
-                Models.ServiceModel _service = new Models.ServiceModel(_serviceID, _serviceName, _unitId, _price, _note);
-                return _service.UpdateService();
+                Models.ServiceModel service = new Models.ServiceModel(serviceID, serviceName, unitId, price, note);
+                return service.UpdateService();
             }
             catch
             {

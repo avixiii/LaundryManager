@@ -18,23 +18,22 @@ namespace LaundryManager.Views
             InitializeComponent();
         }
 
-        public fEditUser(string _user, string _fullName, string _phone, string _address,string _idCard, bool _status)
-        {
-            user = _user;
-            fullName = _fullName;
-            phone = _phone;
-            address = _address;
-            idCard = _idCard;
-            status = _status;
-        }
-
-
         private string user;
         private string fullName;
         private string phone;
         private string address;
         private string idCard;
         private bool status;
+
+        public fEditUser(string user, string fullName, string phone, string address, string idCard, bool status)
+        {
+            this.user = user;
+            this.fullName = fullName;
+            this.phone = phone;
+            this.address = address;
+            this.idCard = idCard;
+            this.status = status;
+        }
 
         private void fEditUser_Load(object sender, EventArgs e)
         {

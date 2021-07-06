@@ -15,20 +15,22 @@ namespace LaundryManager.Models
         protected string price { get; set; }
         protected string note { get; set; }
 
-        public ServiceModel(string _idService)
-        {
-            serviceID = _idService;
-        }
 
         public ServiceModel() { }
 
-        public ServiceModel(string _serviceID, string _serviceName, string _unitID, string _price, string _note)
+
+        public ServiceModel(string serviceID)
         {
-            serviceID = _serviceID;
-            serviceName = _serviceName;
-            unitID = _unitID;
-            price = _price;
-            note = _note;
+            this.serviceID = serviceID;
+        }
+
+        public ServiceModel(string serviceID, string serviceName, string unitID, string price, string note)
+        {
+            this.serviceID = serviceID;
+            this.serviceName = serviceName;
+            this.unitID = unitID;
+            this.price = price;
+            this.note = note;
         }
 
         // Insert service

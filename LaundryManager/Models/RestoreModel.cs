@@ -11,19 +11,19 @@ namespace LaundryManager.Models
     {
         protected string path { get; set; }
 
-        public RestoreModel(string _path)
+        public RestoreModel(string path)
         {
-            this.path = _path;
+            this.path = path;
         }
 
         public string Restore()
         {
             string str = "abc";
 
-            string[] para = new string[1] { "@path"};
-            string[] value = new string[1] { path };
+            string[] paras = new string[1] { "@path"};
+            string[] values = new string[1] { path };
 
-            Models.Connection.ExcuteScalar("spRestore", CommandType.StoredProcedure, para, value);
+            Models.Connection.ExcuteScalar("spRestore", CommandType.StoredProcedure, paras, values);
 
             return str;
         }

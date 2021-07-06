@@ -12,10 +12,10 @@ namespace LaundryManager.Models
         protected string path { get; set; }
         protected string fileName { get; set; }
 
-        public BackupModel(string _path, string _fileName)
+        public BackupModel(string path, string fileName)
         {
-            this.path = _path;
-            this.fileName = _fileName;
+            this.path = path;
+            this.fileName = fileName;
         }
 
         public string Backup()

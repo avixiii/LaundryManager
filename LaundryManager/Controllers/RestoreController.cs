@@ -8,12 +8,12 @@ namespace LaundryManager.Controllers
 {
     class RestoreController
     {
-        public static string Restore(string _path)
+        public static string Restore(string path)
         {
             string str = "";
             try
             {
-                Models.RestoreModel backup = new Models.RestoreModel(_path);
+                Models.RestoreModel backup = new Models.RestoreModel(path);
                 return backup.Restore();
             }
             catch
