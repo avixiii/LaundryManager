@@ -39,5 +39,17 @@ namespace LaundryManager.Views
         private void UCInvoice_Load(object sender, EventArgs e)
         {
         }
+
+        private void riBtnDetailsView_Click(object sender, EventArgs e)
+        {
+            fShowBillDetails show = new fShowBillDetails();
+            show.ShowDialog();
+        }
+
+        private void riBtnStatus_Click(object sender, EventArgs e)
+        {
+            fBillStatus status = new fBillStatus();
+            status.ShowDialog();
+        }
     }
 }

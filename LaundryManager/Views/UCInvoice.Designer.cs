@@ -30,9 +30,26 @@ namespace LaundryManager.Views
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery1 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCInvoice));
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            this.gcInvoice = new DevExpress.XtraGrid.GridControl();
+            this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
+            this.gvBills = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colBillCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colBillDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAppointmentDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPhone = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAddress = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colStatus = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTotal = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDetailsView = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.riBtnDetailsView = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
@@ -53,18 +70,10 @@ namespace LaundryManager.Views
             this.btnIgnore = new DevExpress.XtraEditors.SimpleButton();
             this.btnCreateInvoice = new DevExpress.XtraEditors.SimpleButton();
             this.panelCreateBill = new DevExpress.XtraEditors.PanelControl();
-            this.gcInvoice = new DevExpress.XtraGrid.GridControl();
-            this.gvBills = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
-            this.colBillCode = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colBillDate = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colAppointmentDate = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPhone = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colAddress = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colStatus = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTotal = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gvBillDetails = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.riBtnStatus = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcInvoice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvBills)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.riBtnDetailsView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
@@ -72,10 +81,142 @@ namespace LaundryManager.Views
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelCreateBill)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcInvoice)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvBills)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvBillDetails)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.riBtnStatus)).BeginInit();
             this.SuspendLayout();
+            // 
+            // gcInvoice
+            // 
+            this.gcInvoice.DataMember = "Query";
+            this.gcInvoice.DataSource = this.sqlDataSource1;
+            this.gcInvoice.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcInvoice.Location = new System.Drawing.Point(233, 67);
+            this.gcInvoice.MainView = this.gvBills;
+            this.gcInvoice.Name = "gcInvoice";
+            this.gcInvoice.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.riBtnDetailsView,
+            this.riBtnStatus});
+            this.gcInvoice.Size = new System.Drawing.Size(979, 661);
+            this.gcInvoice.TabIndex = 5;
+            this.gcInvoice.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvBills});
+            // 
+            // sqlDataSource1
+            // 
+            this.sqlDataSource1.ConnectionName = "DATABASE_QUANLYTIEMGIATUIConnectionString";
+            this.sqlDataSource1.Name = "sqlDataSource1";
+            customSqlQuery1.Name = "Query";
+            customSqlQuery1.Sql = "SELECT BillCode, BillDate, Name, AppointmentDate, Phone, Address, Status, Total F" +
+    "ROM dbo.Customers , dbo.Bills WHERE dbo.Customers.ID = dbo.Bills.CusID\r\n";
+            this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
+            customSqlQuery1});
+            this.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable");
+            // 
+            // gvBills
+            // 
+            this.gvBills.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colBillCode,
+            this.colBillDate,
+            this.colName,
+            this.colAppointmentDate,
+            this.colPhone,
+            this.colAddress,
+            this.colStatus,
+            this.colTotal,
+            this.colDetailsView});
+            this.gvBills.GridControl = this.gcInvoice;
+            this.gvBills.Name = "gvBills";
+            this.gvBills.OptionsView.ShowGroupPanel = false;
+            // 
+            // colBillCode
+            // 
+            this.colBillCode.FieldName = "BillCode";
+            this.colBillCode.Name = "colBillCode";
+            this.colBillCode.Visible = true;
+            this.colBillCode.VisibleIndex = 0;
+            this.colBillCode.Width = 97;
+            // 
+            // colBillDate
+            // 
+            this.colBillDate.Caption = "Ngày lập";
+            this.colBillDate.FieldName = "BillDate";
+            this.colBillDate.Name = "colBillDate";
+            this.colBillDate.Visible = true;
+            this.colBillDate.VisibleIndex = 1;
+            this.colBillDate.Width = 97;
+            // 
+            // colName
+            // 
+            this.colName.Caption = "Tên khách hàng";
+            this.colName.FieldName = "Name";
+            this.colName.Name = "colName";
+            this.colName.Visible = true;
+            this.colName.VisibleIndex = 2;
+            this.colName.Width = 97;
+            // 
+            // colAppointmentDate
+            // 
+            this.colAppointmentDate.Caption = "Ngày hẹn";
+            this.colAppointmentDate.FieldName = "AppointmentDate";
+            this.colAppointmentDate.Name = "colAppointmentDate";
+            this.colAppointmentDate.Visible = true;
+            this.colAppointmentDate.VisibleIndex = 3;
+            this.colAppointmentDate.Width = 97;
+            // 
+            // colPhone
+            // 
+            this.colPhone.Caption = "Số điện thoại";
+            this.colPhone.FieldName = "Phone";
+            this.colPhone.Name = "colPhone";
+            this.colPhone.Visible = true;
+            this.colPhone.VisibleIndex = 4;
+            this.colPhone.Width = 97;
+            // 
+            // colAddress
+            // 
+            this.colAddress.Caption = "Địa chỉ";
+            this.colAddress.FieldName = "Address";
+            this.colAddress.Name = "colAddress";
+            this.colAddress.Visible = true;
+            this.colAddress.VisibleIndex = 5;
+            this.colAddress.Width = 198;
+            // 
+            // colStatus
+            // 
+            this.colStatus.Caption = "Trạng thái";
+            this.colStatus.ColumnEdit = this.riBtnStatus;
+            this.colStatus.FieldName = "Status";
+            this.colStatus.Name = "colStatus";
+            this.colStatus.Visible = true;
+            this.colStatus.VisibleIndex = 6;
+            this.colStatus.Width = 81;
+            // 
+            // colTotal
+            // 
+            this.colTotal.Caption = "Tổng tiền";
+            this.colTotal.FieldName = "Total";
+            this.colTotal.Name = "colTotal";
+            this.colTotal.Visible = true;
+            this.colTotal.VisibleIndex = 7;
+            this.colTotal.Width = 140;
+            // 
+            // colDetailsView
+            // 
+            this.colDetailsView.Caption = "Xem chi tiết";
+            this.colDetailsView.ColumnEdit = this.riBtnDetailsView;
+            this.colDetailsView.Name = "colDetailsView";
+            this.colDetailsView.Visible = true;
+            this.colDetailsView.VisibleIndex = 8;
+            this.colDetailsView.Width = 50;
+            // 
+            // riBtnDetailsView
+            // 
+            this.riBtnDetailsView.AutoHeight = false;
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            this.riBtnDetailsView.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.riBtnDetailsView.Name = "riBtnDetailsView";
+            this.riBtnDetailsView.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.riBtnDetailsView.Click += new System.EventHandler(this.riBtnDetailsView_Click);
             // 
             // dockManager1
             // 
@@ -278,110 +419,13 @@ namespace LaundryManager.Views
             this.panelCreateBill.Size = new System.Drawing.Size(978, 10);
             this.panelCreateBill.TabIndex = 4;
             // 
-            // gcInvoice
+            // riBtnStatus
             // 
-            this.gcInvoice.DataMember = "Query";
-            this.gcInvoice.DataSource = this.sqlDataSource1;
-            this.gcInvoice.Dock = System.Windows.Forms.DockStyle.Fill;
-            gridLevelNode1.LevelTemplate = this.gvBillDetails;
-            gridLevelNode1.RelationName = "Level1";
-            this.gcInvoice.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1});
-            this.gcInvoice.Location = new System.Drawing.Point(233, 67);
-            this.gcInvoice.MainView = this.gvBills;
-            this.gcInvoice.Name = "gcInvoice";
-            this.gcInvoice.Size = new System.Drawing.Size(979, 661);
-            this.gcInvoice.TabIndex = 5;
-            this.gcInvoice.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvBills,
-            this.gvBillDetails});
-            // 
-            // gvBills
-            // 
-            this.gvBills.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colBillCode,
-            this.colBillDate,
-            this.colName,
-            this.colAppointmentDate,
-            this.colPhone,
-            this.colAddress,
-            this.colStatus,
-            this.colTotal});
-            this.gvBills.GridControl = this.gcInvoice;
-            this.gvBills.Name = "gvBills";
-            this.gvBills.OptionsView.ShowGroupPanel = false;
-            // 
-            // sqlDataSource1
-            // 
-            this.sqlDataSource1.ConnectionName = "DATABASE_QUANLYTIEMGIATUIConnectionString";
-            this.sqlDataSource1.Name = "sqlDataSource1";
-            customSqlQuery1.Name = "Query";
-            customSqlQuery1.Sql = "SELECT BillCode, BillDate, Name, AppointmentDate, Phone, Address, Status, Total F" +
-    "ROM dbo.Customers , dbo.Bills WHERE dbo.Customers.ID = dbo.Bills.CusID\r\n";
-            this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
-            customSqlQuery1});
-            this.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable");
-            // 
-            // colBillCode
-            // 
-            this.colBillCode.FieldName = "BillCode";
-            this.colBillCode.Name = "colBillCode";
-            this.colBillCode.Visible = true;
-            this.colBillCode.VisibleIndex = 0;
-            // 
-            // colBillDate
-            // 
-            this.colBillDate.FieldName = "BillDate";
-            this.colBillDate.Name = "colBillDate";
-            this.colBillDate.Visible = true;
-            this.colBillDate.VisibleIndex = 1;
-            // 
-            // colName
-            // 
-            this.colName.FieldName = "Name";
-            this.colName.Name = "colName";
-            this.colName.Visible = true;
-            this.colName.VisibleIndex = 2;
-            // 
-            // colAppointmentDate
-            // 
-            this.colAppointmentDate.FieldName = "AppointmentDate";
-            this.colAppointmentDate.Name = "colAppointmentDate";
-            this.colAppointmentDate.Visible = true;
-            this.colAppointmentDate.VisibleIndex = 3;
-            // 
-            // colPhone
-            // 
-            this.colPhone.FieldName = "Phone";
-            this.colPhone.Name = "colPhone";
-            this.colPhone.Visible = true;
-            this.colPhone.VisibleIndex = 4;
-            // 
-            // colAddress
-            // 
-            this.colAddress.FieldName = "Address";
-            this.colAddress.Name = "colAddress";
-            this.colAddress.Visible = true;
-            this.colAddress.VisibleIndex = 5;
-            // 
-            // colStatus
-            // 
-            this.colStatus.FieldName = "Status";
-            this.colStatus.Name = "colStatus";
-            this.colStatus.Visible = true;
-            this.colStatus.VisibleIndex = 6;
-            // 
-            // colTotal
-            // 
-            this.colTotal.FieldName = "Total";
-            this.colTotal.Name = "colTotal";
-            this.colTotal.Visible = true;
-            this.colTotal.VisibleIndex = 7;
-            // 
-            // gvBillDetails
-            // 
-            this.gvBillDetails.GridControl = this.gcInvoice;
-            this.gvBillDetails.Name = "gvBillDetails";
+            this.riBtnStatus.AutoHeight = false;
+            this.riBtnStatus.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.riBtnStatus.Name = "riBtnStatus";
+            this.riBtnStatus.Click += new System.EventHandler(this.riBtnStatus_Click);
             // 
             // UCInvoice
             // 
@@ -396,6 +440,9 @@ namespace LaundryManager.Views
             this.Name = "UCInvoice";
             this.Size = new System.Drawing.Size(1212, 728);
             this.Load += new System.EventHandler(this.UCInvoice_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.gcInvoice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvBills)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.riBtnDetailsView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
@@ -404,9 +451,7 @@ namespace LaundryManager.Views
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelCreateBill)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcInvoice)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvBills)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvBillDetails)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.riBtnStatus)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -445,6 +490,8 @@ namespace LaundryManager.Views
         private DevExpress.XtraGrid.Columns.GridColumn colAddress;
         private DevExpress.XtraGrid.Columns.GridColumn colStatus;
         private DevExpress.XtraGrid.Columns.GridColumn colTotal;
-        private DevExpress.XtraGrid.Views.Grid.GridView gvBillDetails;
+        private DevExpress.XtraGrid.Columns.GridColumn colDetailsView;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit riBtnDetailsView;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit riBtnStatus;
     }
 }
