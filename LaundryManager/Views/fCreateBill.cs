@@ -31,104 +31,110 @@ namespace LaundryManager.Views
             gcCart.DataSource = SampleDS();
         }
 
+        BindingList<BillDetails> ds = new BindingList<BillDetails>();
         public BindingList<BillDetails> SampleDS()
         {
-            BindingList<BillDetails> ds = new BindingList<BillDetails>();
+            
             return ds;
         }
 
         public class BillDetails
         {
+            public string ServID { get; set; }
             public string ServiceNameBD { get; set; }
             public Int32 Quantity { get; set; }
-            public string Total { get; set; }
+            public double Total { get; set; }
 
             public BillDetails()
             {
             }
 
-            public BillDetails(string serviceName, int quantity, string total)
+            public BillDetails(string serviceID, string serviceName, int quantity, double total)
             {
+                ServID = serviceID;
                 ServiceNameBD = serviceName;
                 Quantity = quantity;
                 Total = total;
             }
         }
 
-        Hashtable serviceList = new Hashtable(); // 
-
+        IDictionary<string, int> serviceList = new Dictionary<string, int>();
         private void ribtnAdd_Click(object sender, EventArgs e)
         {
             object value;
 
             int rowIndex = gvServiceList.FocusedRowHandle;
 
+            // Lấy id
+            string colFieldID = "ID";
+            value = gvServiceList.GetRowCellValue(rowIndex, colFieldID);
+            string serviceID = value.ToString();
+
             // Lấy tên
             string colFieldName = "ServiceName";
             value = gvServiceList.GetRowCellValue(rowIndex, colFieldName);
             string serviceName = value.ToString();
 
-            bool flag = false;
+            // Lấy đơn giá
+            string colFieldPrice = "Price";
+            value = gvServiceList.GetRowCellValue(rowIndex, colFieldPrice);
+            string s = value.ToString();
+            double price = double.Parse(s);
+
+
+            double total = price; // Thành tiền
+
+
+            bool flag = false; // Biến kiểm tra service có trong gvCart chưa
+            var quantity = 1; // Biến đếm số lượng trong gvCart
+
             // Check xem có trong gvCart chưa 
-            foreach (DictionaryEntry item in serviceList)
+            foreach (KeyValuePair<string, int> kvp in serviceList)
             {
-                var key = item.Key;
-                if (key.ToString() == serviceName)
+                var key = kvp.Key;
+                if (key == serviceID)
                 {
                     flag = true;
-                    break;
+                    quantity = kvp.Value;
                 }    
-            }
-            
-            if (flag == false) // dịchv vụ chưa thêm vào cart
-            {
-                // Khởi tạo số lượng đầu
-                
-
-                // Thêm vào trong hash id,  quantity 
-                serviceList.Add(serviceName, 1);
-                gvCart.AddNewRow();
-
-                // Tính giá
-                string colFieldPrice = "Price";
-                value = gvServiceList.GetRowCellValue(rowIndex, colFieldPrice);
-                string total = value.ToString();
-
-                gvCart.SetRowCellValue(GridControl.NewItemRowHandle, "ServiceNameBD", serviceName);
-                gvCart.SetRowCellValue(GridControl.NewItemRowHandle, "Quantity", 1);
-                gvCart.SetRowCellValue(GridControl.NewItemRowHandle, "Total", total);
-            }
-            else
-            {
-                string colFieldNameBD = "ServiceNameBD";
-                for (int i = 0; i < gvCart.DataRowCount; i++)
-                {
-                   
-                    value = gvCart.GetRowCellValue(i, colFieldNameBD);
-                    string serNameBD = value.ToString();
-                    if (serviceName == serNameBD)
-                    {
-                        gvCart.SetRowCellValue(i, "Quantity", 2);
-                    }
-                    else
-                    {
-
-                    }    
-
-                }
             }    
 
-            
+            // Nếu tồn tại trong gvCart thì tăng số lượng lên 1
+            if (flag == true)
+            {
+                quantity++;
+                int temp = quantity; 
+                total = total * quantity; // Thành tiền bằng 
+                serviceList[serviceID] = quantity; // gán lại cho hashtable
+                // So sánh serviceID gvServiceList vs ...gvCart
+                int count = gvCart.DataRowCount;          
+                for (int idx = 0; idx < count; idx++)
+                {
+                    string servID = (string)gvCart.GetRowCellValue(idx, "ServID");
+                    if (serviceID == servID)
+                    {
+                        
+                        gvCart.SetRowCellValue(idx, "Quantity", temp);
+                        gvCart.SetRowCellValue(idx, "Total", total);
+                        break;
+                    }    
+                }   
+            }
+            else // KHÔNG TỒN TẠI THÌ THÊM MỚI
+            {
+                serviceList.Add(serviceID, 1);
+                ds.Add(new BillDetails(serviceID ,serviceName, 1, total));
+            }  
         }
 
         private void riBtnDelete_Click(object sender, EventArgs e)
         {
-            gvCart.DeleteRow(gvCart.FocusedRowHandle);
-
             int rowIndex = gvCart.FocusedRowHandle;
-            string colFieldName = "ServiceNameBD";
+            string colFieldName = "ServID";
             object value = gvCart.GetRowCellValue(rowIndex, colFieldName);
             string str = (string)value;
+            serviceList.Remove(str);
+            gvCart.DeleteRow(gvCart.FocusedRowHandle);
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -143,9 +149,72 @@ namespace LaundryManager.Views
             string total1 = txtTotal1.Text; // Tiền sau khi đã chiết khẩu
             string status = cbStatus.GetItemText(cbStatus.SelectedItem);
 
-            MessageBox.Show(status);
+            int x = gvCart.DataRowCount;
+
+           
+            MessageBox.Show(x.ToString());
             
            
+        }
+
+        private void riBtnRemove_Click(object sender, EventArgs e)
+        {
+            object value;
+
+            int rowIndex = gvServiceList.FocusedRowHandle;
+
+            // Lấy id
+            string colFieldID = "ID";
+            value = gvServiceList.GetRowCellValue(rowIndex, colFieldID);
+            string serviceID = value.ToString();
+
+            // Lấy số lượng 
+            string colFieldQuantity = "Quantity";
+            value = gvCart.GetRowCellValue(rowIndex, colFieldQuantity);
+            var quantity = int.Parse(value.ToString());
+
+            // Lấy thành tiền
+            string colFieldTotal = "Total";
+            value = gvCart.GetRowCellValue(rowIndex, colFieldTotal);
+            string s = value.ToString();
+            double total = double.Parse(s);
+
+            // Lấy price
+
+            double price = total / quantity;
+
+           
+
+            if (quantity <= 1)
+            {
+                string colFieldName = "ServID";
+                value = gvCart.GetRowCellValue(rowIndex, colFieldName);
+                string str = (string)value;
+                serviceList.Remove(str);
+                gvCart.DeleteRow(gvCart.FocusedRowHandle);
+            }
+            else
+            {
+
+
+                quantity--;
+                int temp = quantity;
+                total = total - price; // Thành tiền bằng 
+                serviceList[serviceID] = quantity; // gán lại cho hashtable
+                 // So sánh serviceID gvServiceList vs ...gvCart
+                int count = gvCart.DataRowCount;
+                for (int idx = 0; idx < count; idx++)
+                {
+                    string servID = (string)gvCart.GetRowCellValue(idx, "ServID");
+                    if (serviceID == servID)
+                    {
+
+                        gvCart.SetRowCellValue(idx, "Quantity", temp);
+                        gvCart.SetRowCellValue(idx, "Total", total);
+                        break;
+                    }
+                }
+            }    
         }
     }
 }
