@@ -30,15 +30,13 @@ namespace LaundryManager.Views
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery1 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCInvoice));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcInvoice = new DevExpress.XtraGrid.GridControl();
-            this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.gvBills = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colBillCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colBillDate = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -47,8 +45,8 @@ namespace LaundryManager.Views
             this.colPhone = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAddress = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colStatus = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.riBtnStatus = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.colTotal = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDetailsView = new DevExpress.XtraGrid.Columns.GridColumn();
             this.riBtnDetailsView = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
@@ -70,9 +68,10 @@ namespace LaundryManager.Views
             this.btnIgnore = new DevExpress.XtraEditors.SimpleButton();
             this.btnCreateInvoice = new DevExpress.XtraEditors.SimpleButton();
             this.panelCreateBill = new DevExpress.XtraEditors.PanelControl();
-            this.riBtnStatus = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcInvoice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvBills)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.riBtnStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.riBtnDetailsView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -81,13 +80,53 @@ namespace LaundryManager.Views
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelCreateBill)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.riBtnStatus)).BeginInit();
             this.SuspendLayout();
+            // 
+            // gridView1
+            // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1,
+            this.gridColumn2,
+            this.gridColumn3,
+            this.gridColumn4});
+            this.gridView1.GridControl = this.gcInvoice;
+            this.gridView1.Name = "gridView1";
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Custom roi";
+            this.gridColumn1.FieldName = "BillCode";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 0;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "gridColumn2";
+            this.gridColumn2.FieldName = "ServiceName";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 1;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "gridColumn3";
+            this.gridColumn3.FieldName = "Price";
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 2;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "gridColumn4";
+            this.gridColumn4.FieldName = "Note";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 3;
             // 
             // gcInvoice
             // 
             this.gcInvoice.DataMember = "Query";
-            this.gcInvoice.DataSource = this.sqlDataSource1;
             this.gcInvoice.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gcInvoice.Location = new System.Drawing.Point(233, 67);
             this.gcInvoice.MainView = this.gvBills;
@@ -98,18 +137,8 @@ namespace LaundryManager.Views
             this.gcInvoice.Size = new System.Drawing.Size(979, 661);
             this.gcInvoice.TabIndex = 5;
             this.gcInvoice.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvBills});
-            // 
-            // sqlDataSource1
-            // 
-            this.sqlDataSource1.ConnectionName = "DATABASE_QUANLYTIEMGIATUIConnectionString";
-            this.sqlDataSource1.Name = "sqlDataSource1";
-            customSqlQuery1.Name = "Query";
-            customSqlQuery1.Sql = "SELECT BillCode, BillDate, Name, AppointmentDate, Phone, Address, Status, Total F" +
-    "ROM dbo.Customers , dbo.Bills WHERE dbo.Customers.ID = dbo.Bills.CusID\r\n";
-            this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
-            customSqlQuery1});
-            this.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable");
+            this.gvBills,
+            this.gridView1});
             // 
             // gvBills
             // 
@@ -121,8 +150,7 @@ namespace LaundryManager.Views
             this.colPhone,
             this.colAddress,
             this.colStatus,
-            this.colTotal,
-            this.colDetailsView});
+            this.colTotal});
             this.gvBills.GridControl = this.gcInvoice;
             this.gvBills.Name = "gvBills";
             this.gvBills.OptionsView.ShowGroupPanel = false;
@@ -131,6 +159,7 @@ namespace LaundryManager.Views
             // 
             this.colBillCode.FieldName = "BillCode";
             this.colBillCode.Name = "colBillCode";
+            this.colBillCode.OptionsColumn.AllowFocus = false;
             this.colBillCode.Visible = true;
             this.colBillCode.VisibleIndex = 0;
             this.colBillCode.Width = 97;
@@ -140,6 +169,7 @@ namespace LaundryManager.Views
             this.colBillDate.Caption = "Ngày lập";
             this.colBillDate.FieldName = "BillDate";
             this.colBillDate.Name = "colBillDate";
+            this.colBillDate.OptionsColumn.AllowFocus = false;
             this.colBillDate.Visible = true;
             this.colBillDate.VisibleIndex = 1;
             this.colBillDate.Width = 97;
@@ -149,6 +179,7 @@ namespace LaundryManager.Views
             this.colName.Caption = "Tên khách hàng";
             this.colName.FieldName = "Name";
             this.colName.Name = "colName";
+            this.colName.OptionsColumn.AllowFocus = false;
             this.colName.Visible = true;
             this.colName.VisibleIndex = 2;
             this.colName.Width = 97;
@@ -158,6 +189,7 @@ namespace LaundryManager.Views
             this.colAppointmentDate.Caption = "Ngày hẹn";
             this.colAppointmentDate.FieldName = "AppointmentDate";
             this.colAppointmentDate.Name = "colAppointmentDate";
+            this.colAppointmentDate.OptionsColumn.AllowFocus = false;
             this.colAppointmentDate.Visible = true;
             this.colAppointmentDate.VisibleIndex = 3;
             this.colAppointmentDate.Width = 97;
@@ -167,6 +199,7 @@ namespace LaundryManager.Views
             this.colPhone.Caption = "Số điện thoại";
             this.colPhone.FieldName = "Phone";
             this.colPhone.Name = "colPhone";
+            this.colPhone.OptionsColumn.AllowFocus = false;
             this.colPhone.Visible = true;
             this.colPhone.VisibleIndex = 4;
             this.colPhone.Width = 97;
@@ -176,6 +209,7 @@ namespace LaundryManager.Views
             this.colAddress.Caption = "Địa chỉ";
             this.colAddress.FieldName = "Address";
             this.colAddress.Name = "colAddress";
+            this.colAddress.OptionsColumn.AllowFocus = false;
             this.colAddress.Visible = true;
             this.colAddress.VisibleIndex = 5;
             this.colAddress.Width = 198;
@@ -190,33 +224,27 @@ namespace LaundryManager.Views
             this.colStatus.VisibleIndex = 6;
             this.colStatus.Width = 81;
             // 
+            // riBtnStatus
+            // 
+            this.riBtnStatus.AutoHeight = false;
+            this.riBtnStatus.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.riBtnStatus.Name = "riBtnStatus";
+            this.riBtnStatus.Click += new System.EventHandler(this.riBtnStatus_Click);
+            // 
             // colTotal
             // 
             this.colTotal.Caption = "Tổng tiền";
             this.colTotal.FieldName = "Total";
             this.colTotal.Name = "colTotal";
+            this.colTotal.OptionsColumn.AllowFocus = false;
             this.colTotal.Visible = true;
             this.colTotal.VisibleIndex = 7;
             this.colTotal.Width = 140;
             // 
-            // colDetailsView
-            // 
-            this.colDetailsView.Caption = "Xem chi tiết";
-            this.colDetailsView.ColumnEdit = this.riBtnDetailsView;
-            this.colDetailsView.Name = "colDetailsView";
-            this.colDetailsView.Visible = true;
-            this.colDetailsView.VisibleIndex = 8;
-            this.colDetailsView.Width = 50;
-            // 
             // riBtnDetailsView
             // 
-            this.riBtnDetailsView.AutoHeight = false;
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
-            this.riBtnDetailsView.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.riBtnDetailsView.Name = "riBtnDetailsView";
-            this.riBtnDetailsView.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.riBtnDetailsView.Click += new System.EventHandler(this.riBtnDetailsView_Click);
             // 
             // dockManager1
             // 
@@ -419,14 +447,6 @@ namespace LaundryManager.Views
             this.panelCreateBill.Size = new System.Drawing.Size(978, 10);
             this.panelCreateBill.TabIndex = 4;
             // 
-            // riBtnStatus
-            // 
-            this.riBtnStatus.AutoHeight = false;
-            this.riBtnStatus.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.riBtnStatus.Name = "riBtnStatus";
-            this.riBtnStatus.Click += new System.EventHandler(this.riBtnStatus_Click);
-            // 
             // UCInvoice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -440,8 +460,10 @@ namespace LaundryManager.Views
             this.Name = "UCInvoice";
             this.Size = new System.Drawing.Size(1212, 728);
             this.Load += new System.EventHandler(this.UCInvoice_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcInvoice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvBills)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.riBtnStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.riBtnDetailsView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
             this.dockPanel1.ResumeLayout(false);
@@ -451,7 +473,6 @@ namespace LaundryManager.Views
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelCreateBill)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.riBtnStatus)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -481,7 +502,6 @@ namespace LaundryManager.Views
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraEditors.SimpleButton btnSave;
-        private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource1;
         private DevExpress.XtraGrid.Columns.GridColumn colBillCode;
         private DevExpress.XtraGrid.Columns.GridColumn colBillDate;
         private DevExpress.XtraGrid.Columns.GridColumn colName;
@@ -490,8 +510,12 @@ namespace LaundryManager.Views
         private DevExpress.XtraGrid.Columns.GridColumn colAddress;
         private DevExpress.XtraGrid.Columns.GridColumn colStatus;
         private DevExpress.XtraGrid.Columns.GridColumn colTotal;
-        private DevExpress.XtraGrid.Columns.GridColumn colDetailsView;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit riBtnDetailsView;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit riBtnStatus;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
     }
 }

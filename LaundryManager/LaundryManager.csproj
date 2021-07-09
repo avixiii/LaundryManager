@@ -76,7 +76,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\BillDetailsController.cs" />
     <Compile Include="Controllers\DataController.cs" />
     <Compile Include="Controllers\ServiceController.cs" />
     <Compile Include="Controllers\UnitController.cs" />
@@ -140,12 +139,6 @@
     </Compile>
     <Compile Include="Views\fPayment.Designer.cs">
       <DependentUpon>fPayment.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\fShowBillDetails.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\fShowBillDetails.Designer.cs">
-      <DependentUpon>fShowBillDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\fSignUp.cs">
       <SubType>Form</SubType>
@@ -221,9 +214,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\fPayment.resx">
       <DependentUpon>fPayment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\fShowBillDetails.resx">
-      <DependentUpon>fShowBillDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\fSignUp.resx">
       <DependentUpon>fSignUp.cs</DependentUpon>
