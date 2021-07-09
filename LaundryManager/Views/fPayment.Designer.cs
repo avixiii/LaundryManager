@@ -71,7 +71,6 @@ namespace LaundryManager.Views
             this.txtTotalBill.Name = "txtTotalBill";
             this.txtTotalBill.Size = new System.Drawing.Size(253, 21);
             this.txtTotalBill.TabIndex = 7;
-            this.txtTotalBill.Text = "20000";
             // 
             // txtPaid
             // 
@@ -91,16 +90,17 @@ namespace LaundryManager.Views
             // 
             // btnSave
             // 
-            this.btnSave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btnSave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.ImageOptions.Image")));
             this.btnSave.Location = new System.Drawing.Point(114, 153);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 10;
             this.btnSave.Text = "LƯU";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnClose
             // 
-            this.btnClose.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
+            this.btnClose.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.ImageOptions.Image")));
             this.btnClose.Location = new System.Drawing.Point(230, 153);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);

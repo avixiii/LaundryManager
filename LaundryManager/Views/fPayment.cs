@@ -21,9 +21,25 @@ namespace LaundryManager.Views
         private void txtPaid_TextChanged(object sender, EventArgs e)
         {
             string strTotalBill = txtTotalBill.Text;
-            double totalBill = double.Parse(strTotalBill);
+            double totalBill;
+            if (strTotalBill == "")
+            {
+                totalBill = 0;
+            }    
+            else
+            {
+                totalBill = double.Parse(strTotalBill);
+            }    
             string strPaid = txtPaid.Text;
-            double paid = double.Parse(strPaid);
+            double paid;
+            if (strPaid == "")
+            {
+                paid = 0;
+            }
+            else
+            {
+                paid = double.Parse(strPaid);
+            }    
 
             double mustBePaid = paid - totalBill;
             txtMustBePaid.Text = mustBePaid.ToString();
@@ -32,6 +48,11 @@ namespace LaundryManager.Views
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
