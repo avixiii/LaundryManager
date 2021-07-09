@@ -26,9 +26,11 @@ namespace LaundryManager.Views
             sqlDataSource1.FillAsync();
         }
 
+        double totalBill = 0;
         private void fCreateBill_Load(object sender, EventArgs e)
         {
             gcCart.DataSource = SampleDS();
+            txtBillCode.Text = Models.Connection.ExcuteScalar(String.Format("SELECT dbo.fcgetBillCode()"));
         }
 
         BindingList<BillDetails> ds = new BindingList<BillDetails>();
@@ -37,7 +39,7 @@ namespace LaundryManager.Views
             
             return ds;
         }
-
+        
         public class BillDetails
         {
             public string ServID { get; set; }
@@ -105,6 +107,7 @@ namespace LaundryManager.Views
                 quantity++;
                 int temp = quantity; 
                 total = total * quantity; // Thành tiền bằng 
+                totalBill = total;
                 serviceList[serviceID] = quantity; // gán lại cho hashtable
                 // So sánh serviceID gvServiceList vs ...gvCart
                 int count = gvCart.DataRowCount;          
@@ -124,7 +127,9 @@ namespace LaundryManager.Views
             {
                 serviceList.Add(serviceID, 1);
                 ds.Add(new BillDetails(serviceID ,serviceName, 1, total));
-            }  
+                totalBill += total;
+            }
+            txtTotal.Text = totalBill.ToString();
         }
 
         private void riBtnDelete_Click(object sender, EventArgs e)
@@ -154,7 +159,29 @@ namespace LaundryManager.Views
            
             MessageBox.Show(x.ToString());
             
-           
+
+            /*
+            1. Lưu bill vào db
+            - BillCode
+            - CusID
+            - UserID
+            - BillDate
+            - AppointmentDate
+            - RecieveDate
+            - Total
+            - Discount
+            - Surcharge
+
+            2. Lưu BillDetails vào db
+
+            -- BillCode
+            - ServID
+            - Quantity
+            - Price
+            - Total
+
+            */
+                
         }
 
         private void riBtnRemove_Click(object sender, EventArgs e)
@@ -171,7 +198,21 @@ namespace LaundryManager.Views
             // Lấy số lượng 
             string colFieldQuantity = "Quantity";
             value = gvCart.GetRowCellValue(rowIndex, colFieldQuantity);
-            var quantity = int.Parse(value.ToString());
+            string squantity;
+            if (value == null)
+            {
+                squantity = "";
+            }    
+            squantity = value.ToString();
+            int quantity;
+            if (squantity == "")
+            {
+                quantity = 0;
+            }
+            else
+            {
+                quantity = int.Parse(squantity);
+            }    
 
             // Lấy thành tiền
             string colFieldTotal = "Total";
@@ -190,6 +231,8 @@ namespace LaundryManager.Views
                 string colFieldName = "ServID";
                 value = gvCart.GetRowCellValue(rowIndex, colFieldName);
                 string str = (string)value;
+                totalBill = totalBill - price;
+                txtTotal.Text = totalBill.ToString();
                 serviceList.Remove(str);
                 gvCart.DeleteRow(gvCart.FocusedRowHandle);
             }
@@ -211,10 +254,30 @@ namespace LaundryManager.Views
 
                         gvCart.SetRowCellValue(idx, "Quantity", temp);
                         gvCart.SetRowCellValue(idx, "Total", total);
+                        totalBill -= price;
+                        txtTotal.Text = totalBill.ToString();
                         break;
                     }
                 }
             }    
         }
+
+        private void txtDiscount_TextChanged(object sender, EventArgs e)
+        {
+            string s = txtDiscount.Text;
+            double discount;
+            try
+            {
+                discount = double.Parse(s);
+            }
+            catch
+            {
+                discount = 100;
+            }
+            double total = totalBill * (discount / 100.0);
+            total = totalBill - total;
+            txtTotal1.Text = total.ToString();
+        }
+    
     }
 }
