@@ -265,9 +265,10 @@ namespace LaundryManager.Models
             DataTable dt = new DataTable();
             try
             {
+                
                 SqlDataAdapter da = new SqlDataAdapter(sql, GetConnection());
+                SqlCommandBuilder builder = new SqlCommandBuilder(da);
                 da.Fill(dt);
-                da.Dispose();
             }
             catch (Exception ex)
             {
