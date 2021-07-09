@@ -209,6 +209,7 @@ namespace LaundryManager.Views
             this.btnCustomerList.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnCustomerList.ImageOptions.LargeImage")));
             this.btnCustomerList.Name = "btnCustomerList";
             this.btnCustomerList.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+            this.btnCustomerList.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCustomerList_ItemClick);
             // 
             // btnEmployeeList
             // 

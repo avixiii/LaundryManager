@@ -173,6 +173,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\UCCustomers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UCCustomers.Designer.cs">
+      <DependentUpon>UCCustomers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UCUsers.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -240,6 +246,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\UCCustomers.resx">
+      <DependentUpon>UCCustomers.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\UCUsers.resx">
       <DependentUpon>UCUsers.cs</DependentUpon>
     </EmbeddedResource>

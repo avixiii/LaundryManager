@@ -98,5 +98,13 @@ namespace LaundryManager.Views
             ucUsers.Dock = DockStyle.Fill;
             panelMain.Controls.Add(ucUsers);
         }
+
+        private void btnCustomerList_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            panelMain.Controls.Clear();
+            UCCustomers uCCustomers = new UCCustomers();
+            uCCustomers.Dock = DockStyle.Fill;
+            panelMain.Controls.Add(uCCustomers);
+        }
     }
 }
