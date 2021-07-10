@@ -49,17 +49,23 @@ namespace LaundryManager.Views
             this.colTotal = new DevExpress.XtraGrid.Columns.GridColumn();
             this.riBtnDetailsView = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
-            this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
-            this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
+            this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.txtCustomer = new System.Windows.Forms.TextBox();
+            this.ckbCustomer = new System.Windows.Forms.CheckBox();
+            this.txtID = new System.Windows.Forms.TextBox();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.btnSearchByID = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.txtEmployee = new System.Windows.Forms.TextBox();
+            this.ckbTime = new System.Windows.Forms.CheckBox();
+            this.cbStatus = new System.Windows.Forms.ComboBox();
+            this.ckbStatus = new System.Windows.Forms.CheckBox();
+            this.ckbID = new System.Windows.Forms.CheckBox();
+            this.ckbEmployee = new System.Windows.Forms.CheckBox();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.btnExit = new DevExpress.XtraEditors.SimpleButton();
@@ -67,19 +73,30 @@ namespace LaundryManager.Views
             this.btnEdit = new DevExpress.XtraEditors.SimpleButton();
             this.btnIgnore = new DevExpress.XtraEditors.SimpleButton();
             this.btnCreateInvoice = new DevExpress.XtraEditors.SimpleButton();
-            this.panelCreateBill = new DevExpress.XtraEditors.PanelControl();
+            this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.dtTime = new DevExpress.XtraEditors.DateEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcInvoice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvBills)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.riBtnStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.riBtnDetailsView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
-            this.dockPanel1.SuspendLayout();
-            this.dockPanel1_Container.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.dockPanel2.SuspendLayout();
+            this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelCreateBill)).BeginInit();
+            this.dockPanel1_Container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtTime.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtTime.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // gridView1
@@ -128,13 +145,13 @@ namespace LaundryManager.Views
             // 
             this.gcInvoice.DataMember = "Query";
             this.gcInvoice.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcInvoice.Location = new System.Drawing.Point(233, 67);
+            this.gcInvoice.Location = new System.Drawing.Point(392, 41);
             this.gcInvoice.MainView = this.gvBills;
             this.gcInvoice.Name = "gcInvoice";
             this.gcInvoice.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.riBtnDetailsView,
             this.riBtnStatus});
-            this.gcInvoice.Size = new System.Drawing.Size(979, 661);
+            this.gcInvoice.Size = new System.Drawing.Size(820, 687);
             this.gcInvoice.TabIndex = 5;
             this.gcInvoice.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvBills,
@@ -250,7 +267,7 @@ namespace LaundryManager.Views
             // 
             this.dockManager1.Form = this;
             this.dockManager1.RootPanels.AddRange(new DevExpress.XtraBars.Docking.DockPanel[] {
-            this.dockPanel1});
+            this.dockPanel2});
             this.dockManager1.TopZIndexControls.AddRange(new string[] {
             "DevExpress.XtraBars.BarDockControl",
             "DevExpress.XtraBars.StandaloneBarDockControl",
@@ -265,106 +282,176 @@ namespace LaundryManager.Views
             "DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl",
             "DevExpress.XtraBars.ToolbarForm.ToolbarFormControl"});
             // 
-            // dockPanel1
+            // dockPanel2
             // 
-            this.dockPanel1.Controls.Add(this.dockPanel1_Container);
-            this.dockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
-            this.dockPanel1.ID = new System.Guid("930c37a4-e83d-4af0-8dee-7a6e44918c17");
-            this.dockPanel1.Location = new System.Drawing.Point(0, 0);
-            this.dockPanel1.Name = "dockPanel1";
-            this.dockPanel1.OriginalSize = new System.Drawing.Size(233, 200);
-            this.dockPanel1.Size = new System.Drawing.Size(233, 728);
-            this.dockPanel1.Text = "TÌM KIẾM VÀ LỌC DỮ LIỆU";
+            this.dockPanel2.Controls.Add(this.dockPanel2_Container);
+            this.dockPanel2.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
+            this.dockPanel2.ID = new System.Guid("c998e66d-8869-4622-940a-8e6b339267c3");
+            this.dockPanel2.Location = new System.Drawing.Point(0, 0);
+            this.dockPanel2.Name = "dockPanel2";
+            this.dockPanel2.OriginalSize = new System.Drawing.Size(392, 200);
+            this.dockPanel2.Size = new System.Drawing.Size(392, 728);
+            this.dockPanel2.Text = "TÌM KIẾM VÀ LỌC DỮ LIỆU";
             // 
-            // dockPanel1_Container
+            // dockPanel2_Container
             // 
-            this.dockPanel1_Container.Controls.Add(this.simpleButton1);
-            this.dockPanel1_Container.Controls.Add(this.textBox4);
-            this.dockPanel1_Container.Controls.Add(this.textBox2);
-            this.dockPanel1_Container.Controls.Add(this.textBox1);
-            this.dockPanel1_Container.Controls.Add(this.label5);
-            this.dockPanel1_Container.Controls.Add(this.label3);
-            this.dockPanel1_Container.Controls.Add(this.label2);
-            this.dockPanel1_Container.Controls.Add(this.label1);
-            this.dockPanel1_Container.Location = new System.Drawing.Point(3, 26);
-            this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(226, 699);
-            this.dockPanel1_Container.TabIndex = 0;
+            this.dockPanel2_Container.Controls.Add(this.dtTime);
+            this.dockPanel2_Container.Controls.Add(this.labelControl5);
+            this.dockPanel2_Container.Controls.Add(this.txtCustomer);
+            this.dockPanel2_Container.Controls.Add(this.ckbCustomer);
+            this.dockPanel2_Container.Controls.Add(this.txtID);
+            this.dockPanel2_Container.Controls.Add(this.labelControl1);
+            this.dockPanel2_Container.Controls.Add(this.labelControl2);
+            this.dockPanel2_Container.Controls.Add(this.labelControl3);
+            this.dockPanel2_Container.Controls.Add(this.btnSearchByID);
+            this.dockPanel2_Container.Controls.Add(this.labelControl4);
+            this.dockPanel2_Container.Controls.Add(this.txtEmployee);
+            this.dockPanel2_Container.Controls.Add(this.ckbTime);
+            this.dockPanel2_Container.Controls.Add(this.cbStatus);
+            this.dockPanel2_Container.Controls.Add(this.ckbStatus);
+            this.dockPanel2_Container.Controls.Add(this.ckbID);
+            this.dockPanel2_Container.Controls.Add(this.ckbEmployee);
+            this.dockPanel2_Container.Location = new System.Drawing.Point(3, 26);
+            this.dockPanel2_Container.Name = "dockPanel2_Container";
+            this.dockPanel2_Container.Size = new System.Drawing.Size(385, 699);
+            this.dockPanel2_Container.TabIndex = 0;
             // 
-            // simpleButton1
+            // labelControl5
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(170, 71);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(45, 23);
-            this.simpleButton1.TabIndex = 13;
-            this.simpleButton1.Text = "XEM";
+            this.labelControl5.Location = new System.Drawing.Point(9, 117);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(56, 13);
+            this.labelControl5.TabIndex = 40;
+            this.labelControl5.Text = "Khách hàng";
             // 
-            // textBox4
+            // txtCustomer
             // 
-            this.textBox4.Location = new System.Drawing.Point(87, 191);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(128, 20);
-            this.textBox4.TabIndex = 12;
+            this.txtCustomer.Enabled = false;
+            this.txtCustomer.Location = new System.Drawing.Point(116, 114);
+            this.txtCustomer.Name = "txtCustomer";
+            this.txtCustomer.Size = new System.Drawing.Size(227, 20);
+            this.txtCustomer.TabIndex = 41;
             // 
-            // textBox2
+            // ckbCustomer
             // 
-            this.textBox2.Location = new System.Drawing.Point(87, 113);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(128, 20);
-            this.textBox2.TabIndex = 10;
+            this.ckbCustomer.AutoSize = true;
+            this.ckbCustomer.Location = new System.Drawing.Point(79, 120);
+            this.ckbCustomer.Name = "ckbCustomer";
+            this.ckbCustomer.Size = new System.Drawing.Size(15, 14);
+            this.ckbCustomer.TabIndex = 42;
+            this.ckbCustomer.UseVisualStyleBackColor = true;
+            this.ckbCustomer.CheckedChanged += new System.EventHandler(this.ckbCustomer_CheckedChanged);
             // 
-            // textBox1
+            // txtID
             // 
-            this.textBox1.Location = new System.Drawing.Point(87, 71);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(76, 20);
-            this.textBox1.TabIndex = 0;
+            this.txtID.Enabled = false;
+            this.txtID.Location = new System.Drawing.Point(116, 33);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(161, 20);
+            this.txtID.TabIndex = 28;
             // 
-            // label5
+            // labelControl1
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 194);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(55, 13);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Trạng thái";
+            this.labelControl1.Location = new System.Drawing.Point(9, 41);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(41, 13);
+            this.labelControl1.TabIndex = 23;
+            this.labelControl1.Text = "Số phiếu";
             // 
-            // label3
+            // labelControl2
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 155);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Nhân viên";
+            this.labelControl2.Location = new System.Drawing.Point(9, 81);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(48, 13);
+            this.labelControl2.TabIndex = 24;
+            this.labelControl2.Text = "Nhân viên";
             // 
-            // label2
+            // labelControl3
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(0, 113);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Khách hàng";
+            this.labelControl3.Location = new System.Drawing.Point(9, 152);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(49, 13);
+            this.labelControl3.TabIndex = 25;
+            this.labelControl3.Text = "Trạng thái";
             // 
-            // label1
+            // btnSearchByID
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(0, 71);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Số phiếu";
+            this.btnSearchByID.Enabled = false;
+            this.btnSearchByID.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSearchByID.ImageOptions.Image")));
+            this.btnSearchByID.Location = new System.Drawing.Point(283, 33);
+            this.btnSearchByID.Name = "btnSearchByID";
+            this.btnSearchByID.Size = new System.Drawing.Size(60, 23);
+            this.btnSearchByID.TabIndex = 39;
+            this.btnSearchByID.Text = "Xem";
             // 
-            // groupControl1
+            // labelControl4
             // 
-            this.groupControl1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupControl1.Location = new System.Drawing.Point(233, 0);
-            this.groupControl1.Margin = new System.Windows.Forms.Padding(0);
-            this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(979, 67);
-            this.groupControl1.TabIndex = 1;
+            this.labelControl4.Location = new System.Drawing.Point(9, 196);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(43, 13);
+            this.labelControl4.TabIndex = 26;
+            this.labelControl4.Text = "Thời gian";
+            // 
+            // txtEmployee
+            // 
+            this.txtEmployee.Enabled = false;
+            this.txtEmployee.Location = new System.Drawing.Point(116, 78);
+            this.txtEmployee.Name = "txtEmployee";
+            this.txtEmployee.Size = new System.Drawing.Size(227, 20);
+            this.txtEmployee.TabIndex = 29;
+            // 
+            // ckbTime
+            // 
+            this.ckbTime.AutoSize = true;
+            this.ckbTime.Location = new System.Drawing.Point(79, 192);
+            this.ckbTime.Name = "ckbTime";
+            this.ckbTime.Size = new System.Drawing.Size(15, 14);
+            this.ckbTime.TabIndex = 35;
+            this.ckbTime.UseVisualStyleBackColor = true;
+            this.ckbTime.CheckedChanged += new System.EventHandler(this.ckbTime_CheckedChanged);
+            // 
+            // cbStatus
+            // 
+            this.cbStatus.Enabled = false;
+            this.cbStatus.FormattingEnabled = true;
+            this.cbStatus.Items.AddRange(new object[] {
+            "Chưa giặt",
+            "Giặt xong",
+            "Giao khách"});
+            this.cbStatus.Location = new System.Drawing.Point(116, 149);
+            this.cbStatus.Name = "cbStatus";
+            this.cbStatus.Size = new System.Drawing.Size(227, 21);
+            this.cbStatus.TabIndex = 31;
+            // 
+            // ckbStatus
+            // 
+            this.ckbStatus.AutoSize = true;
+            this.ckbStatus.Location = new System.Drawing.Point(79, 151);
+            this.ckbStatus.Name = "ckbStatus";
+            this.ckbStatus.Size = new System.Drawing.Size(15, 14);
+            this.ckbStatus.TabIndex = 34;
+            this.ckbStatus.UseVisualStyleBackColor = true;
+            this.ckbStatus.CheckedChanged += new System.EventHandler(this.ckbStatus_CheckedChanged);
+            // 
+            // ckbID
+            // 
+            this.ckbID.AutoSize = true;
+            this.ckbID.Location = new System.Drawing.Point(79, 36);
+            this.ckbID.Name = "ckbID";
+            this.ckbID.Size = new System.Drawing.Size(15, 14);
+            this.ckbID.TabIndex = 32;
+            this.ckbID.UseVisualStyleBackColor = true;
+            this.ckbID.CheckedChanged += new System.EventHandler(this.ckbID_CheckedChanged);
+            // 
+            // ckbEmployee
+            // 
+            this.ckbEmployee.AutoSize = true;
+            this.ckbEmployee.Location = new System.Drawing.Point(79, 84);
+            this.ckbEmployee.Name = "ckbEmployee";
+            this.ckbEmployee.Size = new System.Drawing.Size(15, 14);
+            this.ckbEmployee.TabIndex = 33;
+            this.ckbEmployee.UseVisualStyleBackColor = true;
+            this.ckbEmployee.CheckedChanged += new System.EventHandler(this.ckbEmployee_CheckedChanged);
             // 
             // panelControl1
             // 
@@ -374,9 +461,10 @@ namespace LaundryManager.Views
             this.panelControl1.Controls.Add(this.btnEdit);
             this.panelControl1.Controls.Add(this.btnIgnore);
             this.panelControl1.Controls.Add(this.btnCreateInvoice);
-            this.panelControl1.Location = new System.Drawing.Point(235, 26);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl1.Location = new System.Drawing.Point(392, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(974, 41);
+            this.panelControl1.Size = new System.Drawing.Size(820, 41);
             this.panelControl1.TabIndex = 2;
             // 
             // btnSave
@@ -437,15 +525,108 @@ namespace LaundryManager.Views
             this.btnCreateInvoice.Text = "Tạo phiếu";
             this.btnCreateInvoice.Click += new System.EventHandler(this.btnCreateInvoice_Click);
             // 
-            // panelCreateBill
+            // dockPanel1
             // 
-            this.panelCreateBill.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelCreateBill.AutoSize = true;
-            this.panelCreateBill.Location = new System.Drawing.Point(234, 67);
-            this.panelCreateBill.Name = "panelCreateBill";
-            this.panelCreateBill.Size = new System.Drawing.Size(978, 10);
-            this.panelCreateBill.TabIndex = 4;
+            this.dockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
+            this.dockPanel1.ID = new System.Guid("930c37a4-e83d-4af0-8dee-7a6e44918c17");
+            this.dockPanel1.Location = new System.Drawing.Point(0, 0);
+            this.dockPanel1.Name = "dockPanel1";
+            this.dockPanel1.OriginalSize = new System.Drawing.Size(233, 200);
+            this.dockPanel1.Size = new System.Drawing.Size(233, 728);
+            this.dockPanel1.Text = "TÌM KIẾM VÀ LỌC DỮ LIỆU";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(0, 71);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Số phiếu";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(0, 113);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Khách hàng";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 155);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(56, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Nhân viên";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(3, 194);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(55, 13);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Trạng thái";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(87, 71);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(76, 20);
+            this.textBox1.TabIndex = 0;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(87, 113);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(128, 20);
+            this.textBox2.TabIndex = 10;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(87, 191);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(128, 20);
+            this.textBox4.TabIndex = 12;
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Location = new System.Drawing.Point(170, 71);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(45, 23);
+            this.simpleButton1.TabIndex = 13;
+            this.simpleButton1.Text = "XEM";
+            // 
+            // dockPanel1_Container
+            // 
+            this.dockPanel1_Container.Controls.Add(this.simpleButton1);
+            this.dockPanel1_Container.Controls.Add(this.textBox4);
+            this.dockPanel1_Container.Controls.Add(this.textBox2);
+            this.dockPanel1_Container.Controls.Add(this.textBox1);
+            this.dockPanel1_Container.Controls.Add(this.label5);
+            this.dockPanel1_Container.Controls.Add(this.label3);
+            this.dockPanel1_Container.Controls.Add(this.label2);
+            this.dockPanel1_Container.Controls.Add(this.label1);
+            this.dockPanel1_Container.Location = new System.Drawing.Point(3, 26);
+            this.dockPanel1_Container.Name = "dockPanel1_Container";
+            this.dockPanel1_Container.Size = new System.Drawing.Size(226, 699);
+            this.dockPanel1_Container.TabIndex = 0;
+            // 
+            // dtTime
+            // 
+            this.dtTime.EditValue = null;
+            this.dtTime.Enabled = false;
+            this.dtTime.Location = new System.Drawing.Point(116, 193);
+            this.dtTime.Name = "dtTime";
+            this.dtTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtTime.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtTime.Size = new System.Drawing.Size(227, 20);
+            this.dtTime.TabIndex = 16;
             // 
             // UCInvoice
             // 
@@ -453,10 +634,8 @@ namespace LaundryManager.Views
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.gcInvoice);
-            this.Controls.Add(this.panelCreateBill);
             this.Controls.Add(this.panelControl1);
-            this.Controls.Add(this.groupControl1);
-            this.Controls.Add(this.dockPanel1);
+            this.Controls.Add(this.dockPanel2);
             this.Name = "UCInvoice";
             this.Size = new System.Drawing.Size(1212, 728);
             this.Load += new System.EventHandler(this.UCInvoice_Load);
@@ -466,41 +645,30 @@ namespace LaundryManager.Views
             ((System.ComponentModel.ISupportInitialize)(this.riBtnStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.riBtnDetailsView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
-            this.dockPanel1.ResumeLayout(false);
-            this.dockPanel1_Container.ResumeLayout(false);
-            this.dockPanel1_Container.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.dockPanel2.ResumeLayout(false);
+            this.dockPanel2_Container.ResumeLayout(false);
+            this.dockPanel2_Container.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelCreateBill)).EndInit();
+            this.dockPanel1_Container.ResumeLayout(false);
+            this.dockPanel1_Container.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtTime.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtTime.Properties)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private DevExpress.XtraBars.Docking.DockManager dockManager1;
-        private DevExpress.XtraEditors.GroupControl groupControl1;
-        private DevExpress.XtraBars.Docking.DockPanel dockPanel1;
-        private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.SimpleButton btnExit;
         private DevExpress.XtraEditors.SimpleButton btnPrint;
         private DevExpress.XtraEditors.SimpleButton btnEdit;
         private DevExpress.XtraEditors.SimpleButton btnIgnore;
         private DevExpress.XtraEditors.SimpleButton btnCreateInvoice;
-        private DevExpress.XtraEditors.PanelControl panelCreateBill;
         private DevExpress.XtraGrid.GridControl gcInvoice;
         private DevExpress.XtraGrid.Views.Grid.GridView gvBills;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private DevExpress.XtraEditors.SimpleButton btnSave;
         private DevExpress.XtraGrid.Columns.GridColumn colBillCode;
         private DevExpress.XtraGrid.Columns.GridColumn colBillDate;
@@ -517,5 +685,33 @@ namespace LaundryManager.Views
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        private DevExpress.XtraBars.Docking.DockPanel dockPanel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox4;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
+        private DevExpress.XtraBars.Docking.DockPanel dockPanel2;
+        private DevExpress.XtraBars.Docking.ControlContainer dockPanel2_Container;
+        private System.Windows.Forms.TextBox txtID;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.SimpleButton btnSearchByID;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
+        private System.Windows.Forms.TextBox txtEmployee;
+        private System.Windows.Forms.CheckBox ckbTime;
+        private System.Windows.Forms.ComboBox cbStatus;
+        private System.Windows.Forms.CheckBox ckbStatus;
+        private System.Windows.Forms.CheckBox ckbID;
+        private System.Windows.Forms.CheckBox ckbEmployee;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
+        private System.Windows.Forms.TextBox txtCustomer;
+        private System.Windows.Forms.CheckBox ckbCustomer;
+        private DevExpress.XtraEditors.DateEdit dtTime;
     }
 }

@@ -106,5 +106,13 @@ namespace LaundryManager.Views
             uCCustomers.Dock = DockStyle.Fill;
             panelMain.Controls.Add(uCCustomers);
         }
+
+        private void btnFinancialManagement_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            panelMain.Controls.Clear();
+            UCFinancialManagement ucFM = new UCFinancialManagement();
+            ucFM.Dock = DockStyle.Fill;
+            panelMain.Controls.Add(ucFM);
+        }
     }
 }

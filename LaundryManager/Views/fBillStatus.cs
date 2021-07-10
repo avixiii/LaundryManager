@@ -29,19 +29,16 @@ namespace LaundryManager.Views
             {
                 MessageBox.Show("Vui lòng chọn trạng thái bill");
             }
-            if (cbStatus.Text == "Chưa thanh toán")
+            if (cbStatus.Text == "Chưa giặt")
             {
                 MessageBox.Show("Chưa thanh toán");
             }   
-            if (cbStatus.Text=="Đã thanh toán")
+            if (cbStatus.Text=="Giặt xong")
             {
-                fPayment payment = new fPayment();
-                this.Hide();
-                payment.ShowDialog();
-                this.Close();
+                MessageBox.Show("Giặt xong");
             }   
             
-            if (cbStatus.Text == "Đã giao hàng")
+            if (cbStatus.Text == "Giao khách")
             {
                 fPayment payment = new fPayment();
                 this.Hide();

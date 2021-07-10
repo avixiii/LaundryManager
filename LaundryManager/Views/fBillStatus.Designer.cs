@@ -37,9 +37,9 @@ namespace LaundryManager.Views
             // 
             this.cbStatus.FormattingEnabled = true;
             this.cbStatus.Items.AddRange(new object[] {
-            "Chưa thanh toán",
-            "Đã thanh toán",
-            "Đã giao hàng"});
+            "Chưa giặt",
+            "Giặt xong",
+            "Giao khách"});
             this.cbStatus.Location = new System.Drawing.Point(77, 33);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(121, 21);

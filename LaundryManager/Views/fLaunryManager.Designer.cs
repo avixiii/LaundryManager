@@ -253,6 +253,7 @@ namespace LaundryManager.Views
             this.btnFinancialManagement.ItemAppearance.Pressed.Options.UseTextOptions = true;
             this.btnFinancialManagement.ItemAppearance.Pressed.TextOptions.WordWrap = DevExpress.Utils.WordWrap.NoWrap;
             this.btnFinancialManagement.Name = "btnFinancialManagement";
+            this.btnFinancialManagement.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnFinancialManagement_ItemClick);
             // 
             // btnStatistics
             // 

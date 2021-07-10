@@ -129,6 +129,12 @@
     <Compile Include="Views\fCreateBill.Designer.cs">
       <DependentUpon>fCreateBill.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\fCreateFinancialInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\fCreateFinancialInvoice.Designer.cs">
+      <DependentUpon>fCreateFinancialInvoice.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\fEditUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,6 +185,12 @@
     <Compile Include="Views\UCCustomers.Designer.cs">
       <DependentUpon>UCCustomers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UCFinancialManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UCFinancialManagement.Designer.cs">
+      <DependentUpon>UCFinancialManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UCUsers.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -216,6 +228,9 @@
     <EmbeddedResource Include="Views\fCreateBill.resx">
       <DependentUpon>fCreateBill.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\fCreateFinancialInvoice.resx">
+      <DependentUpon>fCreateFinancialInvoice.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\fEditUser.resx">
       <DependentUpon>fEditUser.cs</DependentUpon>
     </EmbeddedResource>
@@ -248,6 +263,9 @@
     </Compile>
     <EmbeddedResource Include="Views\UCCustomers.resx">
       <DependentUpon>UCCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UCFinancialManagement.resx">
+      <DependentUpon>UCFinancialManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UCUsers.resx">
       <DependentUpon>UCUsers.cs</DependentUpon>
