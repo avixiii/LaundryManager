@@ -30,23 +30,23 @@ namespace LaundryManager.Views
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions10 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions7 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fCreateBill));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject37 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject38 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject39 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject40 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions11 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject41 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject42 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject43 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject44 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery4 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions12 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject45 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject46 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject47 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject48 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject25 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject26 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject27 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject28 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions8 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject29 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject30 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject31 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject32 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery3 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions9 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject33 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject34 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject35 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject36 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gcCart = new DevExpress.XtraGrid.GridControl();
             this.gvCart = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colRemove = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -58,10 +58,13 @@ namespace LaundryManager.Views
             this.colDelete = new DevExpress.XtraGrid.Columns.GridColumn();
             this.riBtnDelete = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.dtAppointmentDate = new System.Windows.Forms.DateTimePicker();
+            this.dtBillDate = new System.Windows.Forms.DateTimePicker();
+            this.txtNote = new System.Windows.Forms.TextBox();
+            this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.txtTotal1 = new System.Windows.Forms.TextBox();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
-            this.dtAppointmentDate = new DevExpress.XtraEditors.DateTimeOffsetEdit();
             this.cbStatus = new System.Windows.Forms.ComboBox();
             this.ckbPrint = new System.Windows.Forms.CheckBox();
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
@@ -74,7 +77,6 @@ namespace LaundryManager.Views
             this.txtDiscount = new System.Windows.Forms.TextBox();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.txtCustomerName = new System.Windows.Forms.TextBox();
-            this.dtBillDate = new DevExpress.XtraEditors.DateTimeOffsetEdit();
             this.txtBillCode = new System.Windows.Forms.TextBox();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
@@ -96,8 +98,6 @@ namespace LaundryManager.Views
             ((System.ComponentModel.ISupportInitialize)(this.riBtnDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtAppointmentDate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtBillDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcServiceList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvServiceList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.riBtnAdd)).BeginInit();
@@ -140,9 +140,9 @@ namespace LaundryManager.Views
             // riBtnRemove
             // 
             this.riBtnRemove.AutoHeight = false;
-            editorButtonImageOptions10.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions10.Image")));
+            editorButtonImageOptions7.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions7.Image")));
             this.riBtnRemove.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions10, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject37, serializableAppearanceObject38, serializableAppearanceObject39, serializableAppearanceObject40, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions7, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject25, serializableAppearanceObject26, serializableAppearanceObject27, serializableAppearanceObject28, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.riBtnRemove.Name = "riBtnRemove";
             this.riBtnRemove.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.riBtnRemove.Click += new System.EventHandler(this.riBtnRemove_Click);
@@ -193,19 +193,22 @@ namespace LaundryManager.Views
             // riBtnDelete
             // 
             this.riBtnDelete.AutoHeight = false;
-            editorButtonImageOptions11.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions11.Image")));
+            editorButtonImageOptions8.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions8.Image")));
             this.riBtnDelete.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions11, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject41, serializableAppearanceObject42, serializableAppearanceObject43, serializableAppearanceObject44, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions8, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject29, serializableAppearanceObject30, serializableAppearanceObject31, serializableAppearanceObject32, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.riBtnDelete.Name = "riBtnDelete";
             this.riBtnDelete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.riBtnDelete.Click += new System.EventHandler(this.riBtnDelete_Click);
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.dtAppointmentDate);
+            this.panelControl1.Controls.Add(this.dtBillDate);
+            this.panelControl1.Controls.Add(this.txtNote);
+            this.panelControl1.Controls.Add(this.labelControl12);
             this.panelControl1.Controls.Add(this.txtTotal1);
             this.panelControl1.Controls.Add(this.txtPhone);
             this.panelControl1.Controls.Add(this.btnSave);
-            this.panelControl1.Controls.Add(this.dtAppointmentDate);
             this.panelControl1.Controls.Add(this.cbStatus);
             this.panelControl1.Controls.Add(this.ckbPrint);
             this.panelControl1.Controls.Add(this.labelControl11);
@@ -218,7 +221,6 @@ namespace LaundryManager.Views
             this.panelControl1.Controls.Add(this.txtDiscount);
             this.panelControl1.Controls.Add(this.txtTotal);
             this.panelControl1.Controls.Add(this.txtCustomerName);
-            this.panelControl1.Controls.Add(this.dtBillDate);
             this.panelControl1.Controls.Add(this.txtBillCode);
             this.panelControl1.Controls.Add(this.labelControl6);
             this.panelControl1.Controls.Add(this.labelControl5);
@@ -230,6 +232,35 @@ namespace LaundryManager.Views
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(727, 393);
             this.panelControl1.TabIndex = 3;
+            // 
+            // dtAppointmentDate
+            // 
+            this.dtAppointmentDate.Location = new System.Drawing.Point(451, 67);
+            this.dtAppointmentDate.Name = "dtAppointmentDate";
+            this.dtAppointmentDate.Size = new System.Drawing.Size(200, 21);
+            this.dtAppointmentDate.TabIndex = 30;
+            // 
+            // dtBillDate
+            // 
+            this.dtBillDate.Location = new System.Drawing.Point(94, 67);
+            this.dtBillDate.Name = "dtBillDate";
+            this.dtBillDate.Size = new System.Drawing.Size(200, 21);
+            this.dtBillDate.TabIndex = 29;
+            // 
+            // txtNote
+            // 
+            this.txtNote.Location = new System.Drawing.Point(94, 283);
+            this.txtNote.Name = "txtNote";
+            this.txtNote.Size = new System.Drawing.Size(559, 21);
+            this.txtNote.TabIndex = 28;
+            // 
+            // labelControl12
+            // 
+            this.labelControl12.Location = new System.Drawing.Point(19, 291);
+            this.labelControl12.Name = "labelControl12";
+            this.labelControl12.Size = new System.Drawing.Size(23, 13);
+            this.labelControl12.TabIndex = 27;
+            this.labelControl12.Text = "Note";
             // 
             // txtTotal1
             // 
@@ -245,25 +276,16 @@ namespace LaundryManager.Views
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(202, 21);
             this.txtPhone.TabIndex = 25;
+            this.txtPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhone_KeyPress);
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(536, 286);
+            this.btnSave.Location = new System.Drawing.Point(536, 321);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(117, 23);
             this.btnSave.TabIndex = 24;
             this.btnSave.Text = "Lưu phiếu";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // dtAppointmentDate
-            // 
-            this.dtAppointmentDate.EditValue = null;
-            this.dtAppointmentDate.Location = new System.Drawing.Point(451, 72);
-            this.dtAppointmentDate.Name = "dtAppointmentDate";
-            this.dtAppointmentDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtAppointmentDate.Size = new System.Drawing.Size(202, 20);
-            this.dtAppointmentDate.TabIndex = 21;
             // 
             // cbStatus
             // 
@@ -341,6 +363,7 @@ namespace LaundryManager.Views
             this.txtSurcharge.Name = "txtSurcharge";
             this.txtSurcharge.Size = new System.Drawing.Size(202, 21);
             this.txtSurcharge.TabIndex = 11;
+            this.txtSurcharge.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSurcharge_KeyPress);
             // 
             // txtDiscount
             // 
@@ -349,6 +372,7 @@ namespace LaundryManager.Views
             this.txtDiscount.Size = new System.Drawing.Size(70, 21);
             this.txtDiscount.TabIndex = 10;
             this.txtDiscount.TextChanged += new System.EventHandler(this.txtDiscount_TextChanged);
+            this.txtDiscount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDiscount_KeyPress);
             // 
             // txtTotal
             // 
@@ -364,16 +388,6 @@ namespace LaundryManager.Views
             this.txtCustomerName.Name = "txtCustomerName";
             this.txtCustomerName.Size = new System.Drawing.Size(202, 21);
             this.txtCustomerName.TabIndex = 8;
-            // 
-            // dtBillDate
-            // 
-            this.dtBillDate.EditValue = null;
-            this.dtBillDate.Location = new System.Drawing.Point(94, 72);
-            this.dtBillDate.Name = "dtBillDate";
-            this.dtBillDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtBillDate.Size = new System.Drawing.Size(202, 20);
-            this.dtBillDate.TabIndex = 7;
             // 
             // txtBillCode
             // 
@@ -452,10 +466,10 @@ namespace LaundryManager.Views
             // 
             this.sqlDataSource1.ConnectionName = "DATABASE_QUANLYTIEMGIATUIConnectionString";
             this.sqlDataSource1.Name = "sqlDataSource1";
-            customSqlQuery4.Name = "Query";
-            customSqlQuery4.Sql = "SELECT ID, ServiceName, Price FROM Services";
+            customSqlQuery3.Name = "Query";
+            customSqlQuery3.Sql = "SELECT ID, ServiceName, Price FROM Services";
             this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
-            customSqlQuery4});
+            customSqlQuery3});
             this.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable");
             // 
             // gvServiceList
@@ -506,9 +520,9 @@ namespace LaundryManager.Views
             // riBtnAdd
             // 
             this.riBtnAdd.AutoHeight = false;
-            editorButtonImageOptions12.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions12.Image")));
+            editorButtonImageOptions9.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions9.Image")));
             this.riBtnAdd.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions12, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject45, serializableAppearanceObject46, serializableAppearanceObject47, serializableAppearanceObject48, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions9, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject33, serializableAppearanceObject34, serializableAppearanceObject35, serializableAppearanceObject36, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.riBtnAdd.Name = "riBtnAdd";
             this.riBtnAdd.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.riBtnAdd.Click += new System.EventHandler(this.ribtnAdd_Click);
@@ -532,8 +546,6 @@ namespace LaundryManager.Views
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtAppointmentDate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtBillDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcServiceList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvServiceList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.riBtnAdd)).EndInit();
@@ -566,7 +578,6 @@ namespace LaundryManager.Views
         private System.Windows.Forms.TextBox txtDiscount;
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.TextBox txtCustomerName;
-        private DevExpress.XtraEditors.DateTimeOffsetEdit dtBillDate;
         private System.Windows.Forms.TextBox txtBillCode;
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.LabelControl labelControl5;
@@ -575,7 +586,6 @@ namespace LaundryManager.Views
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.SimpleButton btnSave;
-        private DevExpress.XtraEditors.DateTimeOffsetEdit dtAppointmentDate;
         private System.Windows.Forms.ComboBox cbStatus;
         private System.Windows.Forms.CheckBox ckbPrint;
         private DevExpress.XtraEditors.LabelControl labelControl11;
@@ -585,5 +595,9 @@ namespace LaundryManager.Views
         private System.Windows.Forms.TextBox txtTotal1;
         private System.Windows.Forms.TextBox txtPhone;
         private DevExpress.XtraGrid.Columns.GridColumn colServiceID;
+        private System.Windows.Forms.TextBox txtNote;
+        private DevExpress.XtraEditors.LabelControl labelControl12;
+        private System.Windows.Forms.DateTimePicker dtAppointmentDate;
+        private System.Windows.Forms.DateTimePicker dtBillDate;
     }
 }

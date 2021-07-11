@@ -76,11 +76,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\BillDetailsController.cs" />
+    <Compile Include="Controllers\BillsController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\DataController.cs" />
     <Compile Include="Controllers\ServiceController.cs" />
     <Compile Include="Controllers\UnitController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Models\BillDetailsModel.cs" />
+    <Compile Include="Models\BillsModel.cs" />
+    <Compile Include="Models\CustomerModel.cs" />
     <Compile Include="Models\DataModel.cs" />
     <Compile Include="Models\InvoiceModel.cs" />
     <Compile Include="Models\UnitModel.cs" />

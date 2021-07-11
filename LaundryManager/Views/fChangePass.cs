@@ -27,7 +27,7 @@ namespace LaundryManager.Views
 
         private void fChangePass_Load(object sender, EventArgs e)
         {
-            lbUserName.Text = user;
+            lbUserName.Text = fLogin.username;
         }
 
         private void btnChangePass_Click(object sender, EventArgs e)

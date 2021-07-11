@@ -67,6 +67,26 @@ namespace LaundryManager.Models
             return str;
         }
 
+        public int GetID()
+        {
+            int i = 0;
+            string[] paras = new string[2] { "@Username", "@Password" };
+            object[] values = new object[2] { user, pass };
+
+            string query = "SELECT * FROM dbo.Users WHERE UserName = " + "'" + user + "' AND Password = '" + pass + "'";
+
+            DataTable dt = Models.Connection.FillDataTable(query);
+            if (dt != null)
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    i = (int)dr["ID"];
+                }
+            }
+
+            return i;
+        }
+
         // ================= Sign Up ==============
         public string CheckUser()
         {

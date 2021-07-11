@@ -23,6 +23,7 @@ namespace LaundryManager.Views
         {
             fCreateBill fCreateBill = new fCreateBill();
             fCreateBill.ShowDialog();
+            ShowInvoice();
         }
 
         private void btnExit_Click(object sender, EventArgs e)

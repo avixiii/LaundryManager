@@ -145,43 +145,80 @@ namespace LaundryManager.Views
         private void btnSave_Click(object sender, EventArgs e)
         {
             string billCode = txtBillCode.Text;
-            string billDate = dtBillDate.Text;
-            string appointmentDate = dtAppointmentDate.Text;
+
+            string strBillDate = dtBillDate.Text;
+            DateTime billDate = DateTime.Parse(strBillDate);
+
+            string strAppointmentDate = dtAppointmentDate.Text;
+            DateTime appointmentDate = DateTime.Parse(strAppointmentDate);
+
             string customerName = txtCustomerName.Text;
             string phone = txtPhone.Text;
+
+            string address = txtAddress.Text;
+
             string total = txtTotal.Text; // Tiền khi chưa chiết khẩu
-            string discount = txtDiscount.Text;
-            string total1 = txtTotal1.Text; // Tiền sau khi đã chiết khẩu
+
+            string strDiscount = txtDiscount.Text;
+            double discount = double.Parse(strDiscount);
+
+            string strSurcharge = txtSurcharge.Text;
+            double surcharge = double.Parse(strSurcharge);
+
+            string strTotal1 = txtTotal1.Text; // Tiền sau khi đã chiết khẩu
+            double total1 = double.Parse(strTotal1);
+
+            string note = txtNote.Text;
             string status = cbStatus.GetItemText(cbStatus.SelectedItem);
 
-            int x = gvCart.DataRowCount;
 
-           
-            MessageBox.Show(x.ToString());
-            
+            int userID = fLogin.userID;
+            // INSERT CUSTOMER
+            Controllers.CustomerController.InsertCustomer(customerName, address, phone, total1);
 
-            /*
-            1. Lưu bill vào db
-            - BillCode
-            - CusID
-            - UserID
-            - BillDate
-            - AppointmentDate
-            - RecieveDate
-            - Total
-            - Discount
-            - Surcharge
 
-            2. Lưu BillDetails vào db
+            // Lấy id Customer vừa thêm vào
+            int cusID = Controllers.CustomerController.GetID();
+            // INSERT BILL
+            string s = txtDiscount.Text;
+            double d;
+            try
+            {
+                d = double.Parse(s);
+            }
+            catch
+            {
+                d = 100;
+            }
+            double discountMoney = totalBill * (discount / 100.0);
 
-            -- BillCode
-            - ServID
-            - Quantity
-            - Price
-            - Total
+            Controllers.BillsController.InsertBill(billCode, cusID, userID, billDate, appointmentDate, discountMoney, surcharge, note, total1);
 
-            */
-                
+            // INSERT BILLDETAILS - 1. Lấy các row trong gcCart - 2. Insert lần lượt vào trong db
+
+            for (int i = 0; i < gvCart.DataRowCount; i++)
+            {
+                // Lấy servID, quantity , total , : price = total / quantity
+                object value;
+                value = gvCart.GetRowCellValue(i, "ServID");
+                string servID = (string)value;
+
+                // Quantity
+                value = gvCart.GetRowCellValue(i, "Quantity");
+                int quantity = (int)value;
+
+
+                // Price 
+                value = gvCart.GetRowCellValue(i, "Total");
+                double totalBillDetails = (double)value;
+                double pricez = totalBillDetails / quantity;
+
+                Controllers.BillDetailsController.InsertBillDetails(billCode, servID, quantity, pricez, totalBillDetails);
+            }
+            this.Close();
+
+       //     
+
         }
 
         private void riBtnRemove_Click(object sender, EventArgs e)
@@ -278,6 +315,50 @@ namespace LaundryManager.Views
             total = totalBill - total;
             txtTotal1.Text = total.ToString();
         }
-    
+
+        private void txtPhone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                   (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtDiscount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                   (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtSurcharge_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                   (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

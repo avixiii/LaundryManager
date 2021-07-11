@@ -18,6 +18,9 @@ namespace LaundryManager
             InitializeComponent();
         }
 
+        public static string username = "";
+        public static int userID;
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             // Check ô đăng nhập có dữ liệu không
@@ -38,8 +41,11 @@ namespace LaundryManager
             // Có data trong ô textbox 
             string check = "";
             string user = txtUsername.Text.Trim();
+            username = user;
             string pass = Models.UserControl.SHA256(txtPassword.Text);
             check = Controllers.UserController.CheckLogin(user, pass);
+
+            
 
             if (check == "")
             {
@@ -55,6 +61,9 @@ namespace LaundryManager
                 }
                 else
                 {
+                    // Lấy id user
+                    userID = Controllers.UserController.GetID(user, pass);
+                    // Mở form
                     fLaunryManager fLaunry = new fLaunryManager(user);
                     this.Hide();
                     fLaunry.ShowDialog();

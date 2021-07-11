@@ -72,6 +72,16 @@ namespace LaundryManager.Controllers
             catch { return ""; }
         }
 
+        // ==================== GET ID USER ===================
+        public static int GetID(string user, string pass)
+        {
+            try
+            {
+                Models.UserModel getID = new Models.UserModel(user, pass);
+                return getID.GetID();
+            }catch { return 0; }
+        }
+        
 
         // ===================== DELETE USER ================
         public static int DeleteUser(string user)
