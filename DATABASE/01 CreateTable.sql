@@ -106,7 +106,7 @@ GO
 -- BillDetails
 CREATE TABLE BillDetails
 (
-	ID VARCHAR(15) NOT NULL,
+	ID INT IDENTITY(1,1),
 	BillCode VARCHAR(15) NOT NULL,
 	ServID VARCHAR(15) NOT NULL,
 	Quantity INT DEFAULT 1 NOT NULL,
@@ -119,6 +119,7 @@ CREATE TABLE BillDetails
 )
 GO
 
+DROP TABLE dbo.BillDetails
 
 -- QUẢN LÝ CHI TIÊU
 CREATE TABLE CashBook

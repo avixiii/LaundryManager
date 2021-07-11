@@ -42,7 +42,7 @@ GO
 
 
 -- TỰ ĐỘNG TẠO BILLCODE
-CREATE FUNCTION fcgetBillCode()
+ALTER FUNCTION fcgetBillCode()
 RETURNS VARCHAR(15)
 AS
 BEGIN
@@ -52,7 +52,7 @@ BEGIN
 	WHILE EXISTS ( SELECT BillCode FROM dbo.Bills WHERE BillCode = @BillCode)
 	BEGIN
 		SET @Idx = @Idx + 1
-		SET @BillCode = 'DV' + REPLICATE('0', 4 - LEN(CAST(@Idx AS VARCHAR))) + CAST(@Idx AS VARCHAR)
+		SET @BillCode = 'CN00.' + REPLICATE('0', 4 - LEN(CAST(@Idx AS VARCHAR))) + CAST(@Idx AS VARCHAR)
 	END
 	
 	RETURN CONVERT(VARCHAR(10), @BillCode)

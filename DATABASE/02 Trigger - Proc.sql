@@ -181,3 +181,119 @@ BEGIN
 END
 GO
 
+
+
+CREATE PROC spgetBills
+AS
+BEGIN
+	SELECT BillCode, BillDate, Name, AppointmentDate, Phone, Address, Status, Total FROM dbo.Customers , dbo.Bills WHERE dbo.Customers.ID = dbo.Bills.CusID
+END
+
+
+CREATE PROC spInsertCustomer
+(
+	@Name NVARCHAR(255),
+	@Address NVARCHAR(255),
+	@Phone VARCHAR(11),
+	@TotalBill MONEY
+)
+AS
+BEGIN
+	INSERT INTO dbo.Customers
+	(
+	    Name,
+	    Address,
+	    Phone,
+	    TotalBill
+	)
+	VALUES
+	( @Name, @Address, @Phone, @TotalBill )
+END
+
+-- INSERT BILL
+
+ALTER PROC spInsertBill
+(
+
+	@BillCode VARCHAR(15),
+	@CusID INT,
+	@UserID INT,
+	@BillDate DATETIME,
+	@AppointmentDate DATETIME,
+	@Discount MONEY,
+	@Surcharge MONEY,
+	@Note NVARCHAR(20),
+	@Total MONEY
+)
+AS
+BEGIN
+	INSERT INTO dbo.Bills
+	(
+		BillCode,
+		CusID,
+		UserID,
+		BillDate,
+		AppointmentDate,
+		Total,
+		Discount,
+		Surcharge,
+		Note,
+		Status
+	)
+	VALUES
+	(   
+		@BillCode,
+		@CusID,
+		@UserID,
+		@BillDate,
+		@AppointmentDate,
+		@Total,
+		@Discount,
+		@Surcharge,
+		@Note,
+		N'Chưa giặt'
+
+	    )
+END
+
+
+-- INSERT BILL DETAILS
+
+ALTER PROC spInsertBillDetails
+(
+	@BillCode VARCHAR(15),
+	@ServID VARCHAR(15),
+	@Quantity INT,
+	@Price MONEY,
+	@Total MONEY
+)
+AS
+BEGIN
+	INSERT INTO dbo.BillDetails
+	(
+	    BillCode,
+	    ServID,
+	    Quantity,
+	    Price,
+	    Total
+	)
+	VALUES
+	(  @BillCode, @ServID, @Quantity, @Price, @Total )
+END
+
+INSERT INTO dbo.BillDetails
+(
+    BillCode,
+    ServID,
+    Quantity,
+    Price,
+    Total
+)
+VALUES
+(  
+    'CN00.0002',      -- BillCode - varchar(15)
+    'DV0000001',      -- ServID - varchar(15)
+    1, -- Quantity - int
+    20000.000,    -- Price - money
+    20000.000     -- Total - money
+    )
