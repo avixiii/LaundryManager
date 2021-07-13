@@ -52,7 +52,26 @@ namespace LaundryManager.Views
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            double paid = double.Parse(txtPaid.Text);
+            double mustBePaid = double.Parse(txtMustBePaid.Text);
 
+            int i = Controllers.BillsController.Payment(UCInvoice.billCode, paid, mustBePaid);
+
+            if (i == 0)
+            {
+                MessageBox.Show("Lỗi");
+            }
+            else
+            {
+                MessageBox.Show("Thành công");
+                this.Close();
+            }    
+
+        }
+
+        private void fPayment_Load(object sender, EventArgs e)
+        {
+            txtTotalBill.Text = UCInvoice.totalBill;
         }
     }
 }

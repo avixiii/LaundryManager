@@ -49,10 +49,42 @@ namespace LaundryManager.Views
 
         }
 
+        public static string totalBill;
+        public static string billCode;
         private void riBtnStatus_Click(object sender, EventArgs e)
         {
-            fBillStatus status = new fBillStatus();
-            status.ShowDialog();
+            // Lấy billcode
+            object value;
+            int rowIndex = gvBills.FocusedRowHandle;
+            string colFieldBillCode = "BillCode";
+            value = gvBills.GetRowCellValue(rowIndex, colFieldBillCode);
+            billCode = (string)value;
+
+            // Lấy trạng thái
+            string colFieldStatus = "Status";
+            value = gvBills.GetRowCellValue(rowIndex, colFieldStatus);
+            string status = (string)value;
+
+            // Lấy tổng tiền của bill
+
+            string colFieldTotal = "Total";
+            value = gvBills.GetRowCellValue(rowIndex, colFieldTotal);
+
+            totalBill = value.ToString();
+
+            if (status == "Giao khách")
+            {
+                MessageBox.Show("Đơn đã giao khách ko thể chỉnh sửa.");
+            }
+            else
+            {
+                // Mở form mới
+                fBillStatus fstatus = new fBillStatus(billCode, status);
+                fstatus.ShowDialog();
+                ShowInvoice();
+            }    
+
+           
         }
 
         private void ckbID_CheckedChanged(object sender, EventArgs e)

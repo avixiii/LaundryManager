@@ -18,33 +18,57 @@ namespace LaundryManager.Views
             InitializeComponent();
         }
 
+        private string billCode;
+        private string status;
+
+        public fBillStatus(string billCode, string status): this()
+        {
+            this.billCode = billCode;
+            this.status = status;
+        }
+
         private void fBillStatus_Load(object sender, EventArgs e)
         {
-            cbStatus.Text = "--- Lựa chọn ---";
+            cbStatus.Text = status; 
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (cbStatus.Text == "--- Lựa chọn ---")
-            {
-                MessageBox.Show("Vui lòng chọn trạng thái bill");
-            }
-            if (cbStatus.Text == "Chưa giặt")
-            {
-                MessageBox.Show("Chưa thanh toán");
-            }   
+            string textStatus = cbStatus.Text;
+            
             if (cbStatus.Text=="Giặt xong")
             {
-                MessageBox.Show("Giặt xong");
+                Controllers.BillsController.UpdateStatus(billCode, textStatus);
+                this.Close();
             }   
             
             if (cbStatus.Text == "Giao khách")
             {
-                fPayment payment = new fPayment();
-                this.Hide();
-                payment.ShowDialog();
+                if (status == "Thanh toán")
+                {
+                    Controllers.BillsController.UpdateStatus(billCode, textStatus);
+                    this.Close();
+                }
+                else
+                {
+                    Payment(textStatus);
+                }            
                 this.Close();
-            }    
+            }
+
+            if (cbStatus.Text == "Thanh toán")
+            {
+                Payment(textStatus);
+            }
+        }
+
+        private void Payment(string textStatus)
+        {
+            fPayment payment = new fPayment();
+            this.Hide();
+            payment.ShowDialog();
+            int i = Controllers.BillsController.UpdateStatus(billCode, textStatus);
+            this.Close();
         }
     }
 }

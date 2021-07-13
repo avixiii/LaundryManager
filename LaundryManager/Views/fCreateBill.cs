@@ -130,6 +130,7 @@ namespace LaundryManager.Views
                 totalBill += total;
             }
             txtTotal.Text = totalBill.ToString();
+            txtTotal1.Text = totalBill.ToString();
         }
 
         private void riBtnDelete_Click(object sender, EventArgs e)
@@ -270,6 +271,7 @@ namespace LaundryManager.Views
                 string str = (string)value;
                 totalBill = totalBill - price;
                 txtTotal.Text = totalBill.ToString();
+                txtTotal1.Text = totalBill.ToString();
                 serviceList.Remove(str);
                 gvCart.DeleteRow(gvCart.FocusedRowHandle);
             }
@@ -293,6 +295,7 @@ namespace LaundryManager.Views
                         gvCart.SetRowCellValue(idx, "Total", total);
                         totalBill -= price;
                         txtTotal.Text = totalBill.ToString();
+                        txtTotal1.Text = totalBill.ToString();
                         break;
                     }
                 }
@@ -359,6 +362,22 @@ namespace LaundryManager.Views
             {
                 e.Handled = true;
             }
+        }
+
+        private void txtSurcharge_TextChanged(object sender, EventArgs e)
+        {
+            double x = double.Parse(txtTotal1.Text);
+            double y;
+            try
+            {
+                y = double.Parse(txtSurcharge.Text);
+
+            }
+            catch
+            {
+                y = 0;
+            }
+            txtTotal1.Text = (x + y).ToString();
         }
     }
 }

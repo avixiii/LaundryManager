@@ -39,6 +39,19 @@ namespace LaundryManager.Models
             this.total = total;
         }
 
+        public BillsModel(string billCode, string status)
+        {
+            this.billCode = billCode;
+            this.status = status;
+        }
+
+        public BillsModel(string billCode, double paid, double mustBePaid)
+        {
+            this.billCode = billCode;
+            this.paid = paid;
+            this.mustBePaid = mustBePaid;
+        }
+
 
         protected string billCode { get; set; }
         protected int cusID { get; set; }
@@ -84,5 +97,30 @@ namespace LaundryManager.Models
 
             return i;
         }    
+
+
+        // Update Status
+        public int UpdateStatus()
+        {
+            int i = 0;
+            string[] paras = new string[2] { "@BillCode", "@Status" };
+            object[] values = new object[2] { billCode, status };
+
+            i = Models.Connection.Excute_Sql("spUpdateStatus", CommandType.StoredProcedure, paras, values);
+
+            return i;
+        }
+
+        // Payment
+        public int Payment()
+        {
+            int i = 0;
+            string[] paras = new string[3] { "@BillCode" , "@Paid", "@MustBePaid"};
+            object[] values = new object[3] { billCode, paid, mustBePaid };
+
+            i = Models.Connection.Excute_Sql("spPayment", CommandType.StoredProcedure, paras, values);
+
+            return i;
+        }
     }
 }
