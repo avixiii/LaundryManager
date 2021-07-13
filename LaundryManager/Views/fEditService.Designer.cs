@@ -60,7 +60,7 @@ namespace LaundryManager.Views
             this.btnExit.Location = new System.Drawing.Point(178, 235);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(90, 23);
-            this.btnExit.TabIndex = 24;
+            this.btnExit.TabIndex = 6;
             this.btnExit.Text = "Đóng";
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
@@ -74,16 +74,17 @@ namespace LaundryManager.Views
             this.btnSave.Location = new System.Drawing.Point(30, 235);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(90, 23);
-            this.btnSave.TabIndex = 23;
+            this.btnSave.TabIndex = 5;
             this.btnSave.Text = "Lưu";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.Enter += new System.EventHandler(this.btnSave_Click);
             // 
             // rtbNote
             // 
             this.rtbNote.Location = new System.Drawing.Point(123, 178);
             this.rtbNote.Name = "rtbNote";
             this.rtbNote.Size = new System.Drawing.Size(145, 31);
-            this.rtbNote.TabIndex = 22;
+            this.rtbNote.TabIndex = 4;
             this.rtbNote.Text = "";
             // 
             // cbUnits
@@ -93,7 +94,7 @@ namespace LaundryManager.Views
             this.cbUnits.Location = new System.Drawing.Point(123, 96);
             this.cbUnits.Name = "cbUnits";
             this.cbUnits.Size = new System.Drawing.Size(145, 21);
-            this.cbUnits.TabIndex = 25;
+            this.cbUnits.TabIndex = 2;
             this.cbUnits.ValueMember = "ID";
             // 
             // unitsBindingSource
@@ -111,7 +112,7 @@ namespace LaundryManager.Views
             this.txtPrice.Location = new System.Drawing.Point(123, 135);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(145, 21);
-            this.txtPrice.TabIndex = 21;
+            this.txtPrice.TabIndex = 3;
             this.txtPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrice_KeyPress);
             // 
             // txtServiceName
@@ -119,7 +120,7 @@ namespace LaundryManager.Views
             this.txtServiceName.Location = new System.Drawing.Point(123, 53);
             this.txtServiceName.Name = "txtServiceName";
             this.txtServiceName.Size = new System.Drawing.Size(145, 21);
-            this.txtServiceName.TabIndex = 20;
+            this.txtServiceName.TabIndex = 1;
             // 
             // labelControl5
             // 

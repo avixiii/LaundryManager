@@ -124,14 +124,14 @@ namespace LaundryManager.Views
             this.txtServiceName.Location = new System.Drawing.Point(137, 64);
             this.txtServiceName.Name = "txtServiceName";
             this.txtServiceName.Size = new System.Drawing.Size(145, 21);
-            this.txtServiceName.TabIndex = 6;
+            this.txtServiceName.TabIndex = 1;
             // 
             // txtPrice
             // 
             this.txtPrice.Location = new System.Drawing.Point(137, 146);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(145, 21);
-            this.txtPrice.TabIndex = 7;
+            this.txtPrice.TabIndex = 3;
             this.txtPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrice_KeyPress);
             // 
             // rtbNote
@@ -139,7 +139,7 @@ namespace LaundryManager.Views
             this.rtbNote.Location = new System.Drawing.Point(137, 189);
             this.rtbNote.Name = "rtbNote";
             this.rtbNote.Size = new System.Drawing.Size(145, 31);
-            this.rtbNote.TabIndex = 10;
+            this.rtbNote.TabIndex = 4;
             this.rtbNote.Text = "";
             // 
             // btnSave
@@ -152,9 +152,10 @@ namespace LaundryManager.Views
             this.btnSave.Location = new System.Drawing.Point(44, 246);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(90, 23);
-            this.btnSave.TabIndex = 11;
+            this.btnSave.TabIndex = 5;
             this.btnSave.Text = "Lưu";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.Enter += new System.EventHandler(this.btnSave_Click);
             // 
             // btnExit
             // 
@@ -166,7 +167,7 @@ namespace LaundryManager.Views
             this.btnExit.Location = new System.Drawing.Point(192, 246);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(90, 23);
-            this.btnExit.TabIndex = 12;
+            this.btnExit.TabIndex = 6;
             this.btnExit.Text = "Đóng";
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
@@ -177,7 +178,7 @@ namespace LaundryManager.Views
             this.cbUnits.Location = new System.Drawing.Point(137, 107);
             this.cbUnits.Name = "cbUnits";
             this.cbUnits.Size = new System.Drawing.Size(115, 21);
-            this.cbUnits.TabIndex = 13;
+            this.cbUnits.TabIndex = 2;
             this.cbUnits.ValueMember = "ID";
             // 
             // unitsBindingSource
@@ -196,7 +197,7 @@ namespace LaundryManager.Views
             // 
             // btnInsertUnits
             // 
-            this.btnInsertUnits.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btnInsertUnits.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnInsertUnits.ImageOptions.Image")));
             this.btnInsertUnits.Location = new System.Drawing.Point(258, 107);
             this.btnInsertUnits.Name = "btnInsertUnits";
             this.btnInsertUnits.Size = new System.Drawing.Size(24, 23);

@@ -48,14 +48,14 @@ namespace LaundryManager.Views
             this.txtPath.Location = new System.Drawing.Point(123, 80);
             this.txtPath.Name = "txtPath";
             this.txtPath.Size = new System.Drawing.Size(145, 21);
-            this.txtPath.TabIndex = 0;
+            this.txtPath.TabIndex = 2;
             // 
             // btnBrowse
             // 
             this.btnBrowse.Location = new System.Drawing.Point(275, 78);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(75, 23);
-            this.btnBrowse.TabIndex = 1;
+            this.btnBrowse.TabIndex = 3;
             this.btnBrowse.Text = "Browse";
             this.btnBrowse.UseVisualStyleBackColor = true;
             this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
@@ -85,16 +85,17 @@ namespace LaundryManager.Views
             this.txtFileName.Location = new System.Drawing.Point(123, 42);
             this.txtFileName.Name = "txtFileName";
             this.txtFileName.Size = new System.Drawing.Size(227, 21);
-            this.txtFileName.TabIndex = 4;
+            this.txtFileName.TabIndex = 1;
             // 
             // btnBackup
             // 
             this.btnBackup.Location = new System.Drawing.Point(193, 126);
             this.btnBackup.Name = "btnBackup";
             this.btnBackup.Size = new System.Drawing.Size(75, 23);
-            this.btnBackup.TabIndex = 5;
+            this.btnBackup.TabIndex = 3;
             this.btnBackup.Text = "BACKUP";
             this.btnBackup.Click += new System.EventHandler(this.btnBackup_Click);
+            this.btnBackup.Enter += new System.EventHandler(this.btnBackup_Click);
             // 
             // fBackup
             // 

@@ -29,6 +29,7 @@ namespace LaundryManager.Views
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dtBirthday = new DevExpress.XtraEditors.DateEdit();
             this.txtIDCard = new System.Windows.Forms.TextBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
@@ -46,8 +47,10 @@ namespace LaundryManager.Views
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dtBirthday.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtBirthday.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // dtBirthday
@@ -60,59 +63,64 @@ namespace LaundryManager.Views
             this.dtBirthday.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtBirthday.Size = new System.Drawing.Size(228, 20);
-            this.dtBirthday.TabIndex = 41;
+            this.dtBirthday.TabIndex = 6;
             // 
             // txtIDCard
             // 
             this.txtIDCard.Location = new System.Drawing.Point(102, 250);
             this.txtIDCard.Name = "txtIDCard";
             this.txtIDCard.Size = new System.Drawing.Size(228, 21);
-            this.txtIDCard.TabIndex = 40;
+            this.txtIDCard.TabIndex = 7;
             // 
             // txtAddress
             // 
             this.txtAddress.Location = new System.Drawing.Point(102, 163);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(228, 21);
-            this.txtAddress.TabIndex = 39;
+            this.txtAddress.TabIndex = 5;
             // 
             // txtPhone
             // 
             this.txtPhone.Location = new System.Drawing.Point(102, 122);
+            this.txtPhone.MaxLength = 11;
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(228, 21);
-            this.txtPhone.TabIndex = 38;
+            this.txtPhone.TabIndex = 4;
+            this.txtPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhone_KeyPress);
             // 
             // txtFullName
             // 
             this.txtFullName.Location = new System.Drawing.Point(102, 86);
             this.txtFullName.Name = "txtFullName";
             this.txtFullName.Size = new System.Drawing.Size(228, 21);
-            this.txtFullName.TabIndex = 37;
+            this.txtFullName.TabIndex = 3;
             // 
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(102, 48);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(228, 21);
-            this.txtPassword.TabIndex = 36;
+            this.txtPassword.TabIndex = 2;
             this.txtPassword.UseSystemPasswordChar = true;
+            this.txtPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtPassword_Validating);
             // 
             // txtUsername
             // 
             this.txtUsername.Location = new System.Drawing.Point(102, 12);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(228, 21);
-            this.txtUsername.TabIndex = 35;
+            this.txtUsername.TabIndex = 1;
+            this.txtUsername.Validating += new System.ComponentModel.CancelEventHandler(this.txtUsername_Validating);
             // 
             // btnCreate
             // 
             this.btnCreate.Location = new System.Drawing.Point(21, 345);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(324, 23);
-            this.btnCreate.TabIndex = 34;
+            this.btnCreate.TabIndex = 9;
             this.btnCreate.Text = "TẠO TÀI KHOẢN";
             this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
+            this.btnCreate.Enter += new System.EventHandler(this.btnCreate_Click);
             // 
             // ckbStatus
             // 
@@ -120,7 +128,7 @@ namespace LaundryManager.Views
             this.ckbStatus.Location = new System.Drawing.Point(102, 288);
             this.ckbStatus.Name = "ckbStatus";
             this.ckbStatus.Size = new System.Drawing.Size(70, 17);
-            this.ckbStatus.TabIndex = 33;
+            this.ckbStatus.TabIndex = 8;
             this.ckbStatus.Text = "Kích hoạt";
             this.ckbStatus.UseVisualStyleBackColor = true;
             // 
@@ -188,6 +196,10 @@ namespace LaundryManager.Views
             this.labelControl1.TabIndex = 25;
             this.labelControl1.Text = "Tài khoản";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // fSignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -215,6 +227,7 @@ namespace LaundryManager.Views
             this.Text = "ĐĂNG KÝ TÀI KHOẢN";
             ((System.ComponentModel.ISupportInitialize)(this.dtBirthday.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtBirthday.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -239,5 +252,6 @@ namespace LaundryManager.Views
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

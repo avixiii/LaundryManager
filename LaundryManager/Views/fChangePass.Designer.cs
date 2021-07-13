@@ -75,7 +75,7 @@ namespace LaundryManager.Views
             this.txtOldPass.Location = new System.Drawing.Point(141, 47);
             this.txtOldPass.Name = "txtOldPass";
             this.txtOldPass.Size = new System.Drawing.Size(153, 21);
-            this.txtOldPass.TabIndex = 3;
+            this.txtOldPass.TabIndex = 1;
             this.txtOldPass.UseSystemPasswordChar = true;
             // 
             // txtNewPass
@@ -83,7 +83,7 @@ namespace LaundryManager.Views
             this.txtNewPass.Location = new System.Drawing.Point(141, 87);
             this.txtNewPass.Name = "txtNewPass";
             this.txtNewPass.Size = new System.Drawing.Size(153, 21);
-            this.txtNewPass.TabIndex = 4;
+            this.txtNewPass.TabIndex = 2;
             this.txtNewPass.UseSystemPasswordChar = true;
             // 
             // txtNewPass2
@@ -91,7 +91,7 @@ namespace LaundryManager.Views
             this.txtNewPass2.Location = new System.Drawing.Point(141, 124);
             this.txtNewPass2.Name = "txtNewPass2";
             this.txtNewPass2.Size = new System.Drawing.Size(153, 21);
-            this.txtNewPass2.TabIndex = 5;
+            this.txtNewPass2.TabIndex = 3;
             this.txtNewPass2.UseSystemPasswordChar = true;
             // 
             // btnChangePass
@@ -106,6 +106,7 @@ namespace LaundryManager.Views
             this.btnChangePass.TabIndex = 6;
             this.btnChangePass.Text = "Đổi mật khẩu";
             this.btnChangePass.Click += new System.EventHandler(this.btnChangePass_Click);
+            this.btnChangePass.Enter += new System.EventHandler(this.btnChangePass_Click);
             // 
             // lbUserName
             // 

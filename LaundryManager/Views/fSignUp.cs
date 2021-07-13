@@ -35,17 +35,7 @@ namespace LaundryManager.Views
             else
             {
                 status = false;
-            }
-
-            // 
-            if (user == "")
-            {
-                MessageBox.Show("Tài khoản không được để trống.");
-            }
-            if (pass == "")
-            {
-                MessageBox.Show("Mật khẩu không được để trống.");
-            }    
+            }  
 
             // Mã hoá pass
             pass = Models.UserControl.SHA256(pass);
@@ -55,23 +45,49 @@ namespace LaundryManager.Views
 
             if (check != "") // Tồn tại user 
             {
-                MessageBox.Show("Tên tài khoản đã được sử dụng xin vui lòng nhập tên khác");
+                MessageBox.Show("Tài khoản đã được sử dụng, xin vui lòng nhập tên tài khoản kh");
             }
             else // Không tồn tại
             {
-                int i = 0;
+                Controllers.UserController.SignUp(user, pass, fullName, phone, address, birthDay, idCard, status);
+                this.Close();
+            }
+            
+        }
 
-                try
-                {
-                    i = Controllers.UserController.SignUp(user, pass, fullName, phone, address, birthDay, idCard, status);
-                    MessageBox.Show("Đăng ký thành công.");
-                   
-                }
-                catch { }
-                finally
-                { this.Close(); }
-            }  
+        private void txtPhone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                  (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
 
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtUsername_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtUsername.Text))
+            {
+                e.Cancel = true;
+                txtUsername.Focus();
+                errorProvider1.SetError(txtUsername, "Tên tài khoản không được để trống.");
+            }    
+        }
+
+        private void txtPassword_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtPassword.Text))
+            {
+                e.Cancel = true;
+                txtPassword.Focus();
+                errorProvider1.SetError(txtPassword, "Mật khẩu không được để trống.");
+            }
         }
     }
 }

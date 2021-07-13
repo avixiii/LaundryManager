@@ -53,6 +53,7 @@ namespace LaundryManager.Views
             // 
             // labelControl1
             // 
+            this.labelControl1.Enabled = false;
             this.labelControl1.Location = new System.Drawing.Point(30, 28);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(43, 13);
@@ -109,6 +110,7 @@ namespace LaundryManager.Views
             // 
             // txtID
             // 
+            this.txtID.Enabled = false;
             this.txtID.Location = new System.Drawing.Point(142, 20);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(158, 21);
@@ -119,28 +121,28 @@ namespace LaundryManager.Views
             this.txtPayer.Location = new System.Drawing.Point(142, 153);
             this.txtPayer.Name = "txtPayer";
             this.txtPayer.Size = new System.Drawing.Size(350, 21);
-            this.txtPayer.TabIndex = 10;
+            this.txtPayer.TabIndex = 3;
             // 
             // txtAmount
             // 
             this.txtAmount.Location = new System.Drawing.Point(142, 202);
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Size = new System.Drawing.Size(350, 21);
-            this.txtAmount.TabIndex = 11;
+            this.txtAmount.TabIndex = 4;
             // 
             // txtReason
             // 
             this.txtReason.Location = new System.Drawing.Point(142, 250);
             this.txtReason.Name = "txtReason";
             this.txtReason.Size = new System.Drawing.Size(350, 21);
-            this.txtReason.TabIndex = 12;
+            this.txtReason.TabIndex = 5;
             // 
             // txtExplain
             // 
             this.txtExplain.Location = new System.Drawing.Point(142, 300);
             this.txtExplain.Name = "txtExplain";
             this.txtExplain.Size = new System.Drawing.Size(350, 21);
-            this.txtExplain.TabIndex = 13;
+            this.txtExplain.TabIndex = 6;
             // 
             // cbBillType
             // 
@@ -151,7 +153,7 @@ namespace LaundryManager.Views
             this.cbBillType.Location = new System.Drawing.Point(142, 62);
             this.cbBillType.Name = "cbBillType";
             this.cbBillType.Size = new System.Drawing.Size(350, 21);
-            this.cbBillType.TabIndex = 14;
+            this.cbBillType.TabIndex = 1;
             this.cbBillType.SelectedIndexChanged += new System.EventHandler(this.cbBillType_SelectedIndexChanged);
             // 
             // dtBillType
@@ -164,24 +166,24 @@ namespace LaundryManager.Views
             this.dtBillType.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtBillType.Size = new System.Drawing.Size(350, 20);
-            this.dtBillType.TabIndex = 15;
+            this.dtBillType.TabIndex = 2;
             // 
             // btnSave
             // 
-            this.btnSave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btnSave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.ImageOptions.Image")));
             this.btnSave.Location = new System.Drawing.Point(206, 351);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 16;
+            this.btnSave.TabIndex = 7;
             this.btnSave.Text = "Lưu";
             // 
             // btnClose
             // 
-            this.btnClose.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
+            this.btnClose.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.ImageOptions.Image")));
             this.btnClose.Location = new System.Drawing.Point(337, 351);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 17;
+            this.btnClose.TabIndex = 8;
             this.btnClose.Text = "Đóng";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 

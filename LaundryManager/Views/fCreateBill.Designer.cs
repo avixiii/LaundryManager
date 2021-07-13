@@ -30,23 +30,23 @@ namespace LaundryManager.Views
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions7 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fCreateBill));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject25 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject26 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject27 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject28 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions8 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject29 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject30 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject31 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject32 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery3 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions9 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject33 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject34 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject35 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject36 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery1 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             this.gcCart = new DevExpress.XtraGrid.GridControl();
             this.gvCart = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colRemove = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -140,9 +140,9 @@ namespace LaundryManager.Views
             // riBtnRemove
             // 
             this.riBtnRemove.AutoHeight = false;
-            editorButtonImageOptions7.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions7.Image")));
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
             this.riBtnRemove.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions7, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject25, serializableAppearanceObject26, serializableAppearanceObject27, serializableAppearanceObject28, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.riBtnRemove.Name = "riBtnRemove";
             this.riBtnRemove.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.riBtnRemove.Click += new System.EventHandler(this.riBtnRemove_Click);
@@ -193,9 +193,9 @@ namespace LaundryManager.Views
             // riBtnDelete
             // 
             this.riBtnDelete.AutoHeight = false;
-            editorButtonImageOptions8.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions8.Image")));
+            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
             this.riBtnDelete.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions8, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject29, serializableAppearanceObject30, serializableAppearanceObject31, serializableAppearanceObject32, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.riBtnDelete.Name = "riBtnDelete";
             this.riBtnDelete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.riBtnDelete.Click += new System.EventHandler(this.riBtnDelete_Click);
@@ -238,21 +238,21 @@ namespace LaundryManager.Views
             this.dtAppointmentDate.Location = new System.Drawing.Point(451, 67);
             this.dtAppointmentDate.Name = "dtAppointmentDate";
             this.dtAppointmentDate.Size = new System.Drawing.Size(200, 21);
-            this.dtAppointmentDate.TabIndex = 30;
+            this.dtAppointmentDate.TabIndex = 3;
             // 
             // dtBillDate
             // 
             this.dtBillDate.Location = new System.Drawing.Point(94, 67);
             this.dtBillDate.Name = "dtBillDate";
             this.dtBillDate.Size = new System.Drawing.Size(200, 21);
-            this.dtBillDate.TabIndex = 29;
+            this.dtBillDate.TabIndex = 2;
             // 
             // txtNote
             // 
             this.txtNote.Location = new System.Drawing.Point(94, 283);
             this.txtNote.Name = "txtNote";
             this.txtNote.Size = new System.Drawing.Size(559, 21);
-            this.txtNote.TabIndex = 28;
+            this.txtNote.TabIndex = 9;
             // 
             // labelControl12
             // 
@@ -275,7 +275,7 @@ namespace LaundryManager.Views
             this.txtPhone.Location = new System.Drawing.Point(451, 113);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(202, 21);
-            this.txtPhone.TabIndex = 25;
+            this.txtPhone.TabIndex = 5;
             this.txtPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhone_KeyPress);
             // 
             // btnSave
@@ -283,7 +283,7 @@ namespace LaundryManager.Views
             this.btnSave.Location = new System.Drawing.Point(536, 321);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(117, 23);
-            this.btnSave.TabIndex = 24;
+            this.btnSave.TabIndex = 11;
             this.btnSave.Text = "Lưu phiếu";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -292,12 +292,13 @@ namespace LaundryManager.Views
             this.cbStatus.FormattingEnabled = true;
             this.cbStatus.Items.AddRange(new object[] {
             "Chưa giặt",
+            "Thanh toán",
             "Đã giặt",
             "Đã thanh toán"});
             this.cbStatus.Location = new System.Drawing.Point(451, 30);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(202, 21);
-            this.cbStatus.TabIndex = 20;
+            this.cbStatus.TabIndex = 1;
             // 
             // ckbPrint
             // 
@@ -305,7 +306,7 @@ namespace LaundryManager.Views
             this.ckbPrint.Location = new System.Drawing.Point(363, 207);
             this.ckbPrint.Name = "ckbPrint";
             this.ckbPrint.Size = new System.Drawing.Size(99, 17);
-            this.ckbPrint.TabIndex = 19;
+            this.ckbPrint.TabIndex = 10;
             this.ckbPrint.Text = "In phiếu khi lưu";
             this.ckbPrint.UseVisualStyleBackColor = true;
             // 
@@ -355,14 +356,16 @@ namespace LaundryManager.Views
             this.txtAddress.Location = new System.Drawing.Point(94, 242);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(559, 21);
-            this.txtAddress.TabIndex = 12;
+            this.txtAddress.TabIndex = 8;
             // 
             // txtSurcharge
             // 
             this.txtSurcharge.Location = new System.Drawing.Point(94, 199);
             this.txtSurcharge.Name = "txtSurcharge";
             this.txtSurcharge.Size = new System.Drawing.Size(202, 21);
-            this.txtSurcharge.TabIndex = 11;
+            this.txtSurcharge.TabIndex = 7;
+            this.txtSurcharge.Text = "0";
+            this.txtSurcharge.TextChanged += new System.EventHandler(this.txtSurcharge_TextChanged);
             this.txtSurcharge.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSurcharge_KeyPress);
             // 
             // txtDiscount
@@ -370,7 +373,8 @@ namespace LaundryManager.Views
             this.txtDiscount.Location = new System.Drawing.Point(226, 154);
             this.txtDiscount.Name = "txtDiscount";
             this.txtDiscount.Size = new System.Drawing.Size(70, 21);
-            this.txtDiscount.TabIndex = 10;
+            this.txtDiscount.TabIndex = 6;
+            this.txtDiscount.Text = "0";
             this.txtDiscount.TextChanged += new System.EventHandler(this.txtDiscount_TextChanged);
             this.txtDiscount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDiscount_KeyPress);
             // 
@@ -387,7 +391,7 @@ namespace LaundryManager.Views
             this.txtCustomerName.Location = new System.Drawing.Point(94, 113);
             this.txtCustomerName.Name = "txtCustomerName";
             this.txtCustomerName.Size = new System.Drawing.Size(202, 21);
-            this.txtCustomerName.TabIndex = 8;
+            this.txtCustomerName.TabIndex = 4;
             // 
             // txtBillCode
             // 
@@ -466,10 +470,10 @@ namespace LaundryManager.Views
             // 
             this.sqlDataSource1.ConnectionName = "DATABASE_QUANLYTIEMGIATUIConnectionString";
             this.sqlDataSource1.Name = "sqlDataSource1";
-            customSqlQuery3.Name = "Query";
-            customSqlQuery3.Sql = "SELECT ID, ServiceName, Price FROM Services";
+            customSqlQuery1.Name = "Query";
+            customSqlQuery1.Sql = "SELECT ID, ServiceName, Price FROM Services";
             this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
-            customSqlQuery3});
+            customSqlQuery1});
             this.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable");
             // 
             // gvServiceList
@@ -520,9 +524,9 @@ namespace LaundryManager.Views
             // riBtnAdd
             // 
             this.riBtnAdd.AutoHeight = false;
-            editorButtonImageOptions9.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions9.Image")));
+            editorButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions3.Image")));
             this.riBtnAdd.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions9, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject33, serializableAppearanceObject34, serializableAppearanceObject35, serializableAppearanceObject36, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.riBtnAdd.Name = "riBtnAdd";
             this.riBtnAdd.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.riBtnAdd.Click += new System.EventHandler(this.ribtnAdd_Click);

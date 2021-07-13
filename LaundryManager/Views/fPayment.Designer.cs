@@ -77,7 +77,7 @@ namespace LaundryManager.Views
             this.txtPaid.Location = new System.Drawing.Point(124, 69);
             this.txtPaid.Name = "txtPaid";
             this.txtPaid.Size = new System.Drawing.Size(253, 21);
-            this.txtPaid.TabIndex = 8;
+            this.txtPaid.TabIndex = 1;
             this.txtPaid.TextChanged += new System.EventHandler(this.txtPaid_TextChanged);
             // 
             // txtMustBePaid
@@ -94,9 +94,10 @@ namespace LaundryManager.Views
             this.btnSave.Location = new System.Drawing.Point(114, 153);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 10;
+            this.btnSave.TabIndex = 2;
             this.btnSave.Text = "LƯU";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.Enter += new System.EventHandler(this.btnSave_Click);
             // 
             // btnClose
             // 
@@ -104,7 +105,7 @@ namespace LaundryManager.Views
             this.btnClose.Location = new System.Drawing.Point(230, 153);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 11;
+            this.btnClose.TabIndex = 3;
             this.btnClose.Text = "ĐÓNG";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
@@ -126,6 +127,7 @@ namespace LaundryManager.Views
             this.Name = "fPayment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "THANH TOÁN";
+            this.Load += new System.EventHandler(this.fPayment_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
