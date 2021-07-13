@@ -53,7 +53,18 @@ namespace LaundryManager.Controllers
         }
 
         // Delete
-
+        public static int Delete(string billCode)
+        {
+            try
+            {
+                Models.BillsModel delete = new Models.BillsModel(billCode);
+                return delete.Delete();
+            }
+            catch
+            {
+                return 0;
+            }
+        }
 
 
     }

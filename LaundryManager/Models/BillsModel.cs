@@ -52,6 +52,10 @@ namespace LaundryManager.Models
             this.mustBePaid = mustBePaid;
         }
 
+        public BillsModel(string billCode)
+        {
+            this.billCode = billCode;
+        }
 
         protected string billCode { get; set; }
         protected int cusID { get; set; }
@@ -82,9 +86,13 @@ namespace LaundryManager.Models
 
         // Delete 
 
-        public int DeleteBill()
+        public int Delete()
         {
             int i = 0;
+            string[] paras = new string[1] { "@BillCode" };
+            object[] values = new object[1] { billCode };
+
+            i = Models.Connection.Excute_Sql("spDeleteBill", CommandType.StoredProcedure, paras, values);
 
             return i;
         }

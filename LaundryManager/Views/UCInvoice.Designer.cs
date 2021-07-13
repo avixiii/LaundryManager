@@ -70,11 +70,10 @@ namespace LaundryManager.Views
             this.ckbID = new System.Windows.Forms.CheckBox();
             this.ckbEmployee = new System.Windows.Forms.CheckBox();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.btnSave = new DevExpress.XtraEditors.SimpleButton();
+            this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.btnExit = new DevExpress.XtraEditors.SimpleButton();
             this.btnPrint = new DevExpress.XtraEditors.SimpleButton();
             this.btnEdit = new DevExpress.XtraEditors.SimpleButton();
-            this.btnIgnore = new DevExpress.XtraEditors.SimpleButton();
             this.btnCreateInvoice = new DevExpress.XtraEditors.SimpleButton();
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.label1 = new System.Windows.Forms.Label();
@@ -490,11 +489,10 @@ namespace LaundryManager.Views
             // 
             // panelControl1
             // 
-            this.panelControl1.Controls.Add(this.btnSave);
+            this.panelControl1.Controls.Add(this.btnDelete);
             this.panelControl1.Controls.Add(this.btnExit);
             this.panelControl1.Controls.Add(this.btnPrint);
             this.panelControl1.Controls.Add(this.btnEdit);
-            this.panelControl1.Controls.Add(this.btnIgnore);
             this.panelControl1.Controls.Add(this.btnCreateInvoice);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(392, 0);
@@ -502,20 +500,20 @@ namespace LaundryManager.Views
             this.panelControl1.Size = new System.Drawing.Size(820, 41);
             this.panelControl1.TabIndex = 2;
             // 
-            // btnSave
+            // btnDelete
             // 
-            this.btnSave.Enabled = false;
-            this.btnSave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.ImageOptions.Image")));
-            this.btnSave.Location = new System.Drawing.Point(636, 7);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 5;
-            this.btnSave.Text = "Lưu";
+            this.btnDelete.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.ImageOptions.Image")));
+            this.btnDelete.Location = new System.Drawing.Point(506, 7);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.TabIndex = 5;
+            this.btnDelete.Text = "Xoá";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnExit
             // 
             this.btnExit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.ImageOptions.Image")));
-            this.btnExit.Location = new System.Drawing.Point(524, 7);
+            this.btnExit.Location = new System.Drawing.Point(394, 7);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
             this.btnExit.TabIndex = 4;
@@ -525,7 +523,7 @@ namespace LaundryManager.Views
             // btnPrint
             // 
             this.btnPrint.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.ImageOptions.Image")));
-            this.btnPrint.Location = new System.Drawing.Point(411, 7);
+            this.btnPrint.Location = new System.Drawing.Point(281, 7);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(75, 23);
             this.btnPrint.TabIndex = 3;
@@ -534,21 +532,11 @@ namespace LaundryManager.Views
             // btnEdit
             // 
             this.btnEdit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.ImageOptions.Image")));
-            this.btnEdit.Location = new System.Drawing.Point(285, 7);
+            this.btnEdit.Location = new System.Drawing.Point(155, 7);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 23);
             this.btnEdit.TabIndex = 2;
             this.btnEdit.Text = "Sửa";
-            // 
-            // btnIgnore
-            // 
-            this.btnIgnore.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnIgnore.ImageOptions.Image")));
-            this.btnIgnore.Location = new System.Drawing.Point(160, 7);
-            this.btnIgnore.Name = "btnIgnore";
-            this.btnIgnore.Size = new System.Drawing.Size(75, 23);
-            this.btnIgnore.TabIndex = 1;
-            this.btnIgnore.Text = "Bỏ qua";
-            this.btnIgnore.Click += new System.EventHandler(this.btnIgnore_Click);
             // 
             // btnCreateInvoice
             // 
@@ -687,11 +675,10 @@ namespace LaundryManager.Views
         private DevExpress.XtraEditors.SimpleButton btnExit;
         private DevExpress.XtraEditors.SimpleButton btnPrint;
         private DevExpress.XtraEditors.SimpleButton btnEdit;
-        private DevExpress.XtraEditors.SimpleButton btnIgnore;
         private DevExpress.XtraEditors.SimpleButton btnCreateInvoice;
         private DevExpress.XtraGrid.GridControl gcInvoice;
         private DevExpress.XtraGrid.Views.Grid.GridView gvBills;
-        private DevExpress.XtraEditors.SimpleButton btnSave;
+        private DevExpress.XtraEditors.SimpleButton btnDelete;
         private DevExpress.XtraGrid.Columns.GridColumn colBillCode;
         private DevExpress.XtraGrid.Columns.GridColumn colBillDate;
         private DevExpress.XtraGrid.Columns.GridColumn colName;

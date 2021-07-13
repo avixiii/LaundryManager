@@ -273,6 +273,7 @@ namespace LaundryManager.Views
             // txtPhone
             // 
             this.txtPhone.Location = new System.Drawing.Point(451, 113);
+            this.txtPhone.MaxLength = 11;
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(202, 21);
             this.txtPhone.TabIndex = 5;

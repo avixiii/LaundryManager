@@ -31,10 +31,6 @@ namespace LaundryManager.Views
             this.Parent.Controls.Remove(this);
         }
 
-        private void btnIgnore_Click(object sender, EventArgs e)
-        {
-        }
-
         private void UCInvoice_Load(object sender, EventArgs e)
         {
             ShowInvoice();
@@ -149,6 +145,26 @@ namespace LaundryManager.Views
             {
                 cbStatus.Enabled = false;
             }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            int rowIndex = gvBills.FocusedRowHandle;
+            object value;
+            // Lấy id
+            string colFieldID = "BillCode";
+            value = gvBills.GetRowCellValue(rowIndex, colFieldID);
+            if (value == null)
+            {
+                MessageBox.Show("Vui lòng chọn vào hoá đơn muốn xoá");
+            }    
+            else
+            {
+                string billCode = value.ToString();
+                Controllers.BillsController.Delete(billCode);
+                ShowInvoice();
+            }    
+            
         }
     }
 }
