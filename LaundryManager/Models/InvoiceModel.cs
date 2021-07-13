@@ -11,7 +11,7 @@ namespace LaundryManager.Models
     {
         public static DataSet FillDataSetInvoice()
         {
-            string sqlBills = "SELECT BillCode, BillDate, Name, AppointmentDate, Phone, Address, Status, Total FROM dbo.Customers , dbo.Bills WHERE dbo.Customers.ID = dbo.Bills.CusID";
+            string sqlBills = "SELECT BillCode, BillDate, Name, AppointmentDate, Phone, Address, Status, Total, Paid, MustBePaid FROM dbo.Customers , dbo.Bills WHERE dbo.Customers.ID = dbo.Bills.CusID";
             string sqlBillDetails = "SELECT BillDetails.BillCode, ServiceName, BillDetails.Price, Quantity, BillDetails.Total FROM dbo.Services, dbo.BillDetails WHERE dbo.BillDetails.ServID = dbo.Services.ID";
 
 

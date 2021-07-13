@@ -47,10 +47,13 @@ namespace LaundryManager.Views
             this.colStatus = new DevExpress.XtraGrid.Columns.GridColumn();
             this.riBtnStatus = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.colTotal = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPaid = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMustBePaid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.riBtnDetailsView = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.dtTime = new DevExpress.XtraEditors.DateEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.txtCustomer = new System.Windows.Forms.TextBox();
             this.ckbCustomer = new System.Windows.Forms.CheckBox();
@@ -83,7 +86,6 @@ namespace LaundryManager.Views
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.dtTime = new DevExpress.XtraEditors.DateEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcInvoice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvBills)).BeginInit();
@@ -92,11 +94,11 @@ namespace LaundryManager.Views
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel2.SuspendLayout();
             this.dockPanel2_Container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtTime.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtTime.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtTime.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtTime.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // gridView1
@@ -167,7 +169,9 @@ namespace LaundryManager.Views
             this.colPhone,
             this.colAddress,
             this.colStatus,
-            this.colTotal});
+            this.colTotal,
+            this.colPaid,
+            this.colMustBePaid});
             this.gvBills.GridControl = this.gcInvoice;
             this.gvBills.Name = "gvBills";
             this.gvBills.OptionsView.ShowGroupPanel = false;
@@ -179,7 +183,7 @@ namespace LaundryManager.Views
             this.colBillCode.OptionsColumn.AllowFocus = false;
             this.colBillCode.Visible = true;
             this.colBillCode.VisibleIndex = 0;
-            this.colBillCode.Width = 97;
+            this.colBillCode.Width = 73;
             // 
             // colBillDate
             // 
@@ -189,7 +193,7 @@ namespace LaundryManager.Views
             this.colBillDate.OptionsColumn.AllowFocus = false;
             this.colBillDate.Visible = true;
             this.colBillDate.VisibleIndex = 1;
-            this.colBillDate.Width = 97;
+            this.colBillDate.Width = 73;
             // 
             // colName
             // 
@@ -199,7 +203,7 @@ namespace LaundryManager.Views
             this.colName.OptionsColumn.AllowFocus = false;
             this.colName.Visible = true;
             this.colName.VisibleIndex = 2;
-            this.colName.Width = 97;
+            this.colName.Width = 73;
             // 
             // colAppointmentDate
             // 
@@ -209,7 +213,7 @@ namespace LaundryManager.Views
             this.colAppointmentDate.OptionsColumn.AllowFocus = false;
             this.colAppointmentDate.Visible = true;
             this.colAppointmentDate.VisibleIndex = 3;
-            this.colAppointmentDate.Width = 97;
+            this.colAppointmentDate.Width = 73;
             // 
             // colPhone
             // 
@@ -219,7 +223,7 @@ namespace LaundryManager.Views
             this.colPhone.OptionsColumn.AllowFocus = false;
             this.colPhone.Visible = true;
             this.colPhone.VisibleIndex = 4;
-            this.colPhone.Width = 97;
+            this.colPhone.Width = 73;
             // 
             // colAddress
             // 
@@ -229,7 +233,7 @@ namespace LaundryManager.Views
             this.colAddress.OptionsColumn.AllowFocus = false;
             this.colAddress.Visible = true;
             this.colAddress.VisibleIndex = 5;
-            this.colAddress.Width = 198;
+            this.colAddress.Width = 103;
             // 
             // colStatus
             // 
@@ -239,7 +243,7 @@ namespace LaundryManager.Views
             this.colStatus.Name = "colStatus";
             this.colStatus.Visible = true;
             this.colStatus.VisibleIndex = 6;
-            this.colStatus.Width = 81;
+            this.colStatus.Width = 67;
             // 
             // riBtnStatus
             // 
@@ -257,7 +261,25 @@ namespace LaundryManager.Views
             this.colTotal.OptionsColumn.AllowFocus = false;
             this.colTotal.Visible = true;
             this.colTotal.VisibleIndex = 7;
-            this.colTotal.Width = 140;
+            this.colTotal.Width = 115;
+            // 
+            // colPaid
+            // 
+            this.colPaid.Caption = "Khách trả";
+            this.colPaid.FieldName = "Paid";
+            this.colPaid.Name = "colPaid";
+            this.colPaid.Visible = true;
+            this.colPaid.VisibleIndex = 8;
+            this.colPaid.Width = 68;
+            // 
+            // colMustBePaid
+            // 
+            this.colMustBePaid.Caption = "Tiền thừa trả khách";
+            this.colMustBePaid.FieldName = "MustBePaid";
+            this.colMustBePaid.Name = "colMustBePaid";
+            this.colMustBePaid.Visible = true;
+            this.colMustBePaid.VisibleIndex = 9;
+            this.colMustBePaid.Width = 77;
             // 
             // riBtnDetailsView
             // 
@@ -315,6 +337,19 @@ namespace LaundryManager.Views
             this.dockPanel2_Container.Name = "dockPanel2_Container";
             this.dockPanel2_Container.Size = new System.Drawing.Size(385, 699);
             this.dockPanel2_Container.TabIndex = 0;
+            // 
+            // dtTime
+            // 
+            this.dtTime.EditValue = null;
+            this.dtTime.Enabled = false;
+            this.dtTime.Location = new System.Drawing.Point(116, 193);
+            this.dtTime.Name = "dtTime";
+            this.dtTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtTime.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtTime.Size = new System.Drawing.Size(227, 20);
+            this.dtTime.TabIndex = 16;
             // 
             // labelControl5
             // 
@@ -615,19 +650,6 @@ namespace LaundryManager.Views
             this.dockPanel1_Container.Size = new System.Drawing.Size(226, 699);
             this.dockPanel1_Container.TabIndex = 0;
             // 
-            // dtTime
-            // 
-            this.dtTime.EditValue = null;
-            this.dtTime.Enabled = false;
-            this.dtTime.Location = new System.Drawing.Point(116, 193);
-            this.dtTime.Name = "dtTime";
-            this.dtTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtTime.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtTime.Size = new System.Drawing.Size(227, 20);
-            this.dtTime.TabIndex = 16;
-            // 
             // UCInvoice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -648,12 +670,12 @@ namespace LaundryManager.Views
             this.dockPanel2.ResumeLayout(false);
             this.dockPanel2_Container.ResumeLayout(false);
             this.dockPanel2_Container.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtTime.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtTime.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             this.dockPanel1_Container.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtTime.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtTime.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -713,5 +735,7 @@ namespace LaundryManager.Views
         private System.Windows.Forms.TextBox txtCustomer;
         private System.Windows.Forms.CheckBox ckbCustomer;
         private DevExpress.XtraEditors.DateEdit dtTime;
+        private DevExpress.XtraGrid.Columns.GridColumn colPaid;
+        private DevExpress.XtraGrid.Columns.GridColumn colMustBePaid;
     }
 }
