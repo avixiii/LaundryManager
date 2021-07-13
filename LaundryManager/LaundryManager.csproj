@@ -176,6 +176,12 @@
     <Compile Include="Views\fRestore.Designer.cs">
       <DependentUpon>fRestore.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\InvoiceReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\InvoiceReport.Designer.cs">
+      <DependentUpon>InvoiceReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -253,6 +259,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\fRestore.resx">
       <DependentUpon>fRestore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\InvoiceReport.resx">
+      <DependentUpon>InvoiceReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
