@@ -144,6 +144,8 @@ namespace LaundryManager.Views
             // colID
             // 
             this.colID.Caption = "MÃ DỊCH VỤ";
+            this.colID.DisplayFormat.FormatString = "{0:#,##0.00}";
+            this.colID.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colID.FieldName = "ID";
             this.colID.Name = "colID";
             this.colID.OptionsColumn.AllowEdit = false;
@@ -174,6 +176,8 @@ namespace LaundryManager.Views
             // colPrice
             // 
             this.colPrice.Caption = "ĐƠN GIÁ";
+            this.colPrice.DisplayFormat.FormatString = "{0:#,##0.00}";
+            this.colPrice.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colPrice.FieldName = "Price";
             this.colPrice.Name = "colPrice";
             this.colPrice.OptionsColumn.AllowEdit = false;

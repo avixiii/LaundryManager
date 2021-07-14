@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,8 +36,11 @@ namespace LaundryManager.Views
             gcCashBook.DataSource = Models.CashBookModel.FillDataSetCashBook();
             gcCashBook.DataMember = "CashBook";
 
-            lblSpendingMoney.Text = CalculatorCashBook("Phiếu chi").ToString();
-            lblTienThu.Text = CalculatorCashBook("Phiếu thu").ToString();
+            
+            CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");   // try with "en-US"
+            lblSpendingMoney.Text = double.Parse(CalculatorCashBook("Phiếu chi").ToString()).ToString("#,###", cul.NumberFormat) + " VNĐ";
+
+            lblTienThu.Text = double.Parse(CalculatorCashBook("Phiếu thu").ToString()).ToString("#,###", cul.NumberFormat) + " VNĐ";
 
         }
 
@@ -153,56 +157,56 @@ namespace LaundryManager.Views
         {
             if (gvCashBook.IsFocusedView)
             {
-                // Lấy các giá trị
-                int rowIndex = gvCashBook.FocusedRowHandle;
-                object value;
+            }
 
-                // Lấy ID
-                string colFieldID = "ID";
-                value = gvCashBook.GetRowCellValue(rowIndex, colFieldID);
-                string id = (string)value;
+            // Lấy các giá trị
+            int rowIndex = gvCashBook.FocusedRowHandle;
+            object value;
 
-
-                // Loại phiếu
-                string colFieldBillType = "BillType";
-                value = gvCashBook.GetRowCellValue(rowIndex, colFieldBillType);
-                string billType = (string)value;
-
-                // Ngày tạo hoá đơn
-                string colFieldDate = "BillDate";
-                value = gvCashBook.GetRowCellValue(rowIndex, colFieldDate);
-                DateTime billDate = DateTime.Parse(value.ToString());
+            // Lấy ID
+            string colFieldID = "ID";
+            value = gvCashBook.GetRowCellValue(rowIndex, colFieldID);
+            string id = (string)value;
 
 
-                // Người nhận
-                string colFieldPayer = "Payer";
-                value = gvCashBook.GetRowCellValue(rowIndex, colFieldPayer);
-                string payer = (string)value;
+            // Loại phiếu
+            string colFieldBillType = "BillType";
+            value = gvCashBook.GetRowCellValue(rowIndex, colFieldBillType);
+            string billType = (string)value;
 
-                // Số tiền
-                string colFieldAmount = "Amount";
-                value = gvCashBook.GetRowCellValue(rowIndex, colFieldAmount);
-                double amount = double.Parse(value.ToString());
-
-
-                // Lý do
-                string colFieldReason = "Reason";
-                value = gvCashBook.GetRowCellValue(rowIndex, colFieldReason);
-                string reason = (string)value;
+            // Ngày tạo hoá đơn
+            string colFieldDate = "BillDate";
+            value = gvCashBook.GetRowCellValue(rowIndex, colFieldDate);
+            DateTime billDate = DateTime.Parse(value.ToString());
 
 
-                // Diễn giải 
-                string colFieldExplain = "Explain";
-                value = gvCashBook.GetRowCellValue(rowIndex, colFieldExplain);
-                string explain = (string)value;
+            // Người nhận
+            string colFieldPayer = "Payer";
+            value = gvCashBook.GetRowCellValue(rowIndex, colFieldPayer);
+            string payer = (string)value;
+
+            // Số tiền
+            string colFieldAmount = "Amount";
+            value = gvCashBook.GetRowCellValue(rowIndex, colFieldAmount);
+            double amount = double.Parse(value.ToString());
 
 
-                fEditACashBook edit = new fEditACashBook(id, billType, billDate, payer, amount, reason, explain);
+            // Lý do
+            string colFieldReason = "Reason";
+            value = gvCashBook.GetRowCellValue(rowIndex, colFieldReason);
+            string reason = (string)value;
 
-                edit.ShowDialog();
-                ShowCashBook();
-            }    
-            
+
+            // Diễn giải 
+            string colFieldExplain = "Explain";
+            value = gvCashBook.GetRowCellValue(rowIndex, colFieldExplain);
+            string explain = (string)value;
+
+
+            fEditACashBook edit = new fEditACashBook(id, billType, billDate, payer, amount, reason, explain);
+
+            edit.ShowDialog();
+            ShowCashBook();
         }
     }
 }

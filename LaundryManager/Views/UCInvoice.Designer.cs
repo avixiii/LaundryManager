@@ -187,6 +187,8 @@ namespace LaundryManager.Views
             // colBillDate
             // 
             this.colBillDate.Caption = "Ngày lập";
+            this.colBillDate.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.colBillDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colBillDate.FieldName = "BillDate";
             this.colBillDate.Name = "colBillDate";
             this.colBillDate.OptionsColumn.AllowFocus = false;
@@ -207,6 +209,8 @@ namespace LaundryManager.Views
             // colAppointmentDate
             // 
             this.colAppointmentDate.Caption = "Ngày hẹn";
+            this.colAppointmentDate.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.colAppointmentDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colAppointmentDate.FieldName = "AppointmentDate";
             this.colAppointmentDate.Name = "colAppointmentDate";
             this.colAppointmentDate.OptionsColumn.AllowFocus = false;
@@ -255,6 +259,8 @@ namespace LaundryManager.Views
             // colTotal
             // 
             this.colTotal.Caption = "Tổng tiền";
+            this.colTotal.DisplayFormat.FormatString = "{0:#,##0.00}";
+            this.colTotal.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colTotal.FieldName = "Total";
             this.colTotal.Name = "colTotal";
             this.colTotal.OptionsColumn.AllowFocus = false;
@@ -265,6 +271,8 @@ namespace LaundryManager.Views
             // colPaid
             // 
             this.colPaid.Caption = "Khách trả";
+            this.colPaid.DisplayFormat.FormatString = "{0:#,##0.00}";
+            this.colPaid.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colPaid.FieldName = "Paid";
             this.colPaid.Name = "colPaid";
             this.colPaid.Visible = true;
@@ -274,6 +282,8 @@ namespace LaundryManager.Views
             // colMustBePaid
             // 
             this.colMustBePaid.Caption = "Tiền thừa trả khách";
+            this.colMustBePaid.DisplayFormat.FormatString = "{0:#,##0.00}";
+            this.colMustBePaid.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colMustBePaid.FieldName = "MustBePaid";
             this.colMustBePaid.Name = "colMustBePaid";
             this.colMustBePaid.Visible = true;

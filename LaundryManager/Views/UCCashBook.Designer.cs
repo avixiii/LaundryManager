@@ -71,6 +71,7 @@ namespace LaundryManager.Views
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcCashBook)).BeginInit();
@@ -83,6 +84,7 @@ namespace LaundryManager.Views
             ((System.ComponentModel.ISupportInitialize)(this.dt2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dt1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dt1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -206,6 +208,8 @@ namespace LaundryManager.Views
             // colBillDate
             // 
             this.colBillDate.Caption = "Ngày tạo hoá đơn";
+            this.colBillDate.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.colBillDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colBillDate.FieldName = "BillDate";
             this.colBillDate.Name = "colBillDate";
             this.colBillDate.OptionsColumn.AllowEdit = false;
@@ -226,6 +230,8 @@ namespace LaundryManager.Views
             // colAmount
             // 
             this.colAmount.Caption = "Số tiền";
+            this.colAmount.DisplayFormat.FormatString = "{0:#,##0.00}";
+            this.colAmount.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colAmount.FieldName = "Amount";
             this.colAmount.Name = "colAmount";
             this.colAmount.OptionsColumn.AllowEdit = false;
@@ -533,6 +539,7 @@ namespace LaundryManager.Views
             ((System.ComponentModel.ISupportInitialize)(this.dt2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dt1.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dt1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -579,5 +586,6 @@ namespace LaundryManager.Views
         private DevExpress.XtraGrid.Columns.GridColumn colAmount;
         private DevExpress.XtraGrid.Columns.GridColumn colReason;
         private DevExpress.XtraGrid.Columns.GridColumn colExplain;
+        private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
     }
 }

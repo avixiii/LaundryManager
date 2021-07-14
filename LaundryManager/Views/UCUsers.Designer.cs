@@ -44,8 +44,8 @@ namespace LaundryManager.Views
             this.colBirthDay = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMobile = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAddress = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colStatus = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colIDCard = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colStatus = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcUsers)).BeginInit();
@@ -151,6 +151,8 @@ namespace LaundryManager.Views
             // colBirthDay
             // 
             this.colBirthDay.Caption = "NGÀY SINH";
+            this.colBirthDay.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.colBirthDay.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colBirthDay.FieldName = "BirthDay";
             this.colBirthDay.Name = "colBirthDay";
             this.colBirthDay.Visible = true;
@@ -175,14 +177,6 @@ namespace LaundryManager.Views
             this.colAddress.VisibleIndex = 5;
             this.colAddress.Width = 503;
             // 
-            // colStatus
-            // 
-            this.colStatus.FieldName = "Status";
-            this.colStatus.Name = "colStatus";
-            this.colStatus.Visible = true;
-            this.colStatus.VisibleIndex = 6;
-            this.colStatus.Width = 56;
-            // 
             // colIDCard
             // 
             this.colIDCard.Caption = "ID CARD";
@@ -191,6 +185,14 @@ namespace LaundryManager.Views
             this.colIDCard.Visible = true;
             this.colIDCard.VisibleIndex = 4;
             this.colIDCard.Width = 163;
+            // 
+            // colStatus
+            // 
+            this.colStatus.FieldName = "Status";
+            this.colStatus.Name = "colStatus";
+            this.colStatus.Visible = true;
+            this.colStatus.VisibleIndex = 6;
+            this.colStatus.Width = 56;
             // 
             // UCUsers
             // 
