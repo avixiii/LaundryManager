@@ -29,12 +29,8 @@ namespace LaundryManager.Views
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery1 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCCustomers));
             this.gcCustomers = new DevExpress.XtraGrid.GridControl();
             this.gvCustomers = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.colID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAddress = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -47,7 +43,6 @@ namespace LaundryManager.Views
             // gcCustomers
             // 
             this.gcCustomers.DataMember = "Query";
-            this.gcCustomers.DataSource = this.sqlDataSource1;
             this.gcCustomers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gcCustomers.Location = new System.Drawing.Point(0, 0);
             this.gcCustomers.MainView = this.gvCustomers;
@@ -68,50 +63,55 @@ namespace LaundryManager.Views
             this.gvCustomers.GridControl = this.gcCustomers;
             this.gvCustomers.Name = "gvCustomers";
             // 
-            // sqlDataSource1
-            // 
-            this.sqlDataSource1.ConnectionName = "DATABASE_QUANLYTIEMGIATUIConnectionString";
-            this.sqlDataSource1.Name = "sqlDataSource1";
-            customSqlQuery1.Name = "Query";
-            customSqlQuery1.Sql = "SELECT * FROM Customers";
-            this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
-            customSqlQuery1});
-            this.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable");
-            // 
             // colID
             // 
             this.colID.FieldName = "ID";
             this.colID.Name = "colID";
+            this.colID.OptionsColumn.AllowEdit = false;
+            this.colID.OptionsColumn.AllowFocus = false;
             this.colID.Visible = true;
             this.colID.VisibleIndex = 0;
+            this.colID.Width = 46;
             // 
             // colName
             // 
             this.colName.FieldName = "Name";
             this.colName.Name = "colName";
+            this.colName.OptionsColumn.AllowEdit = false;
+            this.colName.OptionsColumn.AllowFocus = false;
             this.colName.Visible = true;
             this.colName.VisibleIndex = 1;
+            this.colName.Width = 276;
             // 
             // colAddress
             // 
             this.colAddress.FieldName = "Address";
             this.colAddress.Name = "colAddress";
+            this.colAddress.OptionsColumn.AllowEdit = false;
+            this.colAddress.OptionsColumn.AllowFocus = false;
             this.colAddress.Visible = true;
             this.colAddress.VisibleIndex = 2;
+            this.colAddress.Width = 276;
             // 
             // colPhone
             // 
             this.colPhone.FieldName = "Phone";
             this.colPhone.Name = "colPhone";
+            this.colPhone.OptionsColumn.AllowEdit = false;
+            this.colPhone.OptionsColumn.AllowFocus = false;
             this.colPhone.Visible = true;
             this.colPhone.VisibleIndex = 3;
+            this.colPhone.Width = 276;
             // 
             // colTotalBill
             // 
             this.colTotalBill.FieldName = "TotalBill";
             this.colTotalBill.Name = "colTotalBill";
+            this.colTotalBill.OptionsColumn.AllowEdit = false;
+            this.colTotalBill.OptionsColumn.AllowFocus = false;
             this.colTotalBill.Visible = true;
             this.colTotalBill.VisibleIndex = 4;
+            this.colTotalBill.Width = 282;
             // 
             // UCCustomers
             // 
@@ -130,7 +130,6 @@ namespace LaundryManager.Views
 
         private DevExpress.XtraGrid.GridControl gcCustomers;
         private DevExpress.XtraGrid.Views.Grid.GridView gvCustomers;
-        private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource1;
         private DevExpress.XtraGrid.Columns.GridColumn colID;
         private DevExpress.XtraGrid.Columns.GridColumn colName;
         private DevExpress.XtraGrid.Columns.GridColumn colAddress;

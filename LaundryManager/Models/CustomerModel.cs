@@ -54,5 +54,38 @@ namespace LaundryManager.Models
             return i;
 
         }
+
+
+        public static DataSet FillDataSetCustomers()
+        {
+            string sqlCustomers = "SELECT ID, Name, Address, Phone, TotalBill FROM dbo.Customers";
+            string sqlBills = "SELECT BillCode, CusID, BillDate, Name, AppointmentDate, Phone, Address, Status, Total, Paid, MustBePaid FROM dbo.Customers , dbo.Bills WHERE dbo.Customers.ID = dbo.Bills.CusID";
+
+            DataTable customers = new DataTable();
+            customers = Models.Connection.FillDataTable(sqlCustomers);
+            DataTable bills = new DataTable();
+            bills = Models.Connection.FillDataTable(sqlBills);
+
+            customers.TableName = "Customers";
+            bills.TableName = "Bills";
+
+            DataSet ds = new DataSet();
+            ds = new DataSet();
+            ds.Tables.Add(customers);
+            ds.Tables.Add(bills);
+
+            DataRelation dr = new DataRelation("Test",customers.Columns["ID"],  bills.Columns["CusID"], false);
+
+            try
+            {
+
+                ds.Relations.Add(ds.Tables["Customers"].Columns["ID"], ds.Tables["Bills"].Columns["CusID"]);
+
+            }
+            catch (Exception ex)
+            { }
+
+            return ds;
+        }
     }
 }
