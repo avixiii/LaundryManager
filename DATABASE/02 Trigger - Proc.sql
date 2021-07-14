@@ -297,3 +297,116 @@ VALUES
     20000.000,    -- Price - money
     20000.000     -- Total - money
     )
+
+
+
+-- UPDATE STATUS ( TRẠNG THÁI BILL )
+CREATE PROC spUpdateStatus
+(
+	@BillCode VARCHAR(15),
+	@Status NVARCHAR(20)
+)
+AS
+BEGIN
+	UPDATE dbo.Bills SET Status = @Status WHERE BillCode = @BillCode;
+END
+
+
+-- Payment  ( Thanh toán hoá đơn - Tiền nhận - Tiền trả lại khách )
+
+CREATE PROC spPayment
+(
+	@BillCode VARCHAR(15),
+	@Paid MONEY,
+	@MustBePaid MONEY
+)
+AS
+BEGIN
+	UPDATE dbo.Bills SET Paid = @Paid, MustBePaid = @MustBePaid, RecieveDate = GETDATE() WHERE BillCode = @BillCode;
+END
+
+
+-- DELETE BILL
+
+CREATE PROC spDeleteBill
+(
+	@BillCode VARCHAR(15)
+)
+AS
+BEGIN
+	-- XOÁ CHI TIẾT HOÁ ĐƠN -- BillDetails
+	-- XOÁ HOÁ ĐƠN - BILLS
+
+	DELETE FROM dbo.BillDetails WHERE BillCode=@BillCode
+	DELETE FROM dbo.Bills WHERE BillCode = @BillCode
+END
+
+
+-- INSERT CASHBOOK
+
+CREATE PROC spInsertCashBook
+(
+	@ID VARCHAR(15),
+	@UserID INT,
+	@BillType NVARCHAR(50),
+	@BillDate DATETIME,
+	@Payer NVARCHAR(100),
+	@Amount MONEY,
+	@Reason NVARCHAR(255),
+	@Explain NVARCHAR(255)
+)
+AS
+BEGIN
+	INSERT INTO dbo.CashBook
+	(
+		ID,
+		UserID,
+		BillType,
+		BillDate,
+		Payer,
+		Amount,
+		Reason,
+		Explain,
+		ReadAmount
+	)
+	VALUES
+	(   @ID,   -- ID - varchar(15)
+		@UserID,    -- UserID - int
+		@BillType,  -- BillType - nvarchar(50)
+		@BillDate, -- BillDate - datetime
+		@Payer, -- Payer - nvarchar(100)
+		@Amount, -- Amount - money
+		@Reason, -- Reason - nvarchar(255)
+		@Explain, -- Explain - nvarchar(255)
+		NULL  -- ReadAmount - nvarchar(150)
+		)
+END
+
+-- DELETE CASHBOOK
+CREATE PROC spDeleteCashBook
+(
+	@ID VARCHAR(15)
+)
+AS
+BEGIN
+	DELETE FROM dbo.CashBook WHERE ID = @ID
+END
+GO
+
+-- UPDATE CASHBOOK "@UserID", "@BillType", "@BillDate", "@Payer", "@Amount", "@Reason", "@Explain"
+ALTER PROC spUpdateCashBook
+(
+	@ID VARCHAR(15),
+	@UserID INT,
+	@BillType NVARCHAR(50),
+	@BillDate DATETIME,
+	@Payer NVARCHAR(100),
+	@Amount MONEY,
+	@Reason NVARCHAR(255),
+	@Explain NVARCHAR(255)
+)
+AS
+BEGIN
+	UPDATE dbo.CashBook SET UserID = @UserID, BillType = @BillType,  BillDate = @BillDate, Payer = @Payer, Amount = @Amount, Reason = @Reason, Explain = @Explain WHERE ID = @ID
+END
+GO
