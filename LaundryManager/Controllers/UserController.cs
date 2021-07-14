@@ -94,6 +94,17 @@ namespace LaundryManager.Controllers
             catch { return 0; };
         }
 
+        // Update 
 
+        public static int Update(string user, string fullName, string phone, string address, string birthDay, string idCard, bool status)
+        {
+            try
+            {
+                Models.UserModel update = new Models.UserModel(user, fullName, phone, address, birthDay, idCard, status);
+                return update.Update();
+
+            }
+            catch { return 0; }
+        }
     }
 }

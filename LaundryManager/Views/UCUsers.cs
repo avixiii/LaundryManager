@@ -84,11 +84,12 @@ namespace LaundryManager.Views
             // Lấy ngày sinh
             string colFieldBirthday = "BirthDay";
             value = gvUsers.GetRowCellValue(rowIndex, colFieldBirthday);
-            string birthDay = value.ToString();
+            DateTime birthDay = DateTime.Parse(value.ToString());
+
 
             // Lấy số điẹn thoại
             string colFieldPhone = "Mobile";
-            value =  gvUsers.GetRowCellValue(rowIndex, colFieldPhone);
+            value = gvUsers.GetRowCellValue(rowIndex, colFieldPhone);
             string phone = (string)value;
 
             // Lấy địa chỉ
@@ -106,7 +107,7 @@ namespace LaundryManager.Views
             value = gvUsers.GetRowCellValue(rowIndex, colFieldStatus);
             bool status = (bool)value;
 
-            fEditUser feditUser = new fEditUser(user, fullName, phone, address, idCard, status);
+            fEditUser feditUser = new fEditUser(user, fullName, birthDay, phone, address, idCard, status);
             feditUser.ShowDialog();
             sqlDataSource1.FillAsync();
         }

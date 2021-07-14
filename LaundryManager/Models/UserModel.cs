@@ -31,6 +31,17 @@ namespace LaundryManager.Models
             this.status = status;
         }
 
+        public UserModel(string user,  string fullName, string phone, string address, string birthDay, string idCard, bool status)
+        {
+            this.user = user;
+            this.fullName = fullName;
+            this.phone = phone;
+            this.address = address;
+            this.birthDay = birthDay;
+            this.idCard = idCard;
+            this.status = status;
+        }
+
         public UserModel(string user, string pass)
         {
             this.user = user;
@@ -135,7 +146,17 @@ namespace LaundryManager.Models
             return i;
         }
 
-        //
+        // UPDATE
+        public int Update()
+        {
+            int i = 0;
+            string[] paras = new string[7] { "@UserName", "@FullName", "@Phone", "@Address", "@Birthday", "@IDCard", "@Status" };
+            object[] values = new object[7] { user, fullName, phone, address, birthDay, idCard, status };
+
+            i = Models.Connection.Excute_Sql("spUpdateUser", CommandType.StoredProcedure, paras, values);
+
+            return i;
+        }
 
     }
 }
