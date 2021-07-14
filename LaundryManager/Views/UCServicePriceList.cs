@@ -66,37 +66,41 @@ namespace LaundryManager.Views
 
         private void btnEdit_Click_1(object sender, EventArgs e)
         {
-            object value;
+            if (gvServices.IsFocusedView)
+            {
+                object value;
 
-            // Lay ID
-            int rowIndex = gvServices.FocusedRowHandle;
-            string colFieldID = "ID";
-            value = gvServices.GetRowCellValue(rowIndex, colFieldID);
+                // Lay ID
+                int rowIndex = gvServices.FocusedRowHandle;
+                string colFieldID = "ID";
+                value = gvServices.GetRowCellValue(rowIndex, colFieldID);
 
-            string serviceID = (string)value;
-            // Lay serviceName
-            string colFieldName = "ServiceName";
-            value = gvServices.GetRowCellValue(rowIndex, colFieldName);
-            string serviceName = (string)value;
+                string serviceID = (string)value;
+                // Lay serviceName
+                string colFieldName = "ServiceName";
+                value = gvServices.GetRowCellValue(rowIndex, colFieldName);
+                string serviceName = (string)value;
 
-            // Lay Unit
-            string colFieldUnitID = "UnitID";
-            value = gvServices.GetRowCellValue(rowIndex, colFieldUnitID);
-            string unitID = (string)value;
+                // Lay Unit
+                string colFieldUnitID = "UnitID";
+                value = gvServices.GetRowCellValue(rowIndex, colFieldUnitID);
+                string unitID = (string)value;
 
-            // Lấy đơn giá
-            string colFieldPrice = "Price";
-            value = gvServices.GetRowCellValue(rowIndex, colFieldPrice);
-            string price = value.ToString();
+                // Lấy đơn giá
+                string colFieldPrice = "Price";
+                value = gvServices.GetRowCellValue(rowIndex, colFieldPrice);
+                string price = value.ToString();
 
-            // Lấy Mô tả
-            string colFieldNote = "Note";
-            value = gvServices.GetRowCellValue(rowIndex, colFieldNote);
-            string note = (string)value;
+                // Lấy Mô tả
+                string colFieldNote = "Note";
+                value = gvServices.GetRowCellValue(rowIndex, colFieldNote);
+                string note = (string)value;
 
-            fEditService editService = new fEditService(serviceID, serviceName, unitID, price, note);
-            editService.ShowDialog();
-            sqlDataSource1.FillAsync();
+                fEditService editService = new fEditService(serviceID, serviceName, unitID, price, note);
+                editService.ShowDialog();
+                sqlDataSource1.FillAsync();
+            }    
+            
         }
     }
 }

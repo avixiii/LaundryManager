@@ -1,7 +1,7 @@
 ﻿
 namespace LaundryManager.Views
 {
-    partial class fCreateFinancialInvoice
+    partial class fCreateACashBook
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace LaundryManager.Views
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fCreateFinancialInvoice));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fCreateACashBook));
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
@@ -43,12 +43,12 @@ namespace LaundryManager.Views
             this.txtReason = new System.Windows.Forms.TextBox();
             this.txtExplain = new System.Windows.Forms.TextBox();
             this.cbBillType = new System.Windows.Forms.ComboBox();
-            this.dtBillType = new DevExpress.XtraEditors.DateEdit();
+            this.dtBillDate = new DevExpress.XtraEditors.DateEdit();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             this.ckbPrint = new System.Windows.Forms.CheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dtBillType.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtBillType.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtBillDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtBillDate.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -156,17 +156,17 @@ namespace LaundryManager.Views
             this.cbBillType.TabIndex = 1;
             this.cbBillType.SelectedIndexChanged += new System.EventHandler(this.cbBillType_SelectedIndexChanged);
             // 
-            // dtBillType
+            // dtBillDate
             // 
-            this.dtBillType.EditValue = null;
-            this.dtBillType.Location = new System.Drawing.Point(142, 107);
-            this.dtBillType.Name = "dtBillType";
-            this.dtBillType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dtBillDate.EditValue = null;
+            this.dtBillDate.Location = new System.Drawing.Point(142, 107);
+            this.dtBillDate.Name = "dtBillDate";
+            this.dtBillDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtBillType.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dtBillDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtBillType.Size = new System.Drawing.Size(350, 20);
-            this.dtBillType.TabIndex = 2;
+            this.dtBillDate.Size = new System.Drawing.Size(350, 20);
+            this.dtBillDate.TabIndex = 2;
             // 
             // btnSave
             // 
@@ -176,6 +176,7 @@ namespace LaundryManager.Views
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 7;
             this.btnSave.Text = "Lưu";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnClose
             // 
@@ -205,7 +206,7 @@ namespace LaundryManager.Views
             this.Controls.Add(this.ckbPrint);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.dtBillType);
+            this.Controls.Add(this.dtBillDate);
             this.Controls.Add(this.cbBillType);
             this.Controls.Add(this.txtExplain);
             this.Controls.Add(this.txtReason);
@@ -223,8 +224,8 @@ namespace LaundryManager.Views
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LẬP PHIẾU";
             this.Load += new System.EventHandler(this.fCreateFinancialInvoice_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dtBillType.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtBillType.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtBillDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtBillDate.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -245,7 +246,7 @@ namespace LaundryManager.Views
         private System.Windows.Forms.TextBox txtReason;
         private System.Windows.Forms.TextBox txtExplain;
         private System.Windows.Forms.ComboBox cbBillType;
-        private DevExpress.XtraEditors.DateEdit dtBillType;
+        private DevExpress.XtraEditors.DateEdit dtBillDate;
         private DevExpress.XtraEditors.SimpleButton btnSave;
         private DevExpress.XtraEditors.SimpleButton btnClose;
         private System.Windows.Forms.CheckBox ckbPrint;

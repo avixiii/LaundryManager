@@ -110,7 +110,7 @@ namespace LaundryManager.Views
         private void btnFinancialManagement_ItemClick(object sender, ItemClickEventArgs e)
         {
             panelMain.Controls.Clear();
-            UCFinancialManagement ucFM = new UCFinancialManagement();
+            UCCashBook ucFM = new UCCashBook();
             ucFM.Dock = DockStyle.Fill;
             panelMain.Controls.Add(ucFM);
         }

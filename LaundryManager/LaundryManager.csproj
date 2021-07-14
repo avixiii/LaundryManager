@@ -80,6 +80,7 @@
     <Compile Include="Controllers\BillsController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\DataController.cs" />
+    <Compile Include="Controllers\CashBookController.cs" />
     <Compile Include="Controllers\ServiceController.cs" />
     <Compile Include="Controllers\UnitController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -87,6 +88,7 @@
     <Compile Include="Models\BillsModel.cs" />
     <Compile Include="Models\CustomerModel.cs" />
     <Compile Include="Models\DataModel.cs" />
+    <Compile Include="Models\CashBookModel.cs" />
     <Compile Include="Models\InvoiceModel.cs" />
     <Compile Include="Models\UnitModel.cs" />
     <Compile Include="Models\UserModel.cs" />
@@ -134,11 +136,17 @@
     <Compile Include="Views\fCreateBill.Designer.cs">
       <DependentUpon>fCreateBill.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\fCreateFinancialInvoice.cs">
+    <Compile Include="Views\fCreateACashBook.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\fCreateFinancialInvoice.Designer.cs">
-      <DependentUpon>fCreateFinancialInvoice.cs</DependentUpon>
+    <Compile Include="Views\fCreateACashBook.Designer.cs">
+      <DependentUpon>fCreateACashBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\fEditACashBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\fEditACashBook.Designer.cs">
+      <DependentUpon>fEditACashBook.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\fEditUser.cs">
       <SubType>Form</SubType>
@@ -182,11 +190,11 @@
     <Compile Include="Views\InvoiceReport.Designer.cs">
       <DependentUpon>InvoiceReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Login.cs">
+    <Compile Include="Views\fLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
+    <Compile Include="Views\fLogin.Designer.cs">
+      <DependentUpon>fLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -196,11 +204,11 @@
     <Compile Include="Views\UCCustomers.Designer.cs">
       <DependentUpon>UCCustomers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\UCFinancialManagement.cs">
+    <Compile Include="Views\UCCashBook.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\UCFinancialManagement.Designer.cs">
-      <DependentUpon>UCFinancialManagement.cs</DependentUpon>
+    <Compile Include="Views\UCCashBook.Designer.cs">
+      <DependentUpon>UCCashBook.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\UCUsers.cs">
       <SubType>UserControl</SubType>
@@ -239,8 +247,11 @@
     <EmbeddedResource Include="Views\fCreateBill.resx">
       <DependentUpon>fCreateBill.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\fCreateFinancialInvoice.resx">
-      <DependentUpon>fCreateFinancialInvoice.cs</DependentUpon>
+    <EmbeddedResource Include="Views\fCreateACashBook.resx">
+      <DependentUpon>fCreateACashBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\fEditACashBook.resx">
+      <DependentUpon>fEditACashBook.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\fEditUser.resx">
       <DependentUpon>fEditUser.cs</DependentUpon>
@@ -263,8 +274,8 @@
     <EmbeddedResource Include="Views\InvoiceReport.resx">
       <DependentUpon>InvoiceReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
+    <EmbeddedResource Include="Views\fLogin.resx">
+      <DependentUpon>fLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -278,8 +289,8 @@
     <EmbeddedResource Include="Views\UCCustomers.resx">
       <DependentUpon>UCCustomers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\UCFinancialManagement.resx">
-      <DependentUpon>UCFinancialManagement.cs</DependentUpon>
+    <EmbeddedResource Include="Views\UCCashBook.resx">
+      <DependentUpon>UCCashBook.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UCUsers.resx">
       <DependentUpon>UCUsers.cs</DependentUpon>
