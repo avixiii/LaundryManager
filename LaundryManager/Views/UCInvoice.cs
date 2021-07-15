@@ -47,6 +47,7 @@ namespace LaundryManager.Views
 
         public static string totalBill;
         public static string billCode;
+        public static string id;
         private void riBtnStatus_Click(object sender, EventArgs e)
         {
             // Lấy billcode
@@ -165,6 +166,20 @@ namespace LaundryManager.Views
                 ShowInvoice();
             }    
             
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            object value;
+            int rowIndex = gvBills.FocusedRowHandle;
+
+            value = gvBills.GetRowCellValue(rowIndex, "BillCode");
+            string billCode = (string)value;
+            id = billCode;
+
+            fEditBill fEdit = new fEditBill();
+            fEdit.ShowDialog();
+            ShowInvoice();
         }
     }
 }

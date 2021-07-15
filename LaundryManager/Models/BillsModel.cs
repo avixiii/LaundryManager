@@ -25,7 +25,6 @@ namespace LaundryManager.Models
             this.status = status;
         }
 
-
         public BillsModel(string billCode, int cusID, int userID, DateTime billDate, DateTime appointmentDate, double discount, double surcharge, string note, double total)
         {
             this.billCode = billCode;
@@ -37,6 +36,20 @@ namespace LaundryManager.Models
             this.surcharge = surcharge;
             this.note = note;
             this.total = total;
+        }
+
+        public BillsModel(string billCode, int userID, DateTime billDate, DateTime appointmentDate, double discount, double surcharge, string note, double total, string status)
+        {
+            this.billCode = billCode;
+            this.cusID = cusID;
+            this.userID = userID;
+            this.billDate = billDate;
+            this.appointmentDate = appointmentDate;
+            this.discount = discount;
+            this.surcharge = surcharge;
+            this.note = note;
+            this.total = total;
+            this.status = status;
         }
 
         public BillsModel(string billCode, string status)
@@ -101,7 +114,12 @@ namespace LaundryManager.Models
         // Update
         public int UpdateBill()
         {
+
             int i = 0;
+            string[] paras = new string[9] { "@BillCode", "UserID", "@BillDate", "@AppointmentDate", "@Discount", "@Surcharge", "@Note", "@Total", "@Status" };
+            object[] values = new object[9] { billCode, userID, billDate, appointmentDate, discount, surcharge, note, total, status };
+
+            i = Models.Connection.Excute_Sql("spUpdateBill", CommandType.StoredProcedure, paras, values);
 
             return i;
         }    
@@ -127,6 +145,34 @@ namespace LaundryManager.Models
             object[] values = new object[3] { billCode, paid, mustBePaid };
 
             i = Models.Connection.Excute_Sql("spPayment", CommandType.StoredProcedure, paras, values);
+
+            return i;
+        }
+
+        // get info for update bill
+        public DataTable GetInfo()
+        {
+            DataTable dt = null;
+            string query = "SELECT Status, BillDate, AppointmentDate, Name, Phone, Discount, Total, Surcharge, Address, NOTE FROM dbo.Bills, dbo.Customers WHERE CusID = ID AND BillCode = '" + billCode + "'";
+
+            dt = Models.Connection.FillDataTable(query);
+            dt.TableName = "info";
+
+            return dt;
+        }
+
+        // LAY ID CUSTOMER 
+        public int GetCusID()
+        {
+            int i = 1;
+
+            string query = "SELECT CusID FROM dbo.Bills WHERE BillCode = '" + billCode + "'";
+            DataTable dt = Models.Connection.FillDataTable(query);
+            
+            if (dt != null)
+            {
+                i = (int)dt.Rows[0][0];
+            }
 
             return i;
         }

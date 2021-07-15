@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,17 @@ namespace LaundryManager.Controllers
         }
 
         // Update
+        public static int UpdateBill(string billCode, int userID, DateTime billDate, DateTime appointmentDate, double discount, double surcharget, string note, double total, string status)
+        {
+            try
+            {
+                Models.BillsModel update = new Models.BillsModel(billCode, userID, billDate, appointmentDate, discount, surcharget, note, total, status);
+                return update.UpdateBill();
+            }
+            catch
+            { return 0; }
+        }
+
 
         // UPDATE STATUS
         public static int UpdateStatus(string billCode, string status)
@@ -66,6 +78,28 @@ namespace LaundryManager.Controllers
             }
         }
 
+        public static DataTable GetInfo(string billCode)
+        {
+            try
+            {
+                Models.BillsModel getInfo = new Models.BillsModel(billCode);
+                return getInfo.GetInfo();
+            }
+            catch
+            {
+                return null;
+            }
+        }
 
+        // ID Customer 
+        public static int GetCusID(string billCode)
+        {
+            try
+            {
+                Models.BillsModel getID = new Models.BillsModel(billCode);
+                return getID.GetCusID();
+            }
+            catch { return 1; }
+        }
     }
 }

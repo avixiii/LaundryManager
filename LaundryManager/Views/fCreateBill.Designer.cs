@@ -176,6 +176,8 @@ namespace LaundryManager.Views
             // colTotal
             // 
             this.colTotal.Caption = "THÀNH TIỀN";
+            this.colTotal.DisplayFormat.FormatString = "{0:#,##0.00}";
+            this.colTotal.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colTotal.FieldName = "Total";
             this.colTotal.Name = "colTotal";
             this.colTotal.Visible = true;
@@ -508,6 +510,8 @@ namespace LaundryManager.Views
             // colPrice
             // 
             this.colPrice.Caption = "GIÁ";
+            this.colPrice.DisplayFormat.FormatString = "{0:#,##0.00}";
+            this.colPrice.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colPrice.FieldName = "Price";
             this.colPrice.Name = "colPrice";
             this.colPrice.Visible = true;

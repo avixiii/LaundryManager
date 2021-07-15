@@ -188,7 +188,7 @@ namespace LaundryManager.Views
             // colUserName
             // 
             this.colUserName.Caption = "Người tạo hoá đơn";
-            this.colUserName.FieldName = "UserName";
+            this.colUserName.FieldName = "FullName";
             this.colUserName.Name = "colUserName";
             this.colUserName.OptionsColumn.AllowEdit = false;
             this.colUserName.OptionsColumn.ShowInExpressionEditor = false;

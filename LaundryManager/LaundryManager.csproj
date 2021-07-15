@@ -148,6 +148,12 @@
     <Compile Include="Views\fEditACashBook.Designer.cs">
       <DependentUpon>fEditACashBook.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\fEditBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\fEditBill.Designer.cs">
+      <DependentUpon>fEditBill.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\fEditUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -252,6 +258,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\fEditACashBook.resx">
       <DependentUpon>fEditACashBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\fEditBill.resx">
+      <DependentUpon>fEditBill.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\fEditUser.resx">
       <DependentUpon>fEditUser.cs</DependentUpon>

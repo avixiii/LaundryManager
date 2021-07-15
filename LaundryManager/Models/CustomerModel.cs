@@ -17,10 +17,20 @@ namespace LaundryManager.Models
             this.totalBill = totalBill;
         }
 
+        public CustomerModel(int id, string name, string address, string phone, double totalBill)
+        {
+            this.id = id;
+            this.name = name;
+            this.address = address;
+            this.phone = phone;
+            this.totalBill = totalBill;
+        }
+
         public CustomerModel()
         {
         }
 
+        protected int id;
         protected string name { get; set; }
         protected string address { get; set; }
         protected string phone { get; set; }
@@ -33,6 +43,16 @@ namespace LaundryManager.Models
             string[] paras = new string[4] { "@Name", "@Address", "@Phone", "@TotalBill" };
             object[] values = new object[4] { name, address, phone, totalBill };
             i = Models.Connection.Excute_Sql("spInsertCustomer", CommandType.StoredProcedure ,paras, values);
+            return i;
+        }
+
+        public int UpdateCustomer()
+        {
+            int i = 0;
+
+            string[] paras = new string[5] { "@CusID", "@Name", "@Address", "@Phone", "@TotalBill" };
+            object[] values = new object[5] {id, name, address, phone, totalBill };
+            i = Models.Connection.Excute_Sql("spUpdateCustomer", CommandType.StoredProcedure, paras, values);
             return i;
         }
 

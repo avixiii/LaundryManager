@@ -23,6 +23,19 @@ namespace LaundryManager.Controllers
             }
         }
 
+        public static int UpdateCustomer(int id,string name, string address, string phone, double totalBill)
+        {
+            try
+            {
+                Models.CustomerModel updateCustomer = new Models.CustomerModel(id, name, address, phone, totalBill);
+                return updateCustomer.UpdateCustomer();
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+
         public static int GetID()
         {
             try
@@ -32,5 +45,6 @@ namespace LaundryManager.Controllers
             }
             catch { return 1; }
         }
+
     }
 }
