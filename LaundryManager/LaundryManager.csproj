@@ -82,6 +82,7 @@
     <Compile Include="Controllers\DataController.cs" />
     <Compile Include="Controllers\CashBookController.cs" />
     <Compile Include="Controllers\ServiceController.cs" />
+    <Compile Include="Controllers\StatisticsController.cs" />
     <Compile Include="Controllers\UnitController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Models\BillDetailsModel.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="Models\DataModel.cs" />
     <Compile Include="Models\CashBookModel.cs" />
     <Compile Include="Models\InvoiceModel.cs" />
+    <Compile Include="Models\StatisticsModel.cs" />
     <Compile Include="Models\UnitModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Views\dsUnits.Designer.cs">
@@ -216,6 +218,12 @@
     <Compile Include="Views\UCCashBook.Designer.cs">
       <DependentUpon>UCCashBook.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UCRevenueStatistics.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UCRevenueStatistics.Designer.cs">
+      <DependentUpon>UCRevenueStatistics.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UCUsers.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -300,6 +308,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UCCashBook.resx">
       <DependentUpon>UCCashBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UCRevenueStatistics.resx">
+      <DependentUpon>UCRevenueStatistics.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UCUsers.resx">
       <DependentUpon>UCUsers.cs</DependentUpon>

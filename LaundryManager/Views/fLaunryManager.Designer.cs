@@ -44,7 +44,8 @@ namespace LaundryManager.Views
             this.btnEmployeeList = new DevExpress.XtraBars.BarButtonItem();
             this.btnInvoice = new DevExpress.XtraBars.BarButtonItem();
             this.btnFinancialManagement = new DevExpress.XtraBars.BarButtonItem();
-            this.btnStatistics = new DevExpress.XtraBars.BarButtonItem();
+            this.btnRevenueStatistics = new DevExpress.XtraBars.BarButtonItem();
+            this.btnCashBookStatistics = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -52,6 +53,7 @@ namespace LaundryManager.Views
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.panelMain = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.rbLaunryManager)).BeginInit();
@@ -77,9 +79,10 @@ namespace LaundryManager.Views
             this.btnEmployeeList,
             this.btnInvoice,
             this.btnFinancialManagement,
-            this.btnStatistics});
+            this.btnRevenueStatistics,
+            this.btnCashBookStatistics});
             this.rbLaunryManager.Location = new System.Drawing.Point(0, 0);
-            this.rbLaunryManager.MaxItemId = 15;
+            this.rbLaunryManager.MaxItemId = 17;
             this.rbLaunryManager.Name = "rbLaunryManager";
             this.rbLaunryManager.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -255,21 +258,22 @@ namespace LaundryManager.Views
             this.btnFinancialManagement.Name = "btnFinancialManagement";
             this.btnFinancialManagement.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnFinancialManagement_ItemClick);
             // 
-            // btnStatistics
+            // btnRevenueStatistics
             // 
-            this.btnStatistics.Caption = "Thống kê";
-            this.btnStatistics.Id = 14;
-            this.btnStatistics.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnStatistics.ImageOptions.Image")));
-            this.btnStatistics.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnStatistics.ImageOptions.LargeImage")));
-            this.btnStatistics.ItemAppearance.Disabled.Options.UseTextOptions = true;
-            this.btnStatistics.ItemAppearance.Disabled.TextOptions.WordWrap = DevExpress.Utils.WordWrap.NoWrap;
-            this.btnStatistics.ItemAppearance.Hovered.Options.UseTextOptions = true;
-            this.btnStatistics.ItemAppearance.Hovered.TextOptions.WordWrap = DevExpress.Utils.WordWrap.NoWrap;
-            this.btnStatistics.ItemAppearance.Normal.Options.UseTextOptions = true;
-            this.btnStatistics.ItemAppearance.Normal.TextOptions.WordWrap = DevExpress.Utils.WordWrap.NoWrap;
-            this.btnStatistics.ItemAppearance.Pressed.Options.UseTextOptions = true;
-            this.btnStatistics.ItemAppearance.Pressed.TextOptions.WordWrap = DevExpress.Utils.WordWrap.NoWrap;
-            this.btnStatistics.Name = "btnStatistics";
+            this.btnRevenueStatistics.Caption = "Thống kê doanh thu giặt ủi";
+            this.btnRevenueStatistics.Id = 15;
+            this.btnRevenueStatistics.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem1.ImageOptions.SvgImage")));
+            this.btnRevenueStatistics.Name = "btnRevenueStatistics";
+            this.btnRevenueStatistics.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText)));
+            this.btnRevenueStatistics.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRevenueStatistics_ItemClick);
+            // 
+            // btnCashBookStatistics
+            // 
+            this.btnCashBookStatistics.Caption = "Thống kê sổ quỹ cửa hàng";
+            this.btnCashBookStatistics.Id = 16;
+            this.btnCashBookStatistics.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem2.ImageOptions.SvgImage")));
+            this.btnCashBookStatistics.Name = "btnCashBookStatistics";
+            this.btnCashBookStatistics.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText)));
             // 
             // ribbonPage1
             // 
@@ -307,7 +311,8 @@ namespace LaundryManager.Views
             // 
             this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup2,
-            this.ribbonPageGroup5});
+            this.ribbonPageGroup5,
+            this.ribbonPageGroup6});
             this.ribbonPage2.Name = "ribbonPage2";
             this.ribbonPage2.Text = "NGHIỆP VỤ";
             // 
@@ -323,9 +328,15 @@ namespace LaundryManager.Views
             // 
             this.ribbonPageGroup5.ItemLinks.Add(this.btnInvoice);
             this.ribbonPageGroup5.ItemLinks.Add(this.btnFinancialManagement);
-            this.ribbonPageGroup5.ItemLinks.Add(this.btnStatistics);
             this.ribbonPageGroup5.Name = "ribbonPageGroup5";
             this.ribbonPageGroup5.Text = "NGHIỆP VỤ";
+            // 
+            // ribbonPageGroup6
+            // 
+            this.ribbonPageGroup6.ItemLinks.Add(this.btnRevenueStatistics);
+            this.ribbonPageGroup6.ItemLinks.Add(this.btnCashBookStatistics);
+            this.ribbonPageGroup6.Name = "ribbonPageGroup6";
+            this.ribbonPageGroup6.Text = "THỐNG KÊ";
             // 
             // ribbonStatusBar
             // 
@@ -385,8 +396,10 @@ namespace LaundryManager.Views
         private DevExpress.XtraBars.BarButtonItem btnEmployeeList;
         private DevExpress.XtraBars.BarButtonItem btnInvoice;
         private DevExpress.XtraBars.BarButtonItem btnFinancialManagement;
-        private DevExpress.XtraBars.BarButtonItem btnStatistics;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
         private DevExpress.XtraEditors.PanelControl panelMain;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
+        private DevExpress.XtraBars.BarButtonItem btnRevenueStatistics;
+        private DevExpress.XtraBars.BarButtonItem btnCashBookStatistics;
     }
 }

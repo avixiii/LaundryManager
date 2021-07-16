@@ -114,5 +114,13 @@ namespace LaundryManager.Views
             ucFM.Dock = DockStyle.Fill;
             panelMain.Controls.Add(ucFM);
         }
+
+        private void btnRevenueStatistics_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            panelMain.Controls.Clear();
+            UCRevenueStatistics ucRS = new UCRevenueStatistics();
+            ucRS.Dock = DockStyle.Fill;
+            panelMain.Controls.Add(ucRS);
+        }
     }
 }
