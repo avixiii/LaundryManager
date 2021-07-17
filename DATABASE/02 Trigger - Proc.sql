@@ -1,7 +1,7 @@
 ﻿USE DATABASE_QUANLYTIEMGIATUI
 GO
--- Check Login 
 
+-- Check Login 
 CREATE PROCEDURE spCheckLogin
 (
 		@Username		VARCHAR(30),
@@ -60,8 +60,25 @@ BEGIN
 END
 GO
 
--- Check trạng thái tài khoản
+-- UPDATE USER
+CREATE PROC spUpdateUser
+(
+	@Username VARCHAR(30),
+	@FullName NVARCHAR(50),
+	@Address NVARCHAR(50),
+	@BirthDay DATE,
+	@IDCard VARCHAR(15),
+	@Phone VARCHAR(15),
+	@Status BIT
+)
+AS
+BEGIN
+	UPDATE dbo.Users SET FullName = @FullName, Address = @Address, BirthDay = @BirthDay, IDCardNumber = @IDCard, Mobile = @Phone, Status = @Status WHERE UserName = @Username
+END
+GO
 
+
+-- Check trạng thái tài khoản được kích hoạt chưa
 CREATE PROCEDURE spCheckStatus
 (
 		@Username		VARCHAR(30),
@@ -77,7 +94,6 @@ CREATE PROCEDURE spCheckStatus
 GO
 
 -- ĐỔI MẬT KHẨU
-
 CREATE PROCEDURE spChangePass
 	@UserName VARCHAR(30),
 	@Password NVARCHAR(MAX)
@@ -114,9 +130,15 @@ END
 GO
 
 -- RESTORE DATABASE
-
-
-
+CREATE PROC spRestore
+(
+	@path VARCHAR(255)
+)
+AS
+BEGIN
+	RESTORE DATABASE DATABASE_QUANLYTIEMGIATUI FROM DISK = @path WITH REPLACE
+END
+GO
 
 -- THÊM ĐƠN VỊ TÍNH
 CREATE PROCEDURE spInsertUnit
@@ -131,8 +153,6 @@ BEGIN
 	VALUES (@ID, @Unit, @Note)
 END
 GO
-
-
 
 -- THÊM DỊCH VỤ
 CREATE PROCEDURE spInsertService
@@ -150,8 +170,6 @@ BEGIN
 END
 GO
 
-
-
 -- CẬP NHẬT DỊCH VỤ
 CREATE PROCEDURE spUpdateService
 (
@@ -167,10 +185,7 @@ BEGIN
 END
 GO
 
-
-
 -- XOÁ DỊCH VỤ
-
 CREATE PROCEDURE spDeleteService
 (
 	@ID VARCHAR (15)
@@ -181,15 +196,13 @@ BEGIN
 END
 GO
 
-
-
 CREATE PROC spgetBills
 AS
 BEGIN
 	SELECT BillCode, BillDate, Name, AppointmentDate, Phone, Address, Status, Total FROM dbo.Customers , dbo.Bills WHERE dbo.Customers.ID = dbo.Bills.CusID
 END
 
-
+-- Thêm khách hàng
 CREATE PROC spInsertCustomer
 (
 	@Name NVARCHAR(255),
@@ -212,7 +225,7 @@ END
 
 -- INSERT BILL
 
-ALTER PROC spInsertBill
+CREATE PROC spInsertBill
 (
 
 	@BillCode VARCHAR(15),
@@ -259,7 +272,7 @@ END
 
 -- INSERT BILL DETAILS
 
-ALTER PROC spInsertBillDetails
+CREATE PROC spInsertBillDetails
 (
 	@BillCode VARCHAR(15),
 	@ServID VARCHAR(15),
@@ -280,25 +293,30 @@ BEGIN
 	VALUES
 	(  @BillCode, @ServID, @Quantity, @Price, @Total )
 END
+GO
 
-INSERT INTO dbo.BillDetails
+-- DELETE BillDetails
+CREATE PROC spDeleteBillDetails
 (
-    BillCode,
-    ServID,
-    Quantity,
-    Price,
-    Total
+	@BillCode VARCHAR(15),
+	@ServID VARCHAR(15)
 )
-VALUES
-(  
-    'CN00.0002',      -- BillCode - varchar(15)
-    'DV0000001',      -- ServID - varchar(15)
-    1, -- Quantity - int
-    20000.000,    -- Price - money
-    20000.000     -- Total - money
-    )
+AS
+BEGIN
+	DELETE FROM dbo.BillDetails WHERE BillCode = @BillCode AND ServID = @ServID
+END
+GO
 
-
+-- Show BILL DETAILS (UPDATE BILL) gvCart 
+CREATE PROC spShowBillDetails
+(
+	@BillCode VARCHAR(15)
+)
+AS
+BEGIN
+	SELECT BillCode, ServID ,ServiceName, Quantity, Total FROM dbo.BillDetails, dbo.Services WHERE BillCode = @BillCode AND ServID = Services.ID
+END
+GO
 
 -- UPDATE STATUS ( TRẠNG THÁI BILL )
 CREATE PROC spUpdateStatus
@@ -336,7 +354,6 @@ AS
 BEGIN
 	-- XOÁ CHI TIẾT HOÁ ĐƠN -- BillDetails
 	-- XOÁ HOÁ ĐƠN - BILLS
-
 	DELETE FROM dbo.BillDetails WHERE BillCode=@BillCode
 	DELETE FROM dbo.Bills WHERE BillCode = @BillCode
 END
@@ -393,8 +410,8 @@ BEGIN
 END
 GO
 
--- UPDATE CASHBOOK "@UserID", "@BillType", "@BillDate", "@Payer", "@Amount", "@Reason", "@Explain"
-ALTER PROC spUpdateCashBook
+-- UPDATE CASHBOOK
+CREATE PROC spUpdateCashBook
 (
 	@ID VARCHAR(15),
 	@UserID INT,
@@ -408,5 +425,67 @@ ALTER PROC spUpdateCashBook
 AS
 BEGIN
 	UPDATE dbo.CashBook SET UserID = @UserID, BillType = @BillType,  BillDate = @BillDate, Payer = @Payer, Amount = @Amount, Reason = @Reason, Explain = @Explain WHERE ID = @ID
+END
+GO
+
+-- GET INFO BILL
+CREATE PROC spgetInfoBill
+(
+	@BillCode VARCHAR(15)
+)
+AS
+BEGIN
+	SELECT Status, BillDate, AppointmentDate, Name, Phone, Discount, Total, Surcharge, Address, NOTE FROM dbo.Bills, dbo.Customers WHERE CusID = ID AND BillCode = @BillCode
+END
+
+SELECT ID FROM dbo.Customers, dbo.Bills WHERE ID = CusID
+
+-- Update CUSTOMER
+CREATE PROC spUpdateCustomer
+(
+	@CusID INT,
+	@Name NVARCHAR(255),
+	@Address NVARCHAR(255),
+	@Phone VARCHAR(11),
+	@TotalBill MONEY
+)
+AS
+BEGIN
+	UPDATE dbo.Customers SET Name = @Name, Address = @Address, Phone = @Phone, TotalBill = @TotalBill WHERE ID = @CusID
+END
+GO
+
+-- UPDATE BILL
+CREATE PROC spUpdateBill
+(
+	
+	@BillCode VARCHAR(15),
+	@UserID INT,
+	@BillDate DATETIME,
+	@AppointmentDate DATETIME,
+	@Discount MONEY,
+	@Surcharge MONEY,
+	@Note NVARCHAR(20),
+	@Total MONEY,
+	@Status NVARCHAR(20)
+)
+AS
+BEGIN
+	UPDATE dbo.Bills SET UserID = @UserID, BillDate = @BillDate, AppointmentDate = @AppointmentDate, Discount = @Discount, Surcharge = @Surcharge, NOTE = @Note, Total = @Total, Status = @Status WHERE BillCode = @BillCode
+END
+GO
+
+-- UPDATE BillDetails
+CREATE PROC spUpdateBillDetails
+(
+	@BillCode VARCHAR(15),
+	@ServID VARCHAR(15),
+	@Quantity INT,
+	@Price MONEY,
+	@Total MONEY
+)
+AS
+BEGIN
+	UPDATE dbo.BillDetails SET ServID = @ServID, Quantity = @Quantity, Price = @Price, Total = @Total WHERE BillCode = @BillCode AND ServID = @ServID
 END
 GO

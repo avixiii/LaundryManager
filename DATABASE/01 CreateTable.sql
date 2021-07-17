@@ -6,14 +6,17 @@ GO
 
 ------------------ Table ------------------
 
---            Users
---            Units
---            Services
---            BillDetails
---            Bill
-
-
-
+--			Users
+--			UserPer
+--			Permission
+--			PermissionDetails
+--			Customers
+--			Units
+--			Serviecs
+--			Bills
+--			BillDetails
+--			CashBook
+--			SystemLog
 
 
 -- Bảng USER
@@ -35,6 +38,60 @@ CREATE TABLE Users
 )
 GO
 
+
+-- Phân quyền
+CREATE TABLE Permission
+(
+	ID INT IDENTITY(1,1) PRIMARY KEY,
+	Name NVARCHAR(100) 
+)
+GO
+
+
+CREATE TABLE UserPer
+(
+	ID INT IDENTITY(1,1) PRIMARY KEY,
+	PerID INT NOT NULL,
+	UerID INT NOT NULL,
+	Permiss BIT
+
+	FOREIGN KEY (PerID) REFERENCES dbo.Permission(ID),
+	FOREIGN KEY (UerID) REFERENCES dbo.Users(ID)
+)
+GO
+
+
+CREATE TABLE PermissionDetails
+(
+	ID INT IDENTITY(1,1) PRIMARY KEY,
+	PerID INT NOT NULL,
+	ActionName NVARCHAR(100),
+	AcctionCode VARCHAR(50),
+	CheckAction BIT
+
+	FOREIGN KEY (PerID) REFERENCES dbo.Permission(ID)
+)
+GO
+
+-- Lịch sử hệ thống
+CREATE TABLE SystemLog
+(
+	ID INT IDENTITY(1,1),
+	UserID INT NOT NULL,
+	TimeLog DATETIME NOT NULL,
+	BillCode VARCHAR(15) NOT NULL,
+	BillType NVARCHAR(50) NOT NULL,
+	Action NVARCHAR(50) NOT NULL,
+	Note NVARCHAR(255) NULL,
+	Value MONEY NULL
+
+	CONSTRAINT PK_SYSTEM_HISTORY PRIMARY KEY (ID)
+
+	FOREIGN KEY (UserID) REFERENCES dbo.Users(ID)
+)
+GO
+
+
 -- KHÁCH HÀNG
 
 CREATE TABLE Customers
@@ -48,8 +105,6 @@ CREATE TABLE Customers
 	CONSTRAINT PK_KHACHHANG PRIMARY KEY(ID)
 )
 GO
-
-
 
 -- Đơn vị tính : kg, bộ,...
 CREATE TABLE Units
@@ -76,8 +131,6 @@ CREATE TABLE Services
 )
 GO
 
-
-
 -- Bills
 CREATE TABLE Bills
 (
@@ -97,7 +150,6 @@ CREATE TABLE Bills
 
 	CONSTRAINT PK_HOADONXUAT PRIMARY KEY (BillCode),
 
-	
 	FOREIGN KEY (CusID) REFERENCES dbo.Customers(ID),
 	FOREIGN KEY (UserID) REFERENCES dbo.Users(ID)
 )
@@ -119,8 +171,6 @@ CREATE TABLE BillDetails
 )
 GO
 
-DROP TABLE dbo.BillDetails
-
 -- QUẢN LÝ CHI TIÊU
 CREATE TABLE CashBook
 (
@@ -138,3 +188,5 @@ CREATE TABLE CashBook
 	FOREIGN KEY (UserID) REFERENCES dbo.Users(ID)
 )
 GO
+
+
