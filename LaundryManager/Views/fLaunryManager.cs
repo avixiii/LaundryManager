@@ -122,5 +122,13 @@ namespace LaundryManager.Views
             ucRS.Dock = DockStyle.Fill;
             panelMain.Controls.Add(ucRS);
         }
+
+        private void btnCashBookReport_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            panelMain.Controls.Clear();
+            UCCashBookReport report = new UCCashBookReport();
+            report.Dock = DockStyle.Fill;
+            panelMain.Controls.Add(report);
+        }
     }
 }

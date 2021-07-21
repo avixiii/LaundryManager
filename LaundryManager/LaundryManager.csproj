@@ -206,6 +206,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\UCCashBookReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UCCashBookReport.Designer.cs">
+      <DependentUpon>UCCashBookReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UCCustomers.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -303,6 +309,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\UCCashBookReport.resx">
+      <DependentUpon>UCCashBookReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\UCCustomers.resx">
       <DependentUpon>UCCustomers.cs</DependentUpon>
     </EmbeddedResource>

@@ -45,7 +45,7 @@ namespace LaundryManager.Views
             this.btnInvoice = new DevExpress.XtraBars.BarButtonItem();
             this.btnFinancialManagement = new DevExpress.XtraBars.BarButtonItem();
             this.btnRevenueStatistics = new DevExpress.XtraBars.BarButtonItem();
-            this.btnCashBookStatistics = new DevExpress.XtraBars.BarButtonItem();
+            this.btnCashBookReport = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -80,7 +80,7 @@ namespace LaundryManager.Views
             this.btnInvoice,
             this.btnFinancialManagement,
             this.btnRevenueStatistics,
-            this.btnCashBookStatistics});
+            this.btnCashBookReport});
             this.rbLaunryManager.Location = new System.Drawing.Point(0, 0);
             this.rbLaunryManager.MaxItemId = 17;
             this.rbLaunryManager.Name = "rbLaunryManager";
@@ -262,18 +262,19 @@ namespace LaundryManager.Views
             // 
             this.btnRevenueStatistics.Caption = "Thống kê doanh thu giặt ủi";
             this.btnRevenueStatistics.Id = 15;
-            this.btnRevenueStatistics.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem1.ImageOptions.SvgImage")));
+            this.btnRevenueStatistics.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnRevenueStatistics.ImageOptions.SvgImage")));
             this.btnRevenueStatistics.Name = "btnRevenueStatistics";
             this.btnRevenueStatistics.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText)));
             this.btnRevenueStatistics.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRevenueStatistics_ItemClick);
             // 
-            // btnCashBookStatistics
+            // btnCashBookReport
             // 
-            this.btnCashBookStatistics.Caption = "Thống kê sổ quỹ cửa hàng";
-            this.btnCashBookStatistics.Id = 16;
-            this.btnCashBookStatistics.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem2.ImageOptions.SvgImage")));
-            this.btnCashBookStatistics.Name = "btnCashBookStatistics";
-            this.btnCashBookStatistics.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText)));
+            this.btnCashBookReport.Caption = "Thống kê sổ quỹ cửa hàng";
+            this.btnCashBookReport.Id = 16;
+            this.btnCashBookReport.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnCashBookStatistics.ImageOptions.SvgImage")));
+            this.btnCashBookReport.Name = "btnCashBookReport";
+            this.btnCashBookReport.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText)));
+            this.btnCashBookReport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCashBookReport_ItemClick);
             // 
             // ribbonPage1
             // 
@@ -334,7 +335,7 @@ namespace LaundryManager.Views
             // ribbonPageGroup6
             // 
             this.ribbonPageGroup6.ItemLinks.Add(this.btnRevenueStatistics);
-            this.ribbonPageGroup6.ItemLinks.Add(this.btnCashBookStatistics);
+            this.ribbonPageGroup6.ItemLinks.Add(this.btnCashBookReport);
             this.ribbonPageGroup6.Name = "ribbonPageGroup6";
             this.ribbonPageGroup6.Text = "THỐNG KÊ";
             // 
@@ -400,6 +401,6 @@ namespace LaundryManager.Views
         private DevExpress.XtraEditors.PanelControl panelMain;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
         private DevExpress.XtraBars.BarButtonItem btnRevenueStatistics;
-        private DevExpress.XtraBars.BarButtonItem btnCashBookStatistics;
+        private DevExpress.XtraBars.BarButtonItem btnCashBookReport;
     }
 }
