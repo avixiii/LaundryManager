@@ -52,13 +52,14 @@ CREATE TABLE UserPer
 (
 	ID INT IDENTITY(1,1) PRIMARY KEY,
 	PerID INT NOT NULL,
-	UerID INT NOT NULL,
+	UserID INT NOT NULL,
 	Permiss BIT
 
 	FOREIGN KEY (PerID) REFERENCES dbo.Permission(ID),
-	FOREIGN KEY (UerID) REFERENCES dbo.Users(ID)
+	FOREIGN KEY (UserID) REFERENCES dbo.Users(ID)
 )
 GO
+
 
 
 CREATE TABLE PermissionDetails
@@ -66,7 +67,7 @@ CREATE TABLE PermissionDetails
 	ID INT IDENTITY(1,1) PRIMARY KEY,
 	PerID INT NOT NULL,
 	ActionName NVARCHAR(100),
-	AcctionCode VARCHAR(50),
+	ActionCode VARCHAR(50),
 	CheckAction BIT
 
 	FOREIGN KEY (PerID) REFERENCES dbo.Permission(ID)
