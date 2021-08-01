@@ -37,6 +37,9 @@ namespace LaundryManager
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new DevExpress.XtraEditors.SimpleButton();
             this.btnExit = new DevExpress.XtraEditors.SimpleButton();
+            this.toggleSwitch1 = new DevExpress.XtraEditors.ToggleSwitch();
+            this.ckbRemember = new System.Windows.Forms.CheckBox();
+            ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -90,7 +93,6 @@ namespace LaundryManager
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(203, 21);
             this.txtUsername.TabIndex = 4;
-            this.txtUsername.Text = "tuanp24";
             // 
             // txtPassword
             // 
@@ -98,7 +100,6 @@ namespace LaundryManager
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(203, 21);
             this.txtPassword.TabIndex = 5;
-            this.txtPassword.Text = "123";
             this.txtPassword.UseSystemPasswordChar = true;
             // 
             // btnLogin
@@ -107,7 +108,7 @@ namespace LaundryManager
             this.btnLogin.Appearance.ForeColor = System.Drawing.Color.Navy;
             this.btnLogin.Appearance.Options.UseFont = true;
             this.btnLogin.Appearance.Options.UseForeColor = true;
-            this.btnLogin.Location = new System.Drawing.Point(259, 203);
+            this.btnLogin.Location = new System.Drawing.Point(259, 228);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 23);
             this.btnLogin.TabIndex = 6;
@@ -121,12 +122,33 @@ namespace LaundryManager
             this.btnExit.Appearance.ForeColor = System.Drawing.Color.Navy;
             this.btnExit.Appearance.Options.UseFont = true;
             this.btnExit.Appearance.Options.UseForeColor = true;
-            this.btnExit.Location = new System.Drawing.Point(387, 203);
+            this.btnExit.Location = new System.Drawing.Point(387, 228);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
             this.btnExit.TabIndex = 7;
             this.btnExit.Text = "THOÁT";
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // toggleSwitch1
+            // 
+            this.toggleSwitch1.Location = new System.Drawing.Point(468, 165);
+            this.toggleSwitch1.Name = "toggleSwitch1";
+            this.toggleSwitch1.Properties.OffText = "Off";
+            this.toggleSwitch1.Properties.OnText = "On";
+            this.toggleSwitch1.Size = new System.Drawing.Size(74, 18);
+            this.toggleSwitch1.TabIndex = 8;
+            this.toggleSwitch1.Toggled += new System.EventHandler(this.toggleSwitch1_Toggled);
+            // 
+            // ckbRemember
+            // 
+            this.ckbRemember.AutoSize = true;
+            this.ckbRemember.ForeColor = System.Drawing.Color.Black;
+            this.ckbRemember.Location = new System.Drawing.Point(259, 195);
+            this.ckbRemember.Name = "ckbRemember";
+            this.ckbRemember.Size = new System.Drawing.Size(171, 17);
+            this.ckbRemember.TabIndex = 9;
+            this.ckbRemember.Text = "Ghi nhớ tài khoản và mật khẩu";
+            this.ckbRemember.UseVisualStyleBackColor = true;
             // 
             // fLogin
             // 
@@ -137,6 +159,8 @@ namespace LaundryManager
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(632, 278);
+            this.Controls.Add(this.ckbRemember);
+            this.Controls.Add(this.toggleSwitch1);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPassword);
@@ -148,6 +172,8 @@ namespace LaundryManager
             this.Name = "fLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ĐĂNG NHẬP PHẦN MỀM";
+            this.Load += new System.EventHandler(this.fLogin_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -163,6 +189,8 @@ namespace LaundryManager
         private System.Windows.Forms.TextBox txtPassword;
         private DevExpress.XtraEditors.SimpleButton btnLogin;
         private DevExpress.XtraEditors.SimpleButton btnExit;
+        private DevExpress.XtraEditors.ToggleSwitch toggleSwitch1;
+        private System.Windows.Forms.CheckBox ckbRemember;
     }
 }
 

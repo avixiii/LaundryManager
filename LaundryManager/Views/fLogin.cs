@@ -23,6 +23,19 @@ namespace LaundryManager
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            // Remember
+            if (ckbRemember.Checked == true)
+            {
+                Properties.Settings.Default.UserName = txtUsername.Text;
+                Properties.Settings.Default.Password = txtPassword.Text;
+                Properties.Settings.Default.Save();
+            }
+            if (ckbRemember.Checked == false)
+            {
+                Properties.Settings.Default.UserName = "";
+                Properties.Settings.Default.Password = "";
+                Properties.Settings.Default.Save();
+            }
             // Check ô đăng nhập có dữ liệu không
             if (txtUsername.Text == "")
             {
@@ -80,6 +93,27 @@ namespace LaundryManager
             {
                 this.Close();
                 Application.Exit();
+            }
+        }
+
+        private void toggleSwitch1_Toggled(object sender, EventArgs e)
+        {
+            if (toggleSwitch1.IsOn == true)
+            {
+                txtPassword.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txtPassword.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void fLogin_Load(object sender, EventArgs e)
+        {
+            if (Properties.Settings.Default.UserName != string.Empty)
+            {
+                txtUsername.Text = Properties.Settings.Default.UserName;
+                txtPassword.Text = Properties.Settings.Default.Password;
             }
         }
     }
