@@ -46,24 +46,34 @@ namespace LaundryManager.Views
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            
             string id = txtID.Text;
             string billType = cbBillType.Text;
-            string strBillDate = dtBillDate.Text;
-            DateTime billDate = DateTime.Parse(strBillDate);
-            string payer = txtPayer.Text;
-
-            string strAmount = txtAmount.Text;
-            if (strAmount == "")
+            if (billType == "Chọn loại phiếu")
             {
-                strAmount = "0";
+                MessageBox.Show("Vui lòng chọn loại phiếu");
             }    
-            double amount = double.Parse(strAmount);
-            string reason = txtReason.Text;
-            string explain = txtExplain.Text;
-            int userID = fLogin.userID;
+            else
+            {
+                string strBillDate = dtBillDate.Text;
+                DateTime billDate = DateTime.Parse(strBillDate);
+                string payer = txtPayer.Text;
 
-            Controllers.CashBookController.Insert(id, userID, billType, billDate, payer, amount, reason, explain);
-            this.Close();
+                string strAmount = txtAmount.Text;
+                if (strAmount == "")
+                {
+                    strAmount = "0";
+                }
+                double amount = double.Parse(strAmount);
+                string reason = txtReason.Text;
+                string explain = txtExplain.Text;
+                int userID = fLogin.userID;
+
+                Controllers.CashBookController.Insert(id, userID, billType, billDate, payer, amount, reason, explain);
+                this.Close();
+            }    
+                
+            
         }
     }
 }
