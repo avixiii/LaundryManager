@@ -48,7 +48,7 @@ namespace LaundryManager.Models
         {
             DataSet ds = new DataSet();
 
-            string query = "SELECT dbo.CashBook.ID, FullName, BillType, BillDate, Payer, Amount, Reason, Explain FROM dbo.CashBook, dbo.Users";
+            string query = "SELECT dbo.CashBook.ID, FullName, BillType, BillDate, Payer, Amount, Reason, Explain FROM dbo.CashBook, dbo.Users WHERE dbo.Users.ID = CashBook.UserID";
 
             ds = Models.Connection.FillDataSet(query, "CashBook");
 
