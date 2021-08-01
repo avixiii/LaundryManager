@@ -31,6 +31,9 @@ namespace LaundryManager.Views
             ShowCashBook();
         }
 
+        public static double tienChi;
+        public static double tienThu;
+
         public void ShowCashBook()
         {
             gcCashBook.DataSource = Models.CashBookModel.FillDataSetCashBook();
@@ -39,10 +42,13 @@ namespace LaundryManager.Views
             
             CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");   // try with "en-US"
             lblSpendingMoney.Text = double.Parse(CalculatorCashBook("Phiếu chi").ToString()).ToString("#,###", cul.NumberFormat) + " VNĐ";
+            tienChi = CalculatorCashBook("Phiếu chi");
 
             lblTienThu.Text = double.Parse(CalculatorCashBook("Phiếu thu").ToString()).ToString("#,###", cul.NumberFormat) + " VNĐ";
-
+            tienThu = CalculatorCashBook("Phiếu thu");
         }
+
+       
 
         // Tính tiền  thu chi
         public double CalculatorCashBook(string billType)

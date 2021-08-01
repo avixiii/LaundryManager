@@ -24,16 +24,30 @@ namespace LaundryManager.Views
         {
             ShowUnpaid();
             ShowPaid();
-
         }
 
+        public static double paid;
+        public static double unPaid;
+        CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");   // try with "en-US"
         // Hiển thị danh sách khách hàng chưa thanh toán hoá đơn
         public void ShowUnpaid()
         {
             gcUnpaid.DataSource = Controllers.StatisticsController.FillDataSetUnpaid();
             gvUnpaid.GroupPanelText = " ";
             gcUnpaid.DataMember = "Bills";
-            lblUnpaid.Text =  Total(gvUnpaid).ToString() + " đồng";
+            lblUnpaid.Text = double.Parse(Total(gvUnpaid).ToString()).ToString("#,###", cul.NumberFormat) + " đồng";
+            string flg;
+            flg = Total(gvUnpaid).ToString();
+            if(lblUnpaid.Text == "")
+            {
+                lblUnpaid.Text = "0";
+                unPaid = 0;
+            }
+            else
+            {
+                unPaid = double.Parse(flg);
+            }    
+            
         }
         // Hiển thị danh sách khách hàng đã thanh toán hoá đơn
         public void ShowPaid()
@@ -41,11 +55,18 @@ namespace LaundryManager.Views
             gcPaid.DataSource = Controllers.StatisticsController.FillDataSetPaid(); ;
             gvPaid.GroupPanelText = " ";
             gcPaid.DataMember = "Bills";
-            
-            lblPaid.Text = Total(gvPaid).ToString() + " đồng";
+
+            lblPaid.Text = double.Parse(Total(gvPaid).ToString()).ToString("#,###", cul.NumberFormat) + " đồng";
+            string flg;
+            flg = Total(gvPaid).ToString();
+            if (flg == "")
+            {
+                flg = "0";
+            }
+             paid = double.Parse(flg);
         }
 
-        private string Total(GridView view)
+        private double Total(GridView view)
         {
             double total = 0;
             for (int i = 0; i < view.DataRowCount; i++)
@@ -55,10 +76,7 @@ namespace LaundryManager.Views
                 total += totalBill;
             }
 
-            CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");   // try with "en-US"
-            string a = double.Parse(total.ToString()).ToString("#,###", cul.NumberFormat);
-
-            return a;
+            return total;
         }
     }
 }
